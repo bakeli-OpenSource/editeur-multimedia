@@ -72,7 +72,7 @@ L'Éditeur Multimédia Tout-en-Un est une application web avancée permettant de
 
 1. Clonez le dépôt :
    ```bash
-   git clone <URL_DU_DÉPÔT>
+   git clone https://github.com/bakeli-OpenSource/editeur-multimedia.git
    cd editeur-multimedia
    ```
 
