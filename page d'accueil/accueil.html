@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Innovant d'accueil</title>
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="accueil.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- sidebar -->
+      <aside>
+        <div class="aside-top">
+          <div class="user-Zone">
+            <div class="profil">
+              <img
+                src="images/background.jpg"
+                alt="User-photo"
+                id="userProfil"
+              />
+              <span class="Dot"></span>
+            </div>
+            <div class="user-complete-name">
+              <p id="userFirstName">John</p>
+              &nbsp;
+              <p id="userName">Doe</p>
+            </div>
+          </div>
+          <div class="menu">
+            <a href="#" id="CreateBtn">
+              <i class="fa-solid fa-plus"></i>
+              Créer nouveau
+            </a>
+          </div>
+        </div>
+        <div class="aside-bottom">
+          <a href="#" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Deconnexion
+          </a>
+          <hr />
+          <div class="theme">
+            <input
+              class="container_toggle"
+              type="checkbox"
+              id="switch"
+              name="mode"
+            />
+            <label for="switch">Toggle</label>
+          </div>
+        </div>
+      </aside>
+      <!-- main content -->
+      <main>
+        <h1 class="title">Pixel Innovant</h1>
+        <hr />
+        <section>
+          <a href="#" class="card card1">
+            <i class="fa-solid fa-film" style="position: relative">
+              <i class="fa-solid fa-plus add"></i>
+            </i>
+          </a>
+          <a href="#" class="card card2" style="position: relative">
+            <i class="fa-solid fa-image">
+              <i class="fa-solid fa-plus add"></i>
+            </i>
+          </a>
+          <a href="#" class="card card3" style="position: relative">
+            <i class="fa-solid fa-magic-wand-sparkles">
+              <i class="fa-solid fa-plus add"></i>
+            </i>
+          </a>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script src="accueil.js"></script>
+</html>
