@@ -119,7 +119,7 @@ html {
         align-items: center;
         flex-wrap: wrap;
         gap: 10px;
-        color: var(--text-blue);
+        color: var(--lightColor);
       }
       /* ----------logoutBtn css end------------ */
       /* ----------themes change css start------------ */
@@ -144,10 +144,10 @@ html {
         flex-grow: 1;
         text-align: center;
         border-radius: 10px;
-        position: relative;
+        /* position: relative; */
         .add {
-          position: absolute;
-          bottom: 0px;
+          position: relative;
+          /* bottom: 45px; */
           right: 15px;
           font-size: 7px;
           background: #fff;
@@ -172,7 +172,8 @@ html {
 
 /*--------------- themes changes start --------------- */
 html[data-theme="dark"] {
-  background: var(--lightBg);
+  background: linear-gradient(#061039 0%, #102d9f 72%);
+
   --lightBtn: #555;
   --lightBg: #232323;
   --lightColor: #fff;
