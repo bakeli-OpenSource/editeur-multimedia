@@ -1,0 +1,384 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(#061039, #102D9F);
+    min-height: 100vh;
+}
+
+.editeur-container{
+    display: flex;
+    width: 100%;
+}
+
+.editeur-container .sidebar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #061039;
+    width: 65px;
+    min-height: 100vh;
+    color: whitesmoke;
+    border-right: 1px solid white;
+}
+
+.sidebar .logo{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.logo img{
+    width: 25px;
+}
+
+.side-contenu .bloc{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all .2s ease;
+}
+
+.side-contenu .bloc:hover{
+    background: whitesmoke;
+    color: #061039;
+    gap: 5px;
+    width: 55px;
+    margin: 30px auto;
+}
+
+.bloc i{
+    font-size: 15px;
+}
+
+.retou-button{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    background-color: #061039;
+    text-align: center;
+    font-size: 18px;
+    color: rgba(245, 245, 245, 0.598);
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.retou-button:hover{
+    font-size: 20px;
+    color: white;
+}
+
+/* Edition Page */
+
+.edition-page{
+    position: relative;
+    left: 65px;
+    width: calc(100% - 65px);
+    height: 100%;
+}
+
+.edition-page .barre{
+    width: calc(100% - 65px);
+    height: 10vh;
+    background-color: #061039;
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    position: fixed;
+    z-index: 100;
+}
+
+.barre .titre{
+    font-size: 1.6rem;
+    color: whitesmoke;
+}
+
+.barre .button-export{
+    display: flex;
+    padding: 7px 15px;
+    border-radius: 10px;
+    color: #061039;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.real-part{
+    margin-top: 10vh;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    min-height: 70vh;
+    /* background-color: antiquewhite; */
+    border: 1px solid whitesmoke;
+    padding: 10px;
+}
+
+.real-part .media-part{
+    width: 20%;
+    background-color: #061039;
+    padding: 10px 5px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.media-part h4{
+    font-size: 1.2rem;
+    color: whitesmoke;
+    margin-bottom: 10px;
+}
+
+.media-part button{
+    width: 100%;
+    height: 7vh;
+    margin: 10px auto;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+}
+
+#lesImports{
+    width: 100%;
+    height: 100%;
+    max-height: 50vh;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+#lesImports .fichier-import{
+    width: 100px;
+    height: 70px;
+    /* background-color: violet; */
+    position: relative;
+    border: 1px solid white;
+}
+
+.fichier-import img{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fichier-import video{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.real-part .edition-part{
+    width: 80%;
+    /* background-color: #061039; */
+    display: flex;
+    gap: 15px;
+    /* padding: 10px; */
+}
+
+.edition-page .part-changement{
+    width: 70%;
+    border: 1px dashed rgba(245, 245, 245, 0.598);
+    padding: 10px 15px;
+    background-color: #06103928;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.part-changement #canvas{
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    padding: 10px;
+    background-color: rgba(245, 245, 245, 0.4);
+    border: 1px solid rgba(245, 245, 245, 0.598);
+}
+
+.part-changement .play{
+    padding: 10px;
+    border: 1px solid rgba(245, 245, 245, 0.598);
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    font-size: 18px;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.edition-part .modif-part{
+    background-color: #061039;
+    width: 30%;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.select{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+}
+
+.modif-part .modification{
+    /* background-color: aqua; */
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    max-height: 58vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 5px;
+}
+
+.modification label{
+    display: block;
+    font-size: 18px;
+    color: white;
+}
+
+.modification input{
+    width: 100%;
+    margin-top: 5px;
+}
+
+.effet{
+    background-color: #061039;
+    height: 20vh;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.barre-effet{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    gap: 15px;
+    border-left: 2px solid white;
+    border-bottom: 1px solid white;
+
+}
+
+.barre-effet .side{
+    width: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: whitesmoke;
+    transition: all .5s ease;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.598);
+    cursor: pointer;
+}
+
+.side p{
+    margin-top: 5px;
+    font-size: 10px;
+}
+
+.evolution-video{
+    width: 100%;
+    height: 55%;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.598);
+    border-left: 2px solid white;
+    padding-top: 10px;
+}
+
+.side.active,
+.side:hover{
+    background-color: white;
+    color: #061039;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.evolution-video .sequence{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.4);
+    border-bottom: 1px solid white;
+}
+
+
+@media (max-width: 650px){
+    .barre .titre{
+        font-size: 1.2rem;
+    }
+
+    .barre .button-export{
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    .real-part{
+        flex-direction: column;
+    }
+
+    .real-part .media-part{
+        width: 100%;
+    }
+
+    .media-part button{
+        width: 100%;
+        /* margin: 10px auto; */
+        text-align: center;
+        height: 6vh;
+    }
+
+    #lesImports{
+        max-height: 20vh;
+        /* background-color: aqua; */
+    }
+
+    .real-part .edition-part{
+        flex-direction: column;
+    }
+
+    .real-part .edition-part{
+        width: 100%;
+    }
+
+    .edition-page .part-changement{
+        width: 100%;
+    }
+
+    .edition-part .modif-part{
+        width: 100%;
+        max-height: 35vh;
+    }
+}

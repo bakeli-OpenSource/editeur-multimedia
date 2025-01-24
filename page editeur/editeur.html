@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="editeur.css">
+    <title>Editeur</title>
+</head>
+<body>
+
+    <div class="editeur-container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="images/Vector.png" alt="">
+            </div>
+            <div class="side-contenu">
+                <!-- Boutton masques medias -->
+                <div class="bloc">
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>Media</p>
+                </div>
+                <div class="bloc">
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>Media</p>
+                </div>
+                <div class="bloc">
+                    <i class="fa-solid fa-photo-film"></i>
+                    <p>Media</p>
+                </div>
+            </div>
+
+            <!-- Boutton retour -->
+            <div class="retou-button">
+                <i class="fa-solid fa-delete-left"></i>
+            </div>
+        </div>
+
+
+        <!-- Page d'Edition -->
+        <div class="edition-page">
+            <!-- Premiere Section -->
+            <div class="barre">
+                <h2 class="titre">Pixel Innovant</h2>
+
+                <!-- Button Exportation -->
+                <div class="button-export">
+                    <h3>Export</h3>
+                    <i class="fa-solid fa-upload"></i>
+                </div>
+            </div>
+
+            <!-- Deuxieme Section -->
+            <div class="real-part">
+
+                <!-- Partie des fichier Importer -->
+                <div class="media-part">
+                    <h4>Media</h4>
+
+                    <!-- Button d'importation fichier -->
+                    <button>Importer Fichier</button>
+
+                    <!-- integration du fichier importer -->
+                    <div id="lesImports">
+                        <div class="fichier-import">
+                            <img src="" alt="">
+                        </div>
+                        <div class="fichier-import">
+                            <video src="" controls></video>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parties de vue des modification en temps réel -->
+                <div class="edition-part">
+                    <!-- Edition -->
+                    <div class="part-changement">
+                        <!-- le canvas -->
+                        <canvas id="canvas"></canvas>
+                        <div class="play">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <!-- Barre de modification -->
+                    <div class="modif-part">
+                        <div class="select">
+                            <i class="fa-solid fa-right-long"></i>
+                            <h3 class="aModif">Filtre</h3>
+                        </div>
+                        <div class="modification">
+                            <div class="toolbar-item">
+                                <label for="brightness" class="toolbar_label">Brightness</label>
+                                <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
+                            </div>
+                            <div class="toolbar-item">
+                                <label for="brightness" class="toolbar_label">Brightness</label>
+                                <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troisieme Section -->
+            <div class="effet">
+                <!-- Barres des effets applicables -->
+                <div class="barre-effet">
+                    <div class="side active">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side">
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                </div>
+
+                <!-- barre affichage et coupure video -->
+                <div class="evolution-video">
+                    <div class="sequence">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="editeur.js"></script>
+</body>
+</html>
