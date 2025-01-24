@@ -65,14 +65,79 @@
                             <h3 class="aModif">Filtre</h3>
                         </div>
                         <div class="modification">
-                            <div class="toolbar-item">
-                                <label for="brightness" class="toolbar_label">Brightness</label>
-                                <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
-                            </div>
-                            <div class="toolbar-item">
-                                <label for="brightness" class="toolbar_label">Brightness</label>
-                                <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
-                            </div>
+                            <div class="affichage filtrer">
+                                <div class="toolbar-item">
+                                    <label for="saturation" class="toolbar_label">Saturation</label>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="blur" class="toolbar_label">Blur</label>
+                                    <input type="range" class="toolbar_input"  id="blur" min="0" max="25">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="inversion" class="toolbar_label">Inversion</label>
+                                    <input type="range" class="toolbar_input"  id="inversion" min="0" max="">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="contraste" class="toolbar_label">Contraste</label>
+                                    <input type="range" class="toolbar_input"  id="contraste" min="0" max="">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="sapia" class="toolbar_label">Sapia</label>
+                                    <input type="range" class="toolbar_input"  id="sapia" min="0" max="">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="noirblanc" class="toolbar_label">Noir - blanc</label>
+                                    <input type="range" class="toolbar_input"  id="noirblanc" min="0" max="">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="saturation" class="toolbar_label">Saturation</label>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="">
+                                </div>
+                            </div>
+                            <div class="affichage zoneText">
+                                <textarea name="" id=""></textarea>
+                                <select name="" id="">
+                                    <option value="">Arial</option>
+                                    <option value="">Arial</option>
+                                    <option value="">Arial</option>
+                                </select>
+                                <div class="couleur">
+                                    <div class="lacouleur"></div>
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="saturation" class="toolbar_label">Taile</label>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                </div>
+                                <div class="autres">
+                                    <p><b>G</b></p>
+                                    <p><u>S</u></p>
+                                    <p><s>B</s></p>
+                                </div>
+                            </div>
+                            <div class="affichage coupure">
+                                <h5>Intervale</h5>
+                                <div class="interval">
+                                    <div class="right">
+                                        <p>Debut</p>
+                                        <input type="text" maxlength="2">
+                                    </div>
+                                    <div class="right">
+                                        <p>Fin</p>
+                                        <input type="text" maxlength="2">
+                                    </div>
+                                </div>
+                                <button>Couper</button>
+                            </div>
+                            <div class="affichage cadrer">
+                                <button>Appliquer</button>
+                            </div>
+                            <div class="affichage dessiner">
+                                <h4>Couleur</h4>
+                                <div class="couleurDessin">
+                                    <div class="lacouleurDessin"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -82,23 +147,23 @@
             <div class="effet">
                 <!-- Barres des effets applicables -->
                 <div class="barre-effet">
-                    <div class="side active">
+                    <div class="side" id="filtrer"> <!-- active -->
                         <i class="fa-solid fa-sort"></i>
                         <p>Filtre</p>
                     </div>
-                    <div class="side">
+                    <div class="side" id="texte">
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>
                     </div>
-                    <div class="side">
+                    <div class="side" id="couper">
                         <i class="fa-solid fa-scissors"></i>
                         <p>Couper</p>
                     </div>
-                    <div class="side">
+                    <div class="side" id="rogner">
                         <i class="fa-regular fa-square"></i>
                         <p>Rogner</p>
                     </div>
-                    <div class="side">
+                    <div class="side" id="dessin">
                         <i class="fa-solid fa-pencil"></i>
                         <p>Dessin</p>
                     </div>
