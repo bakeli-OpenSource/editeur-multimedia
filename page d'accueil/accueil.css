@@ -56,13 +56,16 @@ html {
       /* ---------------------- */
       .user-Zone {
         display: flex;
+        justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
         gap: 10px;
         /* ---------------------- */
         .user-complete-name {
           display: flex;
           color: var(--lightColor);
           transition: all 0s !important;
+          font-size: 12px;
         }
         #userProfil {
           object-fit: cover;
@@ -139,7 +142,7 @@ html {
       gap: 10px;
       .card {
         color: #fff;
-        padding: 3rem 1rem;
+        padding: 2rem 1rem;
         font-size: 2rem;
         flex-grow: 1;
         text-align: center;
@@ -230,3 +233,9 @@ html.transition *:after {
   transition-delay: 0 !important;
 }
 /*--------------- themes changes end --------------- */
+@media screen and (max-width: 428px) {
+  aside {
+    width: 95px !important;
+    padding: 20px 5px !important ;
+  }
+}
