@@ -43,13 +43,16 @@ body{
 .side-contenu .bloc{
     margin-top: 30px;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
     transition: all .2s ease;
+    width: 55px;
+    border: 1px solid white;
+    background-color: #061039;
+    color: white;
 }
 
 .side-contenu .bloc:hover{
@@ -62,6 +65,14 @@ body{
 
 .bloc i{
     font-size: 15px;
+}
+
+.bloc input{
+    display: none;
+}
+
+.bloc label{
+    font-size: 25px;
 }
 
 .retou-button{
@@ -124,81 +135,15 @@ body{
     width: 100%;
     display: flex;
     gap: 10px;
-    min-height: 70vh;
-    /* background-color: antiquewhite; */
+    height: 80vh;
     border: 1px solid whitesmoke;
     padding: 10px;
 }
 
-.real-part .media-part{
-    width: 20%;
-    background-color: #061039;
-    padding: 10px 5px;
-    overflow: hidden;
-    border: 1px solid white;
-}
-
-.media-part h4{
-    font-size: 1.2rem;
-    color: whitesmoke;
-    margin-bottom: 10px;
-}
-
-.media-part button{
-    width: 100%;
-    height: 7vh;
-    margin: 10px auto;
-    border-radius: 10px;
-    background-color: white;
-    font-size: 16px;
-    outline: none;
-    cursor: pointer;
-}
-
-#lesImports{
-    width: 100%;
-    height: 100%;
-    max-height: 50vh;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
-#lesImports .fichier-import{
-    width: 100px;
-    height: 70px;
-    /* background-color: violet; */
-    position: relative;
-    border: 1px solid white;
-}
-
-.fichier-import img{
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.fichier-import video{
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 .real-part .edition-part{
-    width: 80%;
-    /* background-color: #061039; */
+    width: 100%;
     display: flex;
     gap: 15px;
-    /* padding: 10px; */
 }
 
 .edition-page .part-changement{
@@ -251,7 +196,6 @@ body{
 }
 
 .modif-part .modification{
-    /* background-color: aqua; */
     margin-top: 10px;
     width: 100%;
     height: 100%;
@@ -276,19 +220,17 @@ body{
 
 .effet{
     background-color: #061039;
-    height: 20vh;
+    height: 10vh;
     width: 100%;
     padding: 5px 10px;
 }
 
 .barre-effet{
     width: 100%;
-    height: 45%;
+    height: 100%;
     display: flex;
     gap: 15px;
     border-left: 2px solid white;
-    border-bottom: 1px solid white;
-
 }
 
 .barre-effet .side{
@@ -310,27 +252,12 @@ body{
     font-size: 10px;
 }
 
-.evolution-video{
-    width: 100%;
-    height: 55%;
-    border-bottom: 1px solid rgba(245, 245, 245, 0.598);
-    border-left: 2px solid white;
-    padding-top: 10px;
-}
-
 .side.active,
 .side:hover{
     background-color: white;
     color: #061039;
     margin: 0 5px;
     border-radius: 5px;
-}
-
-.evolution-video .sequence{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(245, 245, 245, 0.4);
-    border-bottom: 1px solid white;
 }
 
 
@@ -349,22 +276,6 @@ body{
         flex-direction: column;
     }
 
-    .real-part .media-part{
-        width: 100%;
-    }
-
-    .media-part button{
-        width: 100%;
-        /* margin: 10px auto; */
-        text-align: center;
-        height: 6vh;
-    }
-
-    #lesImports{
-        max-height: 20vh;
-        /* background-color: aqua; */
-    }
-
     .real-part .edition-part{
         flex-direction: column;
     }
@@ -379,6 +290,7 @@ body{
 
     .edition-part .modif-part{
         width: 100%;
-        max-height: 35vh;
+        max-height: 28vh;
+        overflow-y: scroll;
     }
 }
