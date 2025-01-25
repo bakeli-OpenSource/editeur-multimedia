@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="editeur.css">
-    <title>Editeur</title>
+    <link rel="stylesheet" href="editVideo.css">
+    <title>Editeur de Video</title>
 </head>
 <body>
 
     <div class="editeur-container">
-
+      
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="logo">
@@ -19,7 +19,7 @@
             <div class="side-contenu">
                 <!-- Boutton Ajout Fichier -->
                 <div class="bloc">
-                    <input type="file" accept="image/*" id="lebutton" class="btnImputs">
+                    <input type="file" accept="video/*" id="lebutton" class="btnImputs">
                     <label for="lebutton">+</label> 
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <div class="edition-page">
             <!-- Premiere Section -->
             <div class="barre">
-                <h2 class="titre">Editeur d'images</h2>
+                <h2 class="titre"> Editer vos videos </h2>
 
                 <!-- Button Exportation -->
                 <div class="button-export">
@@ -167,7 +167,8 @@
         </div>
     </div>
 
-    <script src="editeur.js"></script>
-    <script src="effet.js"></script>
+    <!-- <script src="editeur.js"></script> -->
+    <script src="video.js"></script>
+    <script src="effetVideo.js"></script>
 </body>
 </html>
