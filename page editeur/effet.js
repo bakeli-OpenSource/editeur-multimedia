@@ -104,10 +104,10 @@ contraste.addEventListener('input',() => updateSetting('contraste',contraste.val
 noirEtBlanc.addEventListener('input',() => updateSetting('noirEtBlanc',noirEtBlanc.value))
 sapia.addEventListener('input',() => updateSetting('sapia',sapia.value))
 
+
 // telecharger l'image
 const downloadBtn = document.querySelector('.button-export')
 console.log(downloadBtn);
-
 function downloadMedia(){
     const a = document.createElement('a')
     a.href = canvas.toDataURL()
