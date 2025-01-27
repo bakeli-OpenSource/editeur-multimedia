@@ -1,0 +1,241 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    display: flex;
+    max-width: 100%;
+}
+
+.imag{
+    background: url('imagForm.jpg') center center  
+    no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh; 
+    width: 100%;
+}
+
+.imag > .fun {
+    background: linear-gradient(180deg, rgba(79, 72, 72, 0) 1%, rgba(0, 0, 0, 0.97) 76.04%);
+    max-width: 94%;
+    position: relative;
+    top: 66.9%;
+    gap: 0px;
+    opacity: 0px;
+
+}
+
+.fun {
+    color: #fff;
+    padding: 1.5rem;
+    
+}
+
+h2{
+    font-size: 2.5rem;
+}
+
+.forme{
+    background-color: #061039;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+form{
+    margin: auto;
+    margin-top: 3rem;
+    
+    
+}
+
+h3{
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+label{
+    color: #fff;
+    margin: 10px;
+}
+
+.inputItems input{
+    width: 100%;
+    padding: 9px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.Nom-prenom {
+    display: flex;
+    gap: 4rem;
+}
+
+
+
+.Nom-prenom input{
+    padding: 9px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+    
+}
+
+.submit{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    
+}
+
+.connect{
+    color: #fff;
+}
+a{
+    text-decoration: #21D4FD;
+}
+span{
+    color:  #21D4FD;
+    ;
+}
+
+button{
+    padding: 9px;
+    width: 70%;
+    background: #21D4FD;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+}
+button:hover{
+    background: #fff;
+    color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+@media screen and (max-width: 968px) {
+    .imag > .fun {
+        max-width: 100%;
+        position: relative;
+        top: 64%;
+        gap: 0px;
+        opacity: 0px;
+    
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    .Nom-prenom input{
+        padding: 9px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 100%;
+        
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+     .imag > .fun {
+        max-width: 100%;
+        position: relative;
+        top: 65%;    
+        gap: 0px;
+        opacity: 0px;
+    
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    } 
+    .forme{
+        background-color: #061039;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 100%;
+    }
+    .Nom-prenom input{
+        width: 80%;
+        
+    }
+
+    .inputItems input{
+        width: 91%;
+       
+    }
+    
+    
+}
+
+@media screen and (max-width: 480px) {
+     .imag > .fun {
+        max-width: 100%;
+        position: relative;
+        top: 67.5%;
+        gap: 0px;
+        opacity: 0px;
+    
+    }
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .forme{
+        background-color: #061039;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    } 
+}
+
+@media screen and (max-width: 380px) {
+    .imag > .fun {
+       max-width: 100%;
+       position: relative;
+       top: 69%;
+       gap: 0px;
+       opacity: 0px;
+   
+   }
+   .container{
+       display: flex;
+       flex-wrap: wrap;
+   }
+   .forme{
+       background-color: #061039;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+   } 
+}
