@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="editeur.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="modifPhoto.css">
     <title>Editeur</title>
 </head>
 <body>
@@ -19,8 +20,8 @@
             <div class="side-contenu">
                 <!-- Boutton Ajout Fichier -->
                 <div class="bloc">
-                    <input type="file" accept="image/*" id="lebutton" class="btnImputs">
-                    <label for="lebutton">+</label> 
+                    <input type="file" accept="image/*" id="uploadImage" class="btnImputs">
+                    <label for="uploadImage">+</label> 
                 </div>
             </div>
 
@@ -38,7 +39,7 @@
                 <h2 class="titre">Editeur d'images</h2>
 
                 <!-- Button Exportation -->
-                <div class="button-export">
+                <div class="button-export" id="downloadBtn">
                     <h3>Export</h3>
                     <i class="fa-solid fa-upload"></i>
                 </div>
@@ -91,23 +92,44 @@
                                 </div>
                             </div>
                             <div class="affichage zoneText">
-                                <textarea name="" id=""></textarea>
-                                <select name="" id="">
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
+                                <textarea name="" id="textInput"></textarea>
+                                <select id="fontType">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Courier New">Courier New</option>
                                 </select>
-                                <div class="couleur">
+                                <!-- <div class="couleur">
                                     <div class="lacouleur"></div>
-                                </div>
-                                <div class="toolbar-item">
+                                </div> -->
+
+                                <input type="color" id="textColor">
+
+                                <label>Taille</label>
+                                <input type="range" id="fontSize" min="10" max="100" value="30">
+                                <!-- <div class="toolbar-item">
                                     <label for="saturation" class="toolbar_label">Taile</label>
                                     <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
-                                </div>
-                                <div class="autres">
-                                    <p><b>G</b></p>
-                                    <p><u>S</u></p>
-                                    <p><s>B</s></p>
+                                </div> -->
+                                
+                                    <div class="styles">
+                                        <label>Styles :</label>
+                                        <div class="style-options">
+                                            <label>
+                                                <input type="checkbox" id="bold"> Gras
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" id="italic"> Italique
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" id="underline"> Souligné
+                                            </label>
+                                        </div>
+                                    </div>
+                                
+                                <div class="btnInfo">
+                                    <!-- <button id="downloadBtn">Télécharger</button> -->
+                                    <button id="addTextBtn">Ajouter un Texte</button>
+                                      <button id="deleteTextBtn">Supprimer le texte</button> 
                                 </div>
                             </div>
                             <div class="affichage coupure">
@@ -167,7 +189,9 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
     <script src="editeur.js"></script>
-    <script src="effet.js"></script>
+    <!-- <script src="effet.js"></script> --> 
+     <script src="modifPhoto.js"></script>
 </body>
 </html>
