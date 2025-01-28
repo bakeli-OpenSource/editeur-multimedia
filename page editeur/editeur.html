@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="editeur.css">
+    <title>Editeur</title>
+</head>
+<body>
+
+    <div class="editeur-container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="images/Vector.png" alt="">
+            </div>
+            <div class="side-contenu">
+                <!-- Boutton Ajout Fichier -->
+                <div class="bloc">
+                    <input type="file" accept=".jpg,.jpeg,.png,.mp4,.avi,.mov,.webm" id="lebutton" class="btnImputs">
+                    <label for="lebutton">+</label> 
+                </div>
+            </div>
+
+            <!-- Boutton retour -->
+            <div class="retou-button">
+                <i class="fa-solid fa-delete-left"></i>
+            </div>
+        </div>
+
+
+        <!-- Page d'Edition -->
+        <div class="edition-page">
+            <!-- Premiere Section -->
+            <div class="barre">
+                <h2 class="titre">Pixel Innovant</h2>
+
+                <!-- Button Exportation -->
+                <div class="button-export">
+                    <h3>Export</h3>
+                    <i class="fa-solid fa-upload"></i>
+                </div>
+            </div>
+
+            <!-- Deuxieme Section -->
+            <div class="real-part">
+
+                <!-- Parties de vue des modification en temps réel -->
+                <div class="edition-part">
+                    <!-- Edition -->
+                    <div class="part-changement">
+                        <!-- le canvas -->
+                        <canvas id="canvas"></canvas>
+                        <div class="play">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+
+                    <!-- Barre de modification -->
+                    <div class="modif-part">
+                        <div class="select">
+                            <i class="fa-solid fa-right-long"></i>
+                            <h3 class="aModif">Filtre</h3>
+                        </div>
+                        <div class="modification">
+                            <div class="affichage filtrer">
+                                <div class="toolbar-item">
+                                    <label for="brightness" class="toolbar_label">Brightness</label>
+                                    <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="blur" class="toolbar_label">Blur</label>
+                                    <input type="range" class="toolbar_input"  id="blur" min="0" max="25">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="inversion" class="toolbar_label">Inversion</label>
+                                    <input type="range" class="toolbar_input"  id="inversion" min="0" max="50">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="contraste" class="toolbar_label">Contraste</label>
+                                    <input type="range" class="toolbar_input"  id="contraste" min="0" max="200">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="sapia" class="toolbar_label">Sapia</label>
+                                    <input type="range" class="toolbar_input"  id="sapia" min="0" max="200">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="noirblanc" class="toolbar_label">Noir - blanc</label>
+                                    <input type="range" class="toolbar_input"  id="noirblanc" min="0" max="200">
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="saturation" class="toolbar_label">Saturation</label>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                </div>
+                            </div>
+                            <div class="affichage zoneText">
+                                <textarea name="" id=""></textarea>
+                                <select name="" id="">
+                                    <option value="">Arial</option>
+                                    <option value="">Arial</option>
+                                    <option value="">Arial</option>
+                                </select>
+                                <div class="couleur">
+                                    <div class="lacouleur"></div>
+                                </div>
+                                <div class="toolbar-item">
+                                    <label for="saturation" class="toolbar_label">Taile</label>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                </div>
+                                <div class="autres">
+                                    <p><b>G</b></p>
+                                    <p><u>S</u></p>
+                                    <p><s>B</s></p>
+                                </div>
+                            </div>
+                            <div class="affichage coupure">
+                                <h5>Intervale</h5>
+                                <div class="interval">
+                                    <div class="right">
+                                        <p>Debut</p>
+                                        <input type="text" maxlength="2">
+                                    </div>
+                                    <div class="right">
+                                        <p>Fin</p>
+                                        <input type="text" maxlength="2">
+                                    </div>
+                                </div>
+                                <button>Couper</button>
+                            </div>
+                            <div class="affichage cadrer">
+                                <button>Appliquer</button>
+                            </div>
+                            <div class="affichage dessiner">
+                                <h4>Couleur</h4>
+                                <div class="couleurDessin">
+                                    <div class="lacouleurDessin"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troisieme Section -->
+            <div class="effet">
+                <!-- Barres des effets applicables -->
+                <div class="barre-effet">
+                    <div class="side" id="filtrer"> <!-- active -->
+                        <i class="fa-solid fa-sort"></i>
+                        <p>Filtre</p>
+                    </div>
+                    <div class="side" id="texte">
+                        <i class="fa-solid fa-font"></i>
+                        <p>Texte</p>
+                    </div>
+                    <div class="side" id="couper">
+                        <i class="fa-solid fa-scissors"></i>
+                        <p>Couper</p>
+                    </div>
+                    <div class="side" id="rogner">
+                        <i class="fa-regular fa-square"></i>
+                        <p>Rogner</p>
+                    </div>
+                    <div class="side" id="dessin">
+                        <i class="fa-solid fa-pencil"></i>
+                        <p>Dessin</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="editeur.js"></script>
+    <script src="effet.js"></script>
+</body>
+</html>
