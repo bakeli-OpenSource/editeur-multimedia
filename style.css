@@ -7,6 +7,12 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
+a{
+  text-decoration: none;
+  color: var(--bleuclair);
+  font-weight: 600;
+  font-size: 18px;
+}
 :root {
   --bleuFonce: #21d4fd;
   --bleuclair: #061039;
@@ -40,6 +46,8 @@ header {
     flex-direction: column;
     min-height: 100vh;
   }
+
+ 
   :root {
     --bleuFonce: #21d4fd;
     --bleuclair: #061039;
@@ -64,7 +72,7 @@ header {
     background: white;
     border: none;
     color: #0b1a3a;
-    padding: 0.5rem 1rem;
+    padding: 1rem 1.5rem;
     margin-left: 0.5rem;
     border-radius: 8px;
     cursor: pointer;
