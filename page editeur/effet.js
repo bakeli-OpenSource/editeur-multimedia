@@ -50,7 +50,7 @@ function rechargerImage(){
     canvas.width = image.width 
     canvas.height = image.height
     canvasContext.filter = generateFilter()
-    canvasContext.drawImage(image,0,0,canvas.width,canvas.height)
+    canvasContext.drawImage(image,0,0)
 }
 
 // fonction pour dessiner chaque frame de la video
@@ -90,3 +90,5 @@ function downloadMedia(){
    
 }
 downloadBtn.addEventListener('click',downloadMedia)
+
+
