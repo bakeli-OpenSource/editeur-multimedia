@@ -148,7 +148,7 @@ body{
 }
 
 .edition-page .part-changement{
-    width: 60%;
+    width: 70%;
     border: 1px dashed rgba(245, 245, 245, 0.598);
     padding: 10px 15px;
     background-color: #06103928;
@@ -158,22 +158,13 @@ body{
     align-items: center;
 }
 
-#canvas{
-    all: unset !important;
-}
 .part-changement #canvas{
-    position: relative;
-    width: 90% !important;
-    margin: auto;
-    height: 100% !important;
+    width: 100%;
+    height: 90%;
     object-fit: cover;
     padding: 10px;
     background-color: rgba(245, 245, 245, 0.4);
     border: 1px solid rgba(245, 245, 245, 0.598);
-}
-
-.lower-canvas, .upper-canvas {
-    all: unset !important;
 }
 
 .part-changement .play{
@@ -192,7 +183,7 @@ body{
 .edition-part .modif-part{
     background-color: #061039;
     z-index: 100;
-    width: 40%;
+    width: 30%;
     padding: 10px;
     border: 1px solid white;
 }
@@ -255,18 +246,15 @@ body{
     cursor: pointer;
 }
 
-.couleur{
+.couleur,
+.couleurDessin{
     width: 100%;
     height: 20px;
     margin-top: 10px;
-    margin-bottom: 50px;
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
     padding: 2px;
 }
 
-.taille{
-    margin-top: 20px;
-}
 .couleur .lacouleur,
 .couleurDessin .lacouleurDessin{
     width: 100%;
@@ -463,17 +451,4 @@ body{
         max-height: 28vh;
         overflow-y: scroll;
     }
-}
-
-.btn_text{
-    margin-top: 20px;
-}
-
-.btn_text #addTextBtn{
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-    background-color: #102D9F;
-    color: #fff;
-    border: none;
 }
