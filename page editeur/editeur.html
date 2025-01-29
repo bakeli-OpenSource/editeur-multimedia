@@ -91,23 +91,27 @@
                                 </div>
                             </div>
                             <div class="affichage zoneText">
-                                <textarea name="" id=""></textarea>
-                                <select name="" id="">
+                                <textarea name="" id="EditText"></textarea>
+                                <select  id="fontType">
                                     <option value="">Arial</option>
                                     <option value="">Arial</option>
                                     <option value="">Arial</option>
                                 </select>
                                 <div class="couleur">
-                                    <div class="lacouleur"></div>
+                                    <label for="textColor">Changer de couleur</label>
+                                    <input type="color"  id="textColor">
                                 </div>
-                                <div class="toolbar-item">
+                                <div class="toolbar-item  taille">
                                     <label for="saturation" class="toolbar_label">Taile</label>
-                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                    <input type="range" class="toolbar_input"  id="fontSize">
                                 </div>
                                 <div class="autres">
-                                    <p><b>G</b></p>
-                                    <p><u>S</u></p>
-                                    <p><s>B</s></p>
+                                    <p><b id="bold">B</b></p>
+                                    <p><u id="italic">I</u></p>
+                                    <p><s id="underline">U</s></p>
+                                </div>
+                                <div class="btn_text">
+                                    <button id="addTextBtn"> Ajouter du text dans l'image</button>
                                 </div>
                             </div>
                             <div class="affichage coupure">
@@ -166,7 +170,6 @@
             </div>
         </div>
     </div>
-
     <script src="editeur.js"></script>
     <script src="effet.js"></script>
 </body>
