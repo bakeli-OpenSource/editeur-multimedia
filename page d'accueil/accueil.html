@@ -17,64 +17,71 @@
   </head>
   <body>
     <div class="container">
-      <!-- sidebar -->
-      <aside>
-        <div class="aside-top">
-          <div class="user-Zone">
-            <div class="profil">
-              <img
-                src="images/background.jpg"
-                alt="User-photo"
-                id="userProfil"
-              />
-              <span class="Dot"></span>
-            </div>
-            <div class="user-complete-name">
-              <p id="userFirstName">John</p>
-              &nbsp;
-              <p id="userName">Doe</p>
-            </div>
-          </div>
-          <div class="menu">
-            <a href="#" id="CreateBtn">
-              <i class="fa-solid fa-plus"></i>
-              Créer nouveau
-            </a>
-          </div>
-        </div>
-        <div class="aside-bottom">
-          <a href="#" id="logoutBtn">
-            <i class="fa-solid fa-right-from-bracket"></i>
-            Deconnexion
-          </a>
-          <hr />
-          <div class="theme">
-            <input
-              class="container_toggle"
-              type="checkbox"
-              id="switch"
-              name="mode"
-            />
-            <label for="switch">Toggle</label>
-          </div>
-        </div>
-      </aside>
       <!-- main content -->
       <main>
-        <h1 class="title">Pixel Innovant</h1>
+        <div class="head">
+          <h1 class="title">Pixel Innovant</h1>
+          <div class="nav-Right">
+            <div class="user-Zone">
+              <div class="profil">
+                <img
+                  src="/images/background.jpg"
+                  alt="User-photo"
+                  id="userProfil"
+                />
+                <span class="Dot"></span>
+              </div>
+              <div class="user-complete-name">
+                <p id="userFirstName">John</p>
+                &nbsp;
+                <p id="userName">Doe</p>
+              </div>
+            </div>
+            <div class="theme">
+              <input
+                class="container_toggle"
+                type="checkbox"
+                id="switch"
+                name="mode"
+              />
+              <label for="switch">Toggle</label>
+            </div>
+          </div>
+        </div>
         <hr />
         <section>
           <a href="#" class="card card1">
-            <i class="fa-solid fa-film"></i>
-            <i class="fa-solid fa-plus add"></i>
+            <img src="/images/Frame.png" alt="card image" />
+            <div>
+              <p class="cardTitle">Éditeur de Vidéos</p>
+              <p>Découpe, fusionne et modifie tes vidéos facilement.</p>
+              <div class="icon">
+                <i class="fa-solid fa-film"></i>
+                <i class="fa-solid fa-plus add"></i>
+              </div>
+            </div>
           </a>
           <a href="#" class="card card2">
-            <i class="fa-solid fa-image"></i>
-            <i class="fa-solid fa-plus add"></i>
+            <img src="/images/Frame (4).png" alt="card image" />
+            <div>
+              <p class="cardTitle">Éditeur d'Images</p>
+              <p>Ajoute des filtres, recadre et ajuste tes images.</p>
+              <div class="icon">
+                <i class="fa-solid fa-image"></i>
+                <i class="fa-solid fa-plus add"></i>
+              </div>
+            </div>
           </a>
           <a href="#" class="card card3">
-            <i class="fa-solid fa-magic-wand-sparkles"></i>
-            <i class="fa-solid fa-plus add"></i>
+            <img src="/images/Frame (2).png" alt="card image" />
+            <div>
+              <p class="cardTitle">Créateur de GIFs</p>
+              <p>Transforme tes vidéos et images en GIFs animés.</p>
+              <div class="icon">
+                <i class="fa-solid fa-magic-wand-sparkles"></i>
+                <i class="fa-solid fa-plus add"></i>
+              </div>
+            </div>
           </a>
         </section>
       </main>

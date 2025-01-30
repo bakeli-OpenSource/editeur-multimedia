@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     padding: 0;
     margin: 0;
@@ -6,26 +9,35 @@ body{
 
 .container{
     display: flex;
+    gap: 10px;
     max-width: 100%;
+    background-color: #061039;
 }
 
 .imag{
-    background: url('imagForm.jpg') center center  
-    no-repeat;
+    background:linear-gradient(rgba(0, 0, 0, 0.413),rgba(0, 0, 0, 0.342)), url('imagForm.jpg') ,center center;
+    background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
-    height: 100vh; 
+    min-height: 100vh; 
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imag > .fun {
-    background: linear-gradient(180deg, rgba(79, 72, 72, 0) 1%, rgba(0, 0, 0, 0.97) 76.04%);
-    max-width: 94%;
-    position: relative;
-    top: 66.9%;
-    gap: 0px;
-    opacity: 0px;
+   text-align: center;
+    
+}
 
+.fun h2{
+    font-size: 4rem;
+    font-weight: 900;
+}
+
+.fun p{
+    font-size: 20px;
 }
 
 .fun {
@@ -40,19 +52,19 @@ h2{
 
 .forme{
     background-color: #061039;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    width: 70%;
+    margin: auto;
+    line-height: 2.5;
 }
 
 form{
+    padding: 0 30px;
     margin: auto;
     margin-top: 3rem;
     
     
 }
+
 
 h3{
     color: #fff;
@@ -68,22 +80,28 @@ label{
 .inputItems input{
     width: 100%;
     padding: 9px;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 20px;
+    height: 3rem;
+    outline: none;
 }
 
 .Nom-prenom {
     display: flex;
-    gap: 4rem;
+    gap: 10px;
+    width: 100%;
+    margin: auto;
+    /* padding: 10px; */
 }
 
-
-
+.Nom-prenom div{
+    width: 100%;
+}
 .Nom-prenom input{
     padding: 9px;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 20px;
     width: 100%;
+    height: 3rem;
+    outline: none;
     
 }
 
@@ -109,10 +127,10 @@ span{
 
 button{
     padding: 9px;
-    width: 70%;
+    width: 100%;
     background: #21D4FD;
     border-radius: 20px;
-    border: 2px solid #fff;
+    border: none;
     font-size: 1rem;
     font-weight: bold;
     color: #fff;
@@ -123,119 +141,71 @@ button:hover{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* responsive */
 @media screen and (max-width: 968px) {
-    .imag > .fun {
-        max-width: 100%;
-        position: relative;
-        top: 64%;
-        gap: 0px;
-        opacity: 0px;
-    
+    .imag {
+    display: none;       
     }
     .container{
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
+    width: 100%;
+    margin: auto;
+    min-height: 100vh;
     }
 
+    .inputItems input{
+        width: 100%;
+    }
     .Nom-prenom input{
-        padding: 9px;
-        border-radius: 10px;
-        margin: 10px;
+     
         width: 100%;
         
     }
     
 }
 
+label{
+    font-size: 24px;
+}
+
 @media screen and (max-width: 768px) {
-     .imag > .fun {
-        max-width: 100%;
-        position: relative;
-        top: 65%;    
-        gap: 0px;
-        opacity: 0px;
-    
-    }
     .container{
-        display: flex;
-        flex-wrap: wrap;
+        min-height: 100vh;
+        width: 100%;
     } 
+    .imag{
+        display: none;
+    }
     .forme{
         background-color: #061039;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 100%;
+        width: 100%;
     }
+    
     .Nom-prenom input{
-        width: 80%;
+        width: 100%;
+        border: none;
+        width: 100%;
+        height: 2.5rem;
         
     }
 
+    button{
+        border: none;
+    }
+    .Nom-prenom {
+        display: flex;
+        flex-direction: column;
+    }
+label{
+    font-size: 16px;
+}
     .inputItems input{
-        width: 91%;
+        width: 100%;
+        height: 2.5rem;
        
     }
     
     
 }
 
-@media screen and (max-width: 480px) {
-     .imag > .fun {
-        max-width: 100%;
-        position: relative;
-        top: 67.5%;
-        gap: 0px;
-        opacity: 0px;
-    
-    }
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .forme{
-        background-color: #061039;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    } 
-}
 
-@media screen and (max-width: 380px) {
-    .imag > .fun {
-       max-width: 100%;
-       position: relative;
-       top: 69%;
-       gap: 0px;
-       opacity: 0px;
-   
-   }
-   .container{
-       display: flex;
-       flex-wrap: wrap;
-   }
-   .forme{
-       background-color: #061039;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       width: 100%;
-   } 
-}
+

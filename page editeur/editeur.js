@@ -3,6 +3,8 @@ const allSide = document.querySelectorAll('.barre-effet .side')
 const textModif = document.querySelector('.aModif')
 
 
+const textModif = document.querySelector('.aModif')
+
 //Boutton Filter
 const filter = document.getElementById('filtrer')
 const afficherFilter = document.querySelector('.filtrer')

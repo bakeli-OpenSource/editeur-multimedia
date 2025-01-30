@@ -1,84 +1,190 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(var(--gradient));
   color: white;
-  text-align: center;
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+a{
+  text-decoration: none;
+  color: var(--bleuclair);
+  font-weight: 600;
+  font-size: 18px;
 }
 :root {
   --bleuFonce: #21d4fd;
   --bleuclair: #061039;
   --gradient: #061039, #21d4fd;
 }
+/*------------ Header ------------*/
 header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  display: flex;
   align-items: center;
 }
-.header-nav {
-  /* width: 100%; */
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.logo img {
+  height: 40px;
+  margin-right: 0.5rem;
 }
-
-input.menu-toggle:checked + label + nav {
-  display: block;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-nav {
-  display: flex;
-  gap: 10px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  margin-right: 45px;
-  margin-top: 13px;
-}
-
-.login-button {
-  background-color: white;
-  color: #0b1a3a;
-  padding: 10px 20px;
+.buttons button {
+  background: white;
   border: none;
-  border-radius: 5px;
+  color: #0b1a3a;
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(var(--gradient));
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+ 
+  :root {
+    --bleuFonce: #21d4fd;
+    --bleuclair: #061039;
+    --gradient: #061039, #21d4fd;
+  }
+  /*------------ Header ------------*/
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 40px;
+    margin-right: 0.5rem;
+  }
+  .buttons button {
+    background: white;
+    border: none;
+    color: #0b1a3a;
+    padding: 1rem 1.5rem;
+    margin-left: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /*---------------- Section hero --------------*/
+  .hero {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /*-------------------- Section grid ------------*/
+  .grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 10px;
+  }
+  .card {
+    background-color: var(--bleuclair);
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+  }
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  .card p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  /*--------------- Footer -----------------*/
+  footer {
+    background: #0b1a3a;
+    text-align: center;
+    padding: 1rem 0;
+    color: #b0b0b0;
+    margin-top: auto;
+  }
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  /*------------------- Responsivité -------------------*/
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 1rem;
+    }
+    header {
+      flex-direction: column;
+    }
+    .buttons {
+      margin-top: 1rem;
+    }
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: 8px;
   cursor: pointer;
-  margin-left: 20px;
-}
-/*------------- Section hero ---------------*/
-.hero {
-  padding: 50px;
-}
-.hero h2 {
-  font-size: 25px;
 }
 
-/*--------- section card-container -----------*/
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/*---------------- Section hero --------------*/
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.hero h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/*-------------------- Section grid ------------*/
+.grid {
+  display: grid;
   gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 20px auto;
   max-width: 1200px;
   padding: 0 10px;
 }
 .card {
   background-color: var(--bleuclair);
-  width: 200px;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -98,74 +204,37 @@ nav a {
   margin: 0;
 }
 
-/* -----------------menu --------------*/
-
-.menu-toggle {
-  display: none;
+/*--------------- Footer -----------------*/
+footer {
+  background: #0b1a3a;
+  text-align: center;
+  padding: 1rem 0;
+  color: #b0b0b0;
+  margin-top: auto;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-.menu-icon {
-  display: none;
-  background-color: transparent;
-  color: white;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
-}
-
-/*----------- Responsivité --------*/
-
-@media (max-width: 780px) {
+/*------------------- Responsivité -------------------*/
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1rem;
+  }
   header {
-    display: block;
-    padding: 10px;
-  }
-  .hero h2 {
-    font-size: 15px;
-  }
-
-  nav {
-    display: none;
     flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
   }
-
-  nav a,
-  .login-button {
-    padding: 10px;
-    text-align: left;
-    width: 100%;
+  .buttons {
+    margin-top: 1rem;
   }
-
-  .menu-icon {
-    display: block;
-    margin-left: auto;
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-
-  .login-button {
-    margin-top: 10px;
-    width: 80px;
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 1024px) {
-  header {
-    padding: 15px;
-  }
-
-  nav {
-    gap: 15px;
-  }
-}
-
-@media (min-width: 1025px) {
-  header {
-    padding: 20px;
-  }
-
-  nav {
-    gap: 20px;
-  }
-}
