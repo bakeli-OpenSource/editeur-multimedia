@@ -161,3 +161,101 @@ function downloadMedia(){
 downloadBtn.addEventListener('click',downloadMedia)
 
 
+/*------------------------------------------------------------NAFISSATOU Rogner------------------------------------------------------------*/
+
+const ctx = canvas.getContext("2d");
+const cropCanvas = document.getElementById("cropCanvas");
+const cropCtx = cropCanvas.getContext("2d");
+const cropButton = document.getElementById("cropButton");
+const downloadButton = document.getElementById("downloadButton")
+
+let imag = new Image();
+imag.src = ""; 
+
+fileInput.addEventListener("change", (e) => {
+    const file = e.target.files[0]
+    const reader = new FileReader()
+  
+    reader.onload = (event) => {
+      imag = new Image()
+      imag.onload = () => {
+        canvas.width = imag.width
+        canvas.height = imag.height
+        canvas.getContext("2d").drawImage(imag, 0, 0, imag.width, imag.height)
+      }
+      imag.src = event.target.result
+    }
+  
+    reader.readAsDataURL(file)
+  })
+
+
+imag.onload = () => {
+  ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
+};
+
+
+let startX, startY, endX, endY, isDragging = false;
+
+
+canvas.addEventListener("mousedown", (e) => {
+  const rect = canvas.getBoundingClientRect();
+  startX = e.clientX - rect.left;
+  startY = e.clientY - rect.top;
+  isDragging = true;
+});
+
+canvas.addEventListener("mousemove", (e) => {
+  if (isDragging) {
+    const rect = canvas.getBoundingClientRect();
+    endX = e.clientX - rect.left;
+    endY = e.clientY - rect.top;
+
+    
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+  }
+});
+
+canvas.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+    //    téleéchargement
+ downloadButton.addEventListener("click", () => {
+     if (!imag) return
+  
+     const link = document.createElement("a")
+     link.download = "cropped_image.png"
+     link.href = cropCanvas.toDataURL()
+     link.click()
+   })
+
+
+cropButton.addEventListener("click", () => {
+  if (startX && startY && endX && endY) {
+    const width = endX - startX;
+    const height = endY - startY;
+
+    cropCanvas.width = width;
+    cropCanvas.height = height;
+
+    cropCtx.drawImage(
+      canvas,
+      startX,
+      startY,
+      width,
+      height,
+      0,
+      0,
+      width,
+      height
+    );
+  } else {
+    alert("Veuillez sélectionner une zone à rogner !");
+  }
+});
+

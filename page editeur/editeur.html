@@ -129,7 +129,12 @@
                                 <button>Couper</button>
                             </div>
                             <div class="affichage cadrer">
-                                <button>Appliquer</button>
+                                <!-- resultat rogner -->
+                                <button id="cropButton" class="tele">Appliquer</button>
+                                <div class="result">
+                                    <canvas id="cropCanvas"></canvas>
+                                    <button id="downloadButton" class="tele">Télécharger</button>
+                                  </div>
                             </div>
                             <div class="affichage dessiner">
                                 <div class="couleurDessin">
@@ -183,8 +188,8 @@
             </div>
         </div>
     </div>
-
     <script src="editeur.js"></script>
     <script src="effet.js"></script>
+    
 </body>
 </html>

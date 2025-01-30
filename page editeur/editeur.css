@@ -158,6 +158,9 @@ body{
     align-items: center;
 }
 
+#canvas{
+    all: unset !important;
+}
 
 .part-changement #canvas{
     position: relative;
@@ -169,6 +172,10 @@ body{
     background-color: rgba(245, 245, 245, 0.4);
     border: 1px solid rgba(245, 245, 245, 0.598);
     cursor: pointer;
+}
+
+.lower-canvas, .upper-canvas {
+    all: unset !important;
 }
 
 .lower-canvas, .upper-canvas {
@@ -433,6 +440,19 @@ body{
     color: #061039;
     margin: 0 5px;
     border-radius: 5px;
+}
+/* nafi */
+canvas {
+    border: 1px solid #ccc;
+    cursor: crosshair;
+  }
+
+.result{
+    margin-top: 5rem;
+    text-align: center;
+}
+.tele{
+    border-radius: 10px;
 }
 
 .btnDessiner{

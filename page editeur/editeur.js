@@ -1,6 +1,8 @@
 const affichageAll = document.querySelectorAll('.affichage')
 const allSide = document.querySelectorAll('.barre-effet .side')
 const textModif = document.querySelector('.aModif')
+
+
 const textModif = document.querySelector('.aModif')
 
 //Boutton Filter
