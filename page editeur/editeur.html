@@ -132,9 +132,22 @@
                                 <button>Appliquer</button>
                             </div>
                             <div class="affichage dessiner">
-                                <h4>Couleur</h4>
                                 <div class="couleurDessin">
-                                    <div class="lacouleurDessin"></div>
+                                    <div class="couleur">
+                                        <div>
+                                            <label for="color">Choisir une couleur</label>
+                                            <input type="color"  id="color">
+                                        </div>
+                                        <div>
+                                            <label for="taille">Taille</label>
+                                            <input type="range"  id="taille" min="0" max="20" value="5">
+                                        </div>
+                                    </div>
+
+                                    <div class="btnDessiner">
+                                        <button type="submit" id="dessiner">Dessiner</button>
+                                        <button type="submit" id="gomme">Gommer</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
