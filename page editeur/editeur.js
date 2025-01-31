@@ -2,6 +2,8 @@ const affichageAll = document.querySelectorAll('.affichage')
 const allSide = document.querySelectorAll('.barre-effet .side')
 const textModif = document.querySelector('.aModif')
 
+
+
 //Boutton Filter
 const filter = document.getElementById('filtrer')
 const afficherFilter = document.querySelector('.filtrer')
@@ -19,6 +21,7 @@ filter.addEventListener('click', ()=>{
     })
     filter.classList.add('active')
     afficherFilter.classList.add('active')
+    textModif.innerText = 'Filtre'
     textModif.innerText = 'Filtre'
 })
 
@@ -41,6 +44,7 @@ duTexte.addEventListener('click', ()=>{
     duTexte.classList.add('active')
     afficherText.classList.add('active')
     textModif.innerText = 'Texte'
+    textModif.innerText = 'Texte'
 })
 
 
@@ -61,6 +65,7 @@ couper.addEventListener('click', ()=>{
     })
     couper.classList.add('active')
     afficherCoupure.classList.add('active')
+    textModif.innerText = 'Couper'
     textModif.innerText = 'Couper'
 })
 
@@ -83,6 +88,7 @@ rogner.addEventListener('click', ()=>{
     rogner.classList.add('active')
     afficherRogne.classList.add('active')
     textModif.innerText = 'Redimensionner'
+    textModif.innerText = 'Redimensionner'
 })
 
 
@@ -103,5 +109,5 @@ dessin.addEventListener('click', ()=>{
     })
     dessin.classList.add('active')
     afficherDessin.classList.add('active')
-    textModif.innerText = 'Dessiner'
+    textModif.innerText = 'Dessiner'
 })
