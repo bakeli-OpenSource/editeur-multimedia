@@ -52,22 +52,6 @@ duTexte.addEventListener('click', ()=>{
 const couper = document.getElementById('couper')
 const afficherCoupure = document.querySelector('.coupure')
 
-couper.addEventListener('click', ()=>{
-    allSide.forEach((n) => {
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    affichageAll.forEach((n)=>{
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    couper.classList.add('active')
-    afficherCoupure.classList.add('active')
-    textModif.innerText = 'Couper'
-    textModif.innerText = 'Couper'
-})
 
 
 // Boutton Rogner

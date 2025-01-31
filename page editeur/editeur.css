@@ -158,12 +158,12 @@ body{
     align-items: center;
 }
 
-#canvas{
+/* #canvas{
     all: unset !important;
-}
+} */
 
 .part-changement #canvas{
-    position: relative;
+    /* position: relative; */
     width: 90% !important;
     margin: auto;
     height: 100% !important;
@@ -173,13 +173,6 @@ body{
     cursor: pointer;
 }
 
-.lower-canvas, .upper-canvas {
-    all: unset !important;
-}
-
-.lower-canvas, .upper-canvas {
-    all: unset !important;
-}
 
 .part-changement .play{
     padding: 10px;
@@ -234,9 +227,7 @@ body{
     margin-top: 5px;
 }
 
-/* .modification .toolbar-item{
-    height: max-content;
-} */
+
 
 .modification .zoneText textarea{
     width: 100%;
@@ -443,7 +434,7 @@ body{
 /* nafi */
 canvas {
     border: 1px solid #ccc;
-    cursor: crosshair;
+    cursor: pointer;
   }
 
 .result{
