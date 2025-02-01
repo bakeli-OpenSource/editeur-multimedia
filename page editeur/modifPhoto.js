@@ -1,5 +1,5 @@
 const canvas = new fabric.Canvas('canvas');
-canvas.setWidth(400);
+canvas.setWidth(600);
 canvas.setHeight(400);
 
 // Fonction pour créer un nouveau texte
@@ -89,16 +89,22 @@ document.getElementById("uploadImage").addEventListener("change", function (even
     const reader = new FileReader();
     reader.onload = function (e) {
         fabric.Image.fromURL(e.target.result, function (img) {
+            // Ajuster l'échelle pour remplir tout le canvas
             const scaleX = canvas.width / img.width;
             const scaleY = canvas.height / img.height;
-            const scale = Math.min(scaleX, scaleY); 
+            const scale = Math.max(scaleX, scaleY);  
 
             img.scale(scale);
+            img.set({
+                left: canvas.width / 2 - (img.width * scale) / 2,
+                top: canvas.height / 2 - (img.height * scale) / 2
+            });
             canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
         });
     };
     reader.readAsDataURL(event.target.files[0]);
 });
+
 
 
 // Télécharger l'image modifiée
