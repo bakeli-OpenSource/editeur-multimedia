@@ -60,8 +60,9 @@ html {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
       flex-wrap: wrap;
-      gap: 10px;
+      /* gap: 10px; */
       margin-right: 20px;
       /* ---------------------- */
       .user-complete-name {
@@ -236,4 +237,14 @@ html.transition *:after {
     width: 95px !important;
     padding: 20px 5px !important ;
   }
+}
+
+#deconnecter{
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  font-weight: 600;
+  color: #061039;
+  cursor: pointer;
+  border: none;
 }
