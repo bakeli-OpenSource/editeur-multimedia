@@ -15,49 +15,143 @@ let setting = {
 }
 
 
-// variable pour le dessin
+// **************************Dessiner sur les image
 
 const colorPiker = document.getElementById("color")
 const taillePiker = document.getElementById("taille")
-function activerDessin(){
-    let isDrawing= false
-    let leftX
-    let leftY
 
-    // function pour commencer le dessin
+// function activerDessin(){
+//     let isDrawing= false
+   
 
-    function commencerDessin(e){
-        isDrawing= true
-        [leftX,leftY] = [e.offsetX , e.offsetY]
-        canvasContext.beginPath()
-        canvasContext.moveTo(leftX,leftY)
-    }
+//     // function pour commencer le dessin
+//     function start(e){
+//         isDrawing =true
+//         canvasContext.beginPath()
+//         canvasContext.moveTo(e.clientX - canvas.offsetX, 
+//             e.clientY - canvas.offsetY)
+//             console.log(e);
+            
+//             e.preventDefault()
+//     }
 
-    // dessiner
-    function dessiner(e){
-      if(!isDrawing) return
+//     // function commencerDessin(e){
+//     //     isDrawing= true
+//     //     canvasContext.beginPath()
+//     //     canvasContext.moveTo(e.clientX - canvas.offsetLeft, 
+//     //         e.clientY - canvas.offsetTop)
 
-      canvasContext.lineTo(e.offsetX,e.offsetY)
-      canvasContext.stroke()
-      leftX  = e.offsetX
-      leftY = e.offsetY
-    }
+//     //         e.preventDefault()
+//     // }
 
-    // arreter le dessin
-    function arreterDessin(){
-        isDrawing= false
-        canvasContext.closePath()
-    }
+//     // dessiner
+//     function draw(e){
+//         if(isDrawing){
+//             canvasContext.lineTo(e.clientX - canvas.offsetLeft, 
+//                                  e.clientY - canvas.offsetTop)
+//                 canvasContext.strokeStyle = colorPiker
+//                 canvasContext.lineCap = 'round'
+//                 canvasContext.lineJoin = 'round'
+//                 canvasContext.stroke()
+//         }
+//     }
+    
+//     // function dessiner(e){
+//     //   if(isDrawing) {
+//     //       canvasContext.lineTo(e.clientX - canvas.offsetLeft, 
+//     //                           e.clientY - canvas.offsetTop)
+//     //         canvasContext.strokeStyle = colorPiker
+//     //         canvasContext.lineCap ='round'
+//     //         canvasContext.lineJoin ='round'
+//     //       canvasContext.stroke()
+//     //   }
 
-    // les ecouteurs d'evennement
-    canvas.addEventListener('mousedown', commencerDessin)
-    canvas.addEventListener("mousemove",dessiner)
-    canvas.addEventListener("mouseup",arreterDessin)
-    canvas.addEventListener("mouseleave",arreterDessin)
-}
+//     // }
+
+//     // arreter le dessin
+//     function stop(e){
+//         if(isDrawing){
+//             canvasContext.stroke()
+//             canvasContext.closePath()
+//             isDrawing = false
+//         }
+//         e.preventDefault()
+    
+//         // if(e.type != mouseout){
+//         //     storeArray.push(canvasContext.getImageData(0,0,canvas.width,canvas.height))
+//         //     index +=1
+//         //     console.log(storeArray);
+//         // }
+        
+//     }
+  
+
+//     // les ecouteurs d'evennement
+//     canvas.addEventListener('mousedown', start)
+//     canvas.addEventListener('touchstart', start,{passive: false})
+//     canvas.addEventListener('touchmove', draw,{passive: false})
+//     canvas.addEventListener('touchend', stop,{passive: false})
+//     canvas.addEventListener("mousemove",draw)
+//     canvas.addEventListener("mouseup",stop)
+//     canvas.addEventListener("mouseout",stop)
+//     canvas.addEventListener("mouseleave",stop)
+// }
 
 
 // picker le couleur pour dessiner
+function activerDessin() {
+    let isDrawing = false;
+
+    // Fonction pour commencer le dessin
+    function start(e) {
+        isDrawing = true;
+        canvasContext.beginPath();
+        
+        // Utiliser offsetX et offsetY pour les coordonnées de la souris
+        const x = e.offsetX || e.touches[0].clientX - canvas.offsetLeft;
+        const y = e.offsetY || e.touches[0].clientY - canvas.offsetTop;
+        
+        canvasContext.moveTo(x, y);
+        e.preventDefault();
+    }
+
+    // Fonction pour dessiner
+    function draw(e) {
+        if (isDrawing) {
+            // Utiliser offsetX et offsetY pour les coordonnées de la souris
+            const x = e.offsetX || e.touches[0].clientX - canvas.offsetLeft;
+            const y = e.offsetY || e.touches[0].clientY - canvas.offsetTop;
+            
+            canvasContext.lineTo(x, y);
+            canvasContext.strokeStyle = colorPiker;
+            canvasContext.lineWidth = 5; // Épaisseur du trait
+            canvasContext.lineCap = 'round';
+            canvasContext.lineJoin = 'round';
+            canvasContext.stroke();
+        }
+        e.preventDefault();
+    }
+
+    // Fonction pour arrêter le dessin
+    function stop(e) {
+        if (isDrawing) {
+            canvasContext.stroke();
+            canvasContext.closePath();
+            isDrawing = false;
+        }
+        e.preventDefault();
+    }
+
+    // Écouteurs d'événements
+    canvas.addEventListener('mousedown', start);
+    canvas.addEventListener('touchstart', start, { passive: false });
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', draw, { passive: false });
+    canvas.addEventListener('mouseup', stop);
+    canvas.addEventListener('touchend', stop, { passive: false });
+    canvas.addEventListener('mouseout', stop);
+    canvas.addEventListener('mouseleave', stop);
+}
 colorPiker.addEventListener("input",()=>{
     canvasContext.strokeStyle = colorPiker.value
 })
@@ -71,19 +165,20 @@ taillePiker.addEventListener("input",()=>{
 const btnDessin = document.querySelector("#dessiner")
 btnDessin.addEventListener("click", activerDessin)
 
+let atokeArray=[]
+let index = -1
 // gommer 
-let effacer = false
 const btnGommer = document.getElementById("gomme")
 btnGommer.addEventListener("click",()=>{
-    effacer = !effacer
-    if(effacer){
-        canvasContext.strokeStyle= "transparent"
-        canvasContext.lineWidth= 20
-
-    }
+    canvasContext.clearRect(0,0,canvas.width,canvas.height)
+    canvasContext.fillRect(0,0,canvas.width,canvas.height)
+    storeArray = []
+    index = -1
 })
 
 
+
+// **************************Generation de filtre etudian noir****************************************************
 
 // telecharger l'image depuis l'ordinateur
 fileInput.addEventListener("change",() => {
@@ -107,6 +202,7 @@ function initialiser(){
     sapia.value = setting.sapia
 }
 initialiser()
+
 // fonction pour charger l'image
 function rechargerImage(){
     canvas.width = image.width 
@@ -117,8 +213,6 @@ function rechargerImage(){
     canvasContext.drawImage(image,0,0)
     canvasContext.filter = "none"
 }
-
-// fonction pour dessiner chaque frame de la video
 
 // appliquer les effets
 generateFilter = () => {
@@ -161,7 +255,10 @@ function downloadMedia(){
 downloadBtn.addEventListener('click',downloadMedia)
 
 
+
 /*------------------------------------------------------------NAFISSATOU Rogner------------------------------------------------------------*/
+
+rogner.addEventListener("click",rognerPhoto)
 
 const ctx = canvas.getContext("2d");
 const cropCanvas = document.getElementById("cropCanvas");
@@ -189,15 +286,12 @@ fileInput.addEventListener("change", (e) => {
     reader.readAsDataURL(file)
   })
 
-
 imag.onload = () => {
   ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
 };
 
-
+function rognerPhoto() {
 let startX, startY, endX, endY, isDragging = false;
-
-
 canvas.addEventListener("mousedown", (e) => {
   const rect = canvas.getBoundingClientRect();
   startX = e.clientX - rect.left;
@@ -258,4 +352,4 @@ cropButton.addEventListener("click", () => {
     alert("Veuillez sélectionner une zone à rogner !");
   }
 });
-
+}
