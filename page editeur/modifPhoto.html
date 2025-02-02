@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="editeur.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="modifPhoto.css">
     <title>Editeur</title>
 </head>
 <body>
@@ -19,8 +20,8 @@
             <div class="side-contenu">
                 <!-- Boutton Ajout Fichier -->
                 <div class="bloc">
-                    <input type="file" accept="image/*" id="lebutton" class="btnImputs">
-                    <label for="lebutton">+</label> 
+                    <input type="file" accept="image/*" id="uploadImage" class="btnImputs">
+                    <label for="uploadImage">+</label> 
                 </div>
             </div>
 
@@ -38,7 +39,7 @@
                 <h2 class="titre">Editeur d'images</h2>
 
                 <!-- Button Exportation -->
-                <div class="button-export">
+                <div class="button-export" id="downloadBtn">
                     <h3>Export</h3>
                     <i class="fa-solid fa-upload"></i>
                 </div>
@@ -50,17 +51,17 @@
                 <!-- Parties de vue des modification en temps réel -->
                 <div class="edition-part">
                     <!-- Edition -->
-                    <!-- <div class="part-changement"> -->
+                    <div class="part-changement">
                         <!-- le canvas -->
-                        <canvas id="canvas" class="part-changement"></canvas>
+                        <canvas id="canvas"></canvas>
                        
-                    <!-- </div> -->
+                    </div>
 
                     <!-- Barre de modification -->
                     <div class="modif-part">
                         <div class="select">
                             <i class="fa-solid fa-right-long"></i>
-                            <h3 class="aModif"></h3>
+                            <h3 class="aModif">Filtre</h3>
                         </div>
                         <div class="modification">
                             <div class="affichage filtrer">
@@ -91,27 +92,44 @@
                                 </div>
                             </div>
                             <div class="affichage zoneText">
-                                <textarea name="" id="EditText"></textarea>
-                                <select  id="fontType">
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
+                                <textarea name="" id="textInput"></textarea>
+                                <select id="fontType">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Courier New">Courier New</option>
                                 </select>
-                                <div class="couleur">
-                                    <label for="textColor">Changer de couleur</label>
-                                    <input type="color"  id="textColor">
-                                </div>
-                                <div class="toolbar-item  taille">
+                                <!-- <div class="couleur">
+                                    <div class="lacouleur"></div>
+                                </div> -->
+
+                                <input type="color" id="textColor">
+
+                                <label>Taille</label>
+                                <input type="range" id="fontSize" min="10" max="100" value="30">
+                                <!-- <div class="toolbar-item">
                                     <label for="saturation" class="toolbar_label">Taile</label>
-                                    <input type="range" class="toolbar_input"  id="fontSize">
-                                </div>
-                                <div class="autres">
-                                    <p><b id="bold">B</b></p>
-                                    <p><u id="italic">I</u></p>
-                                    <p><s id="underline">U</s></p>
-                                </div>
-                                <div class="btn_text">
-                                    <button id="addTextBtn"> Ajouter du text dans l'image</button>
+                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
+                                </div> -->
+                                
+                                    <div class="styles">
+                                        <label>Styles :</label>
+                                        <div class="style-options">
+                                            <label>
+                                                <input type="checkbox" id="bold"> Gras
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" id="italic"> Italique
+                                            </label>
+                                            <label>
+                                                <input type="checkbox" id="underline"> Souligné
+                                            </label>
+                                        </div>
+                                    </div>
+                                
+                                <div class="btnInfo">
+                                    <!-- <button id="downloadBtn">Télécharger</button> -->
+                                    <button id="addTextBtn">Ajouter un Texte</button>
+                                      <button id="deleteTextBtn">Supprimer le texte</button> 
                                 </div>
                             </div>
                             <div class="affichage coupure">
@@ -129,30 +147,12 @@
                                 <button>Couper</button>
                             </div>
                             <div class="affichage cadrer">
-                                <!-- resultat rogner -->
-                                <button id="cropButton" class="tele">Appliquer</button>
-                                <div class="result">
-                                    <canvas id="cropCanvas"></canvas>
-                                    <button id="downloadButton" class="tele">Télécharger</button>
-                                  </div>
+                                <button>Appliquer</button>
                             </div>
                             <div class="affichage dessiner">
+                                <h4>Couleur</h4>
                                 <div class="couleurDessin">
-                                    <div class="couleur">
-                                        <div>
-                                            <label for="color">Choisir une couleur</label>
-                                            <input type="color"  id="color">
-                                        </div>
-                                        <div>
-                                            <label for="taille">Taille</label>
-                                            <input type="range"  id="taille" min="0" max="20" value="5">
-                                        </div>
-                                    </div>
-
-                                    <div class="btnDessiner">
-                                        <button type="submit" id="dessiner">Dessiner</button>
-                                        <button type="submit" id="gomme">Gommer</button>
-                                    </div>
+                                    <div class="lacouleurDessin"></div>
                                 </div>
                             </div>
                         </div>
@@ -172,7 +172,10 @@
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>
                     </div>
-                   
+                    <div class="side" id="couper">
+                        <i class="fa-solid fa-scissors"></i>
+                        <p>Couper</p>
+                    </div>
                     <div class="side" id="rogner">
                         <i class="fa-regular fa-square"></i>
                         <p>Rogner</p>
@@ -185,8 +188,10 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.2.4/fabric.min.js"></script>
     <script src="editeur.js"></script>
-    <script src="effet.js"></script>
-    
+    <!-- <script src="effet.js"></script> --> 
+     <script src="modifPhoto.js"></script>
 </body>
 </html>

@@ -2,7 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* all: unset; */
 }
+
+/* #canvas-img {
+   object-fit: contain;
+} */
 
 body{
     background: linear-gradient(#061039, #102D9F);
@@ -128,7 +133,6 @@ body{
     align-items: center;
     justify-content: center;
     background-color: white;
-    cursor: pointer;
 }
 
 .real-part{
@@ -148,7 +152,8 @@ body{
 }
 
 .edition-page .part-changement{
-    width: 60%;
+    /* ------------------------ */
+    width: 50%;
     border: 1px dashed rgba(245, 245, 245, 0.598);
     padding: 10px 15px;
     background-color: #06103928;
@@ -156,23 +161,17 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-
-/* #canvas{
-    all: unset !important;
-} */
 
 .part-changement #canvas{
-    /* position: relative; */
-    width: 90% !important;
-    margin: auto;
-    height: 100% !important;
+    width: 100%;
+    height: 90%;
     object-fit: cover;
+    padding: 10px;
     background-color: rgba(245, 245, 245, 0.4);
     border: 1px solid rgba(245, 245, 245, 0.598);
-    cursor: pointer;
 }
-
 
 .part-changement .play{
     padding: 10px;
@@ -190,7 +189,8 @@ body{
 .edition-part .modif-part{
     background-color: #061039;
     z-index: 100;
-    width: 40%;
+    /* ------------------------------------- */
+    width: 50%;
     padding: 10px;
     border: 1px solid white;
 }
@@ -227,7 +227,9 @@ body{
     margin-top: 5px;
 }
 
-
+/* .modification .toolbar-item{
+    height: max-content;
+} */
 
 .modification .zoneText textarea{
     width: 100%;
@@ -251,19 +253,15 @@ body{
     cursor: pointer;
 }
 
-.couleur{
+.couleur,
+.couleurDessin{
     width: 100%;
     height: 20px;
     margin-top: 10px;
-    margin-bottom: 50px;
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
     padding: 2px;
-    line-height: 2;
 }
 
-.taille{
-    margin-top: 20px;
-}
 .couleur .lacouleur,
 .couleurDessin .lacouleurDessin{
     width: 100%;
@@ -271,11 +269,6 @@ body{
     background-color: blue;
 }
 
-.couleurDessin{
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
 .modification .zoneText .toolbar-item{
     margin-top: 10px;
 }
@@ -386,9 +379,6 @@ body{
     display: block;
 }
 
-
-
-
 .effet{
     background-color: #061039;
     height: 10vh;
@@ -431,36 +421,72 @@ body{
     margin: 0 5px;
     border-radius: 5px;
 }
-/* nafi */
-canvas {
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
 
-.result{
-    margin-top: 5rem;
-    text-align: center;
+
+
+.btnInfo{
+    display: flex;
+    margin: 20px;
+    gap: 10px;
 }
-.tele{
+
+
+
+.btnInfo #addTextBtn {
+    width: 50%;
+    padding: 7px 15px;
     border-radius: 10px;
+    border: 1px solid white;
+    color: #061039;
+    outline: none;
 }
 
-.btnDessiner{
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    line-height: 3;
-}
-.btnDessiner button{
-    padding: 5px;
-    border-radius: 20px;
-    width: 100%;
-    margin: auto;
-    color: #102D9F;
-    font-size: 20px;
-    font-weight: 600;
+.btnInfo #deleteTextBtn {
+    width: 50%;
+    padding: 7px 15px;
+    border-radius: 10px;
+    border: 1px solid white;
+    color: #061039;
+    outline: none;
 }
 
+
+#deleteTextBtn:hover{
+    background-color: #061039;
+    color: white;
+}
+
+#addTextBtn:hover{
+    background-color: #061039;
+    color: white;
+}
+
+
+.styles {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.style-options {
+    display: flex;
+    gap: 15px; 
+    align-items: center;
+}
+
+.style-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
 @media (max-width: 650px){
     .barre .titre{
         font-size: 1.2rem;
@@ -493,17 +519,4 @@ canvas {
         max-height: 28vh;
         overflow-y: scroll;
     }
-}
-
-.btn_text{
-    margin-top: 20px;
-}
-
-.btn_text #addTextBtn{
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
-    background-color: #102D9F;
-    color: #fff;
-    border: none;
 }
