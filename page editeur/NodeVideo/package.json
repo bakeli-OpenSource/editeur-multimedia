@@ -1,7 +1,7 @@
 {
   "name": "nodevideo",
   "version": "1.0.0",
-  "main": "coupure.js",
+  "main": "creationgif.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

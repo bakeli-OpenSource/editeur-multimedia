@@ -95,7 +95,7 @@
                                     <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
                                 </div>
                             </div>
-                            <div class="affichage zoneText">
+                            <!-- <div class="affichage zoneText">
                                 <textarea name="" id=""></textarea>
                                 <select name="" id="">
                                     <option value="">Arial</option>
@@ -114,7 +114,7 @@
                                     <p><u>S</u></p>
                                     <p><s>B</s></p>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="affichage coupure">
                                 <h5>Intervale</h5>
                                 <div class="interval">
@@ -132,14 +132,27 @@
                                 <button type="button" id="exportButton">Exporter le clip</button>
                             </div>
                             <div class="affichage cadrer">
-                                <button>Appliquer</button>
+                                <button id="monExport">Appliquer</button>
+
+                                <div class="interval">
+                                    <div class="right">
+                                        <label for="startTimegif">Debut</label>
+                                        <input type="range" id="startTimegif" name="startTimegif" min="0" max="60" value="0" step="1">
+                                        <span id="startTimer">0</span>
+                                    </div>
+                                    <div class="right">
+                                        <label for="endTimegif">Fin</label>
+                                        <input type="range" id="endTimegif" name="endTimegif" min="1" max="60" value="5" step="1">
+                                        <span id="endTimer">5</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="affichage dessiner">
+                            <!-- <div class="affichage dessiner">
                                 <h4>Couleur</h4>
                                 <div class="couleurDessin">
                                     <div class="lacouleurDessin"></div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -153,22 +166,23 @@
                         <i class="fa-solid fa-sort"></i>
                         <p>Filtre</p>
                     </div>
-                    <div class="side" id="texte">
+                    <!-- <div class="side" id="texte">
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>
-                    </div>
+                    </div> -->
                     <div class="side" id="couper">
                         <i class="fa-solid fa-scissors"></i>
                         <p>Couper</p>
                     </div>
                     <div class="side" id="rogner">
-                        <i class="fa-regular fa-square"></i>
-                        <p>Rogner</p>
+                        <i class="fa-solid fa-gift"></i>
+                        <!-- <i class="fa-regular fa-square"></i> -->
+                        <p>Gif</p>
                     </div>
-                    <div class="side" id="dessin">
+                    <!-- <div class="side" id="dessin">
                         <i class="fa-solid fa-pencil"></i>
                         <p>Dessin</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
