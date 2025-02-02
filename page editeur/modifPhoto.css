@@ -152,7 +152,8 @@ body{
 }
 
 .edition-page .part-changement{
-    width: 70%;
+    /* ------------------------ */
+    width: 50%;
     border: 1px dashed rgba(245, 245, 245, 0.598);
     padding: 10px 15px;
     background-color: #06103928;
@@ -160,6 +161,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .part-changement #canvas{
@@ -187,7 +189,8 @@ body{
 .edition-part .modif-part{
     background-color: #061039;
     z-index: 100;
-    width: 30%;
+    /* ------------------------------------- */
+    width: 50%;
     padding: 10px;
     border: 1px solid white;
 }
@@ -375,9 +378,6 @@ body{
 .dessiner.active{
     display: block;
 }
-
-
-
 
 .effet{
     background-color: #061039;
