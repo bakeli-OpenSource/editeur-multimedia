@@ -17,8 +17,9 @@
        </div>
       </div>
 
+      
       <div class="forme">
-        <form method="post" action="">
+        <form method="post" action="" id="logForm">
     
           <!-- messGE -->
           <div id="signInMessage" class="messageDiv" style="display: none;"></div>
@@ -26,19 +27,20 @@
         <div class="email" >
           <label for="email">Email</label>
          <div class="inputItems">
-           <input type="email" name="email" id="email">
+           <input type="email" name="email" id="email"  placeholder="Entrer votre mail">
          </div>
         </div>
 
         <div class="code" >
           <label for="password">Mot de passe</label>
          <div class="inputItems">
-           <input type="password" name="password" id="password">
+           <input type="password" name="password" id="password"  placeholder="Entrer votre mot de passe">
          </div>
         </div>
         
         <div class="submit">
-          <button class="btn" id="submitSignIn">Se connecter </button>
+          <button class="btn" type="submit" id="submitSignIn">Se connecter </button>
+          <!-- <button class="btn" type="submit" id="connecter">Se connecter </button> -->
 
         
         <p class="connect">
@@ -51,4 +53,6 @@
      </div>
 <script src="main.js"></script>
 </body>
+        <script src="main.js"></script>
+  </body>
 </html>

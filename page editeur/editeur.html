@@ -50,17 +50,17 @@
                 <!-- Parties de vue des modification en temps réel -->
                 <div class="edition-part">
                     <!-- Edition -->
-                    <div class="part-changement">
+                    <!-- <div class="part-changement"> -->
                         <!-- le canvas -->
-                        <canvas id="canvas"></canvas>
+                        <canvas id="canvas" class="part-changement"></canvas>
                        
-                    </div>
+                    <!-- </div> -->
 
                     <!-- Barre de modification -->
                     <div class="modif-part">
                         <div class="select">
                             <i class="fa-solid fa-right-long"></i>
-                            <h3 class="aModif">Filtre</h3>
+                            <h3 class="aModif"></h3>
                         </div>
                         <div class="modification">
                             <div class="affichage filtrer">
@@ -129,12 +129,30 @@
                                 <button>Couper</button>
                             </div>
                             <div class="affichage cadrer">
-                                <button>Appliquer</button>
+                                <!-- resultat rogner -->
+                                <button id="cropButton" class="tele">Appliquer</button>
+                                <div class="result">
+                                    <canvas id="cropCanvas"></canvas>
+                                    <button id="downloadButton" class="tele">Télécharger</button>
+                                  </div>
                             </div>
                             <div class="affichage dessiner">
-                                <h4>Couleur</h4>
                                 <div class="couleurDessin">
-                                    <div class="lacouleurDessin"></div>
+                                    <div class="couleur">
+                                        <div>
+                                            <label for="color">Choisir une couleur</label>
+                                            <input type="color"  id="color">
+                                        </div>
+                                        <div>
+                                            <label for="taille">Taille</label>
+                                            <input type="range"  id="taille" min="0" max="20" value="5">
+                                        </div>
+                                    </div>
+
+                                    <div class="btnDessiner">
+                                        <button type="submit" id="dessiner">Dessiner</button>
+                                        <button type="submit" id="gomme">Gommer</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -154,10 +172,7 @@
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>
                     </div>
-                    <div class="side" id="couper">
-                        <i class="fa-solid fa-scissors"></i>
-                        <p>Couper</p>
-                    </div>
+                   
                     <div class="side" id="rogner">
                         <i class="fa-regular fa-square"></i>
                         <p>Rogner</p>
@@ -172,5 +187,6 @@
     </div>
     <script src="editeur.js"></script>
     <script src="effet.js"></script>
+    
 </body>
 </html>

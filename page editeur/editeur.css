@@ -158,23 +158,21 @@ body{
     align-items: center;
 }
 
-#canvas{
+/* #canvas{
     all: unset !important;
-}
+} */
+
 .part-changement #canvas{
-    position: relative;
+    /* position: relative; */
     width: 90% !important;
     margin: auto;
     height: 100% !important;
     object-fit: cover;
-    padding: 10px;
     background-color: rgba(245, 245, 245, 0.4);
     border: 1px solid rgba(245, 245, 245, 0.598);
+    cursor: pointer;
 }
 
-.lower-canvas, .upper-canvas {
-    all: unset !important;
-}
 
 .part-changement .play{
     padding: 10px;
@@ -229,9 +227,7 @@ body{
     margin-top: 5px;
 }
 
-/* .modification .toolbar-item{
-    height: max-content;
-} */
+
 
 .modification .zoneText textarea{
     width: 100%;
@@ -262,6 +258,7 @@ body{
     margin-bottom: 50px;
     /* background-color: whitesmoke; */
     padding: 2px;
+    line-height: 2;
 }
 
 .taille{
@@ -274,6 +271,11 @@ body{
     background-color: blue;
 }
 
+.couleurDessin{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
 .modification .zoneText .toolbar-item{
     margin-top: 10px;
 }
@@ -429,7 +431,35 @@ body{
     margin: 0 5px;
     border-radius: 5px;
 }
+/* nafi */
+canvas {
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
 
+.result{
+    margin-top: 5rem;
+    text-align: center;
+}
+.tele{
+    border-radius: 10px;
+}
+
+.btnDessiner{
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    line-height: 3;
+}
+.btnDessiner button{
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
+    margin: auto;
+    color: #102D9F;
+    font-size: 20px;
+    font-weight: 600;
+}
 
 @media (max-width: 650px){
     .barre .titre{
