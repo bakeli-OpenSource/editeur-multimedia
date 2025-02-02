@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="main.css">
+    <script type="module" src="register.js" defer></script>
   <title>Formulaire éditeur multimédia</title>
   </head>
   <body>
@@ -16,8 +17,11 @@
       </div>
 
       <div class="forme">
-        <form>
-       
+        <form method="post" action="">
+          
+          <!-- messGE -->
+          <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
+
            <div class="Nom-prenom">
             <div class="name" >
               <label for="first-name">Prenom</label>
@@ -52,16 +56,16 @@
         <div class="code" >
           <label for="password">Confirmer mot de passe</label>
          <div class="inputItems">
-           <input type="password" name="password" id="password">
+           <input type="password" name="password" id="confirm-password">
          </div>
         </div>
         
         <div class="submit">
-          <button class="btn">S'enregistrer</button>
+          <button id="submitSignUp" class="btn">S'enregistrer</button>
 
         
         <p class="connect">
-          Vous avez déjà un compte? <a href="index.html"><span>Se Connecter</span></a>
+          Vous avez déjà un compte? <a href="login.html"><span>Se Connecter</span></a>
       </p>
         </div>
          

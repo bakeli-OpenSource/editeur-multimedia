@@ -1,10 +1,11 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../style.css">
+    <script type="module" src="login.js" defer></script>
   <title>Formulaire éditeur multimédia</title>
   </head>
   <body>
@@ -17,8 +18,10 @@
       </div>
 
       <div class="forme">
-        <form>
+        <form method="post" action="">
     
+          <!-- messGE -->
+          <div id="signInMessage" class="messageDiv" style="display: none;"></div>
 
         <div class="email" >
           <label for="email">Email</label>
@@ -35,11 +38,11 @@
         </div>
         
         <div class="submit">
-          <button class="btn" type="submit">Se connecter </button>
+          <button class="btn" id="submitSignIn">Se connecter </button>
 
         
         <p class="connect">
-          Vous n'avez pas de compte? <a href="main.html"><span>Creer un compte</span></a>
+          Vous n'avez pas de compte? <a href="register.html"><span>Creer un compte</span></a>
       </p>
         </div>
          
@@ -47,5 +50,5 @@
       </div>
      </div>
 <script src="main.js"></script>
-  </body>
+</body>
 </html>
