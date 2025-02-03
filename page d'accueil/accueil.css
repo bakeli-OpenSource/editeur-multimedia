@@ -17,13 +17,19 @@
   --text-dark: #061039;
   /* background */
   --background-color: #f7f7f7;
-  --linear-1: linear-gradient(to bottom right, #061039 1%, #13d8ec 32%);
+  --linear-1: linear-gradient(
+    to bottom right,
+    #061039 0%,
+    #194db6 38%,
+    #6424e3 50%,
+    #13d8ec 99%
+  );
   --linear-2: linear-gradient(
     to bottom right,
     #78e4ef 0%,
-    #e3ebfb 38%,
-    #f0ecfd 50%,
-    #fda8ff 99%
+    #a3b4d5 38%,
+    #bfb3e6 50%,
+    #f062f2 99%
   );
   --linear-3: linear-gradient(to bottom right, #b721ff 0%, #13d8ec 100%);
 }
