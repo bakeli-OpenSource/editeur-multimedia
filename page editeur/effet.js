@@ -200,8 +200,6 @@ cropButton.addEventListener("click", () => {
 // ********************************************parties dessiner **************************************************
 
    
-
-    
 class Dessin {
     constructor(canvas) {
         this.draw = false;
@@ -252,7 +250,7 @@ class Dessin {
     }
   
     setColor(color) {
-        this.ctx.strokeStyle = color;
+        this.ctx.strokeStyle = color.value;
     }
   
     biggerStroke() {
@@ -284,8 +282,10 @@ dessin.addEventListener("click", ()=>{
 
 // changer la couleur du trait
 const colorPiker = document.getElementById("color")
+console.log(colorPiker);
+
 colorPiker.addEventListener("click",()=>{
-    instanceDessin.setColor(this.value)
+    instanceDessin.setColor(colorPiker)
 })
 
 // augmenter l'epaisseur du trait
