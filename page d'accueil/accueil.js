@@ -28,9 +28,9 @@ const db=getFirestore();
         .then((docSnap)=>{
             if(docSnap.exists()){
                 const userData=docSnap.data();
-                document.getElementById('loggedUserFName').innerText=userData.firstName;
+                document.getElementById('userFirstName').innerText=userData.firstName;
                 // document.getElementById('loggedUserEmail').innerText=userData.email;
-                document.getElementById('loggedUserLName').innerText=userData.lastName;
+                document.getElementById('userName').innerText=userData.lastName;
 
             }
             else{
@@ -58,11 +58,15 @@ const db=getFirestore();
         console.error('Error Signing out:', error);
     })
   })
+
+
+
 // Sélectionner la case à cocher
 var checkbox = document.querySelector("input[name=mode]");
 
 // Restaurer le thème à la charge de la page
 document.addEventListener("DOMContentLoaded", function () {
+  console.log("hello")
   const theme = localStorage.getItem("theme"); // Récupérer le thème depuis le localStorage
   if (theme) {
     document.documentElement.setAttribute("data-theme", theme); // Appliquer le thème
@@ -72,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Gérer le changement de thème
 checkbox?.addEventListener("change", function () {
+  console.log("hello")
+
   if (this.checked) {
     trans(); // Transition d'effet
     document.documentElement.setAttribute("data-theme", "dark");
@@ -90,3 +96,5 @@ let trans = () => {
     document.documentElement.classList.remove("transition");
   }, 1000);
 };
+
+console.log("hello")
