@@ -304,3 +304,4 @@ const effacer = document.getElementById("effacer")
 effacer.addEventListener("click",()=>{
     instanceDessin.erase()
 })
+
