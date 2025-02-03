@@ -2,25 +2,26 @@
 
 const affichageAll = document.querySelectorAll('.affichage')
 const allSide = document.querySelectorAll('.barre-effet .side')
+const titre = document.querySelector('.aModif')
 
 //Boutton Filter
-const filter = document.getElementById('filtrer')
-const afficherFilter = document.querySelector('.filtrer')
+// const filter = document.getElementById('filtrer')
+// const afficherFilter = document.querySelector('.filtrer')
 
-filter.addEventListener('click', ()=>{
-    allSide.forEach((n) => {
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    affichageAll.forEach((n)=>{
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    filter.classList.add('active')
-    afficherFilter.classList.add('active')
-})
+// filter.addEventListener('click', ()=>{
+//     allSide.forEach((n) => {
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     affichageAll.forEach((n)=>{
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     filter.classList.add('active')
+//     afficherFilter.classList.add('active')
+// })
 
 
 // Boutton Text
@@ -60,6 +61,7 @@ couper.addEventListener('click', ()=>{
     })
     couper.classList.add('active')
     afficherCoupure.classList.add('active')
+    titre.textContent = 'Couper Vidéo'
 })
 
 
@@ -80,6 +82,7 @@ rogner.addEventListener('click', ()=>{
     })
     rogner.classList.add('active')
     afficherRogne.classList.add('active')
+    titre.textContent = 'Vidéo en Gif'
 })
 
 

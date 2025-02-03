@@ -1,15 +1,16 @@
-const fileInputVideo = document.getElementById('lebutton'); // button video (snkr use)
+const fileInputVideo = document.getElementById('lebutton'); 
+// button video (snkr use)
 
 const canvas = document.getElementById('canvas');  //conteneur video (snkr use)
 
 
 const canvasContext = canvas.getContext('2d');
-const brightness = document.getElementById('brightness');
-const saturation = document.getElementById('saturation');
-const inversion = document.getElementById('inversion');
-const contraste = document.getElementById('contraste');
-const noirEtBlanc = document.getElementById('noirblanc');
-const sapia = document.getElementById('sapia');
+// const brightness = document.getElementById('brightness');
+// const saturation = document.getElementById('saturation');
+// const inversion = document.getElementById('inversion');
+// const contraste = document.getElementById('contraste');
+// const noirEtBlanc = document.getElementById('noirblanc');
+// const sapia = document.getElementById('sapia');
 
 
 //pour snkr (snkr use)
@@ -23,14 +24,14 @@ let videoDuration = 0; // Variable pour stocker la durée totale de la vidéo
 
 
 
-let setting = {
-    brightness: 100,saturation:100,contraste:100,inversion:0,noirEtBlanc:0,sapia: 0
-}
+// let setting = {
+//     brightness: 100,saturation:100,contraste:100,inversion:0,noirEtBlanc:0,sapia: 0
+// }
 
 const videoElement = document.createElement('video'); //video
 videoElement.autoplay = true
 canvas.appendChild(videoElement)
-console.log(canvas)
+// console.log(canvas)
 
 fileInputVideo.addEventListener("change", function () {
     const file = fileInputVideo.files[0];
@@ -44,6 +45,7 @@ fileInputVideo.addEventListener("change", function () {
             endTimeRange.max = Math.floor(videoDuration);
             endTimeRange.value = Math.floor(videoDuration)
             document.getElementById('endTimegif').max = Math.floor(videoDuration);
+            document.getElementById('endTimegif').value = Math.floor(videoDuration);
             endTimeValue.textContent = Math.floor(videoDuration);
             videoElement.controls = true
 
@@ -61,55 +63,55 @@ function afficherVideo() {
     canvasContext.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
     // Appliquer les filtres CSS avec les valeurs des sliders
-    canvasContext.filter = `
-        brightness(${setting.brightness}%)
-        saturate(${setting.saturation}%)
-        contrast(${setting.contraste}%)
-        invert(${setting.inversion}%)
-        grayscale(${setting.noirEtBlanc}%)
-        sepia(${setting.sapia}%)
-    `;
+    // canvasContext.filter = `
+    //     brightness(${setting.brightness}%)
+    //     saturate(${setting.saturation}%)
+    //     contrast(${setting.contraste}%)
+    //     invert(${setting.inversion}%)
+    //     grayscale(${setting.noirEtBlanc}%)
+    //     sepia(${setting.sapia}%)
+    // `;
 
     // Redessiner la vidéo en boucle
     requestAnimationFrame(afficherVideo);
 }
 
 // Exemple d'ajout d'événements sur les sliders pour ajuster les effets en temps réel
-brightness.addEventListener('input', (e) => {
-    setting.brightness = e.target.value;
-});
+// brightness.addEventListener('input', (e) => {
+//     setting.brightness = e.target.value;
+// });
 
-saturation.addEventListener('input', (e) => {
-    setting.saturation = e.target.value;
-});
+// saturation.addEventListener('input', (e) => {
+//     setting.saturation = e.target.value;
+// });
 
-inversion.addEventListener('input', (e) => {
-    setting.inversion = e.target.value;
-});
+// inversion.addEventListener('input', (e) => {
+//     setting.inversion = e.target.value;
+// });
 
-contraste.addEventListener('input', (e) => {
-    setting.contraste = e.target.value;
-});
+// contraste.addEventListener('input', (e) => {
+//     setting.contraste = e.target.value;
+// });
 
-noirEtBlanc.addEventListener('input', (e) => {
-    setting.noirEtBlanc = e.target.value;
-});
+// noirEtBlanc.addEventListener('input', (e) => {
+//     setting.noirEtBlanc = e.target.value;
+// });
 
-sapia.addEventListener('input', (e) => {
-    setting.sapia = e.target.value;
-});
+// sapia.addEventListener('input', (e) => {
+//     setting.sapia = e.target.value;
+// });
 
 // le telechargement du video
-const btnTelecharger = document.querySelector('.button-export')
+// const btnTelecharger = document.querySelector('.button-export')
 
-function telechargerVideo() {
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL();
-    a.download = 'video.mp4';
-    a.click();
-}
+// function telechargerVideo() {
+//     const a = document.createElement('a');
+//     a.href = canvas.toDataURL();
+//     a.download = 'video.mp4';
+//     a.click();
+// }
 
-btnTelecharger.addEventListener('click', telechargerVideo)
+// btnTelecharger.addEventListener('click', telechargerVideo)
 
 
 
@@ -219,7 +221,7 @@ document.getElementById('monExport').addEventListener('click', function () {
             document.getElementById('downloadLinkContainer').style.display = 'block';
             document.getElementById('downloadLinkContainer').style.backgroundColor = 'white';
             downloadLink.style.color = '#061039'
-            document.getElementById('exportButton').innerText = 'Cliquer sur Exporter'
+            document.getElementById('monExport').innerText = 'Cliquer sur Exporter'
         } else {
             alert('Erreur lors de la création du GIF.');
         }
