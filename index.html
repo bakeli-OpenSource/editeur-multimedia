@@ -14,8 +14,8 @@
         <h2>Pixel Innovant</h2>
       </div>
       <div class="buttons">
-        <button>Inscription</button>
-        <button>Connexion</button>
+        <button onclick="inscription()">Inscription</button>
+        <button onclick="connexion()">Connexion</button>
       </div>
     </header>
 
@@ -71,6 +71,16 @@
     <footer>
       <p>2025 Pixel Innovant. Tous droits réservés.</p>
     </footer>
+
+    <script>
+      function inscription(){
+        window.location.href = "/formulaires/register.html"
+      }
+
+      function connexion(){
+        window.location.href="/formulaires/login.html"
+      }
+    </script>
   </body>
 </html>
 
