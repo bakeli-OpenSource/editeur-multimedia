@@ -24,23 +24,23 @@ filter.addEventListener('click', ()=>{
 
 
 // Boutton Text
-const duTexte = document.getElementById('texte')
-const afficherText = document.querySelector('.zoneText')
+// const duTexte = document.getElementById('texte')
+// const afficherText = document.querySelector('.zoneText')
 
-duTexte.addEventListener('click', ()=>{
-    allSide.forEach((n) => {
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    affichageAll.forEach((n)=>{
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    duTexte.classList.add('active')
-    afficherText.classList.add('active')
-})
+// duTexte.addEventListener('click', ()=>{
+//     allSide.forEach((n) => {
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     affichageAll.forEach((n)=>{
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     duTexte.classList.add('active')
+//     afficherText.classList.add('active')
+// })
 
 
 // Boutton Couper
@@ -84,21 +84,21 @@ rogner.addEventListener('click', ()=>{
 
 
 // Boutton dessin
-const dessin = document.getElementById('dessin')
-const afficherDessin = document.querySelector('.dessiner')
+// const dessin = document.getElementById('dessin')
+// const afficherDessin = document.querySelector('.dessiner')
 
-dessin.addEventListener('click', ()=>{
-    allSide.forEach((n) => {
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    affichageAll.forEach((n)=>{
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    dessin.classList.add('active')
-    afficherDessin.classList.add('active')
-})
+// dessin.addEventListener('click', ()=>{
+//     allSide.forEach((n) => {
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     affichageAll.forEach((n)=>{
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     dessin.classList.add('active')
+//     afficherDessin.classList.add('active')
+// })
 

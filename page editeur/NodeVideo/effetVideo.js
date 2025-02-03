@@ -42,6 +42,8 @@ fileInputVideo.addEventListener("change", function () {
             //Pour snkr (snkr use)
             videoDuration = videoElement.duration
             endTimeRange.max = Math.floor(videoDuration);
+            endTimeRange.value = Math.floor(videoDuration)
+            document.getElementById('endTimegif').max = Math.floor(videoDuration);
             endTimeValue.textContent = Math.floor(videoDuration);
             videoElement.controls = true
 
@@ -119,6 +121,10 @@ startTimeRange.addEventListener('input', () => {
 
 // Afficher la valeur du temps de fin en temps réel
 endTimeRange.addEventListener('input', () => {
+    // S'assurer que le temps de fin ne soit pas inférieur au temps de début
+    if (parseInt(endTimeRange.value) <= parseInt(startTimeRange.value)) {
+        startTimeRange.value = endTimeRange.value - 1; // Ajuster le temps de début si nécessaire
+    }
     endTimeValue.textContent = endTimeRange.value;
 });
 
@@ -156,7 +162,7 @@ document.getElementById('exportButton').addEventListener('click', function() {
             downloadLink.href = data.clipUrl;
             document.getElementById('downloadLinkContainer').style.backgroundColor = 'white';
             downloadLink.style.color = '#061039'
-            document.getElementById('exportButton').innerText = 'Cliquez su Exporter'
+            document.getElementById('exportButton').innerText = 'Cliquez sur Exporter'
             document.getElementById('exportButton').style.opacity = 1
 
         } else {
@@ -166,5 +172,60 @@ document.getElementById('exportButton').addEventListener('click', function() {
     .catch(error => {
         console.error('Erreur:', error);
         alert('Une erreur s\'est produite.');
+    });
+});
+
+
+// Mise à jour des intervalles pour le GIF
+const startTimegif = document.getElementById('startTimegif');
+const startTimer = document.getElementById('startTimer');
+const endTimegif = document.getElementById('endTimegif');
+const endTimer = document.getElementById('endTimer');
+
+// Affichage des valeurs des intervalles du GIF
+startTimegif.addEventListener('input', () => { startTimer.textContent = startTimegif.value; });
+endTimegif.addEventListener('input', () => { endTimer.textContent = endTimegif.value; });
+
+
+document.getElementById('monExport').addEventListener('click', function () {
+    const startTime = startTimegif.value;
+    const endTime = endTimegif.value;
+
+    if (fileInputVideo.files.length === 0) {
+        alert('Veuillez sélectionner une vidéo.');
+        return;
+    }
+
+    if (parseInt(endTime) <= parseInt(startTime)) {
+        alert('Le temps de fin doit être supérieur au temps de début.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('video', fileInputVideo.files[0]);
+    formData.append('startTime', startTime);
+    formData.append('endTime', endTime);
+    formData.append('isGif', 'true');  // Indiquer que c'est un GIF
+
+    fetch('/create-gif', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const downloadLink = document.getElementById('downloadLink');
+            downloadLink.href = data.url;
+            document.getElementById('downloadLinkContainer').style.display = 'block';
+            document.getElementById('downloadLinkContainer').style.backgroundColor = 'white';
+            downloadLink.style.color = '#061039'
+            document.getElementById('exportButton').innerText = 'Cliquer sur Exporter'
+        } else {
+            alert('Erreur lors de la création du GIF.');
+        }
+    })
+    .catch(error => {
+        console.error('Erreur:', error);
+        alert('Une erreur est survenue.');
     });
 });
