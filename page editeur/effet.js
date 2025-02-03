@@ -304,3 +304,13 @@ const effacer = document.getElementById("effacer")
 effacer.addEventListener("click",()=>{
     instanceDessin.erase()
 })
+
+const palette = document.querySelectorAll("#palette div")
+console.log(palette);
+palette.forEach(element=>{
+    element.addEventListener("click",()=>{
+        element.dataset.color
+        element.style.backgroundColor = color
+        
+    })
+})
