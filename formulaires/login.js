@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword , sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 // Your web app's Firebase configuration 
 const firebaseConfig = {
@@ -47,7 +47,7 @@ signIn.addEventListener('click' , (event)=>{
 
   signInWithEmailAndPassword(auth, email,password)
   .then((userCredential) =>{
-    showMessage('login is successful' , 'signInMessage');
+    showMessage('Connexion réussie' , 'signInMessage');
     const user = userCredential.user;
     localStorage.setItem('loggedInUserId' , user.uid);
     window.location.href="../page d'accueil/accueil.html"
@@ -55,10 +55,27 @@ signIn.addEventListener('click' , (event)=>{
   .catch((error)=>{
     const errorCode = error.code;
     if(errorCode==='auth/invalid-credential'){
-      showMessage('Incorrect Email or Password' , 'signInMessage')
+      showMessage('Email ou mot de passe incorrect' , 'signInMessage')
     }
     else{
-      showMessage('Account does not Exist', 'signInMessage')
+      showMessage("Le compte n'existe pas", 'signInMessage')
     }
   })
 })
+
+// Mot de passe oublier
+const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+forgotPasswordLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  const email = document.getElementById('email').value;
+  const auth = getAuth();
+
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      showMessage('Un email de réinitialisation de mot de passe a été envoyé à votre adresse.', 'signInMessage');
+    })
+    .catch((error) => {
+      showMessage('Erreur lors de l\'envoi de l\'email de réinitialisation.', 'signInMessage');
+      console.error(error);
+    });
+});

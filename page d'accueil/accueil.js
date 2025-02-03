@@ -97,4 +97,3 @@ let trans = () => {
   }, 1000);
 };
 
-console.log("hello")
