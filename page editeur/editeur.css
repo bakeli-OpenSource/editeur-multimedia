@@ -209,7 +209,7 @@ body{
     width: 100%;
     height: 100%;
     max-height: 58vh;
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -274,7 +274,6 @@ body{
 .couleurDessin{
     display: flex;
     flex-direction: column;
-    gap: 50px;
 }
 .modification .zoneText .toolbar-item{
     margin-top: 10px;
@@ -445,22 +444,40 @@ canvas {
     border-radius: 10px;
 }
 
-.btnDessiner{
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    line-height: 3;
+.outils_dessin{
+    padding-top: 30px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+     justify-content: center;
+     gap: 10px;
 }
-.btnDessiner button{
-    padding: 5px;
-    border-radius: 20px;
-    width: 100%;
-    margin: auto;
-    color: #102D9F;
-    font-size: 20px;
-    font-weight: 600;
+#palette{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#outils{
+    display: flex;
+    gap: 5px;
+    justify-content: center;align-items: center;
+}
+#palette div, #outils div {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #fff;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
 }
 
+#outils > div{
+    background-color: #102D9F;
+}
+
+/* media querie */
 @media (max-width: 650px){
     .barre .titre{
         font-size: 1.2rem;

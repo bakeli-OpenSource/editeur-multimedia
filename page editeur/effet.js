@@ -17,164 +17,6 @@ let setting = {
 
 // **************************Dessiner sur les image
 
-const colorPiker = document.getElementById("color")
-const taillePiker = document.getElementById("taille")
-
-// function activerDessin(){
-//     let isDrawing= false
-   
-
-//     // function pour commencer le dessin
-//     function start(e){
-//         isDrawing =true
-//         canvasContext.beginPath()
-//         canvasContext.moveTo(e.clientX - canvas.offsetX, 
-//             e.clientY - canvas.offsetY)
-//             console.log(e);
-            
-//             e.preventDefault()
-//     }
-
-//     // function commencerDessin(e){
-//     //     isDrawing= true
-//     //     canvasContext.beginPath()
-//     //     canvasContext.moveTo(e.clientX - canvas.offsetLeft, 
-//     //         e.clientY - canvas.offsetTop)
-
-//     //         e.preventDefault()
-//     // }
-
-//     // dessiner
-//     function draw(e){
-//         if(isDrawing){
-//             canvasContext.lineTo(e.clientX - canvas.offsetLeft, 
-//                                  e.clientY - canvas.offsetTop)
-//                 canvasContext.strokeStyle = colorPiker
-//                 canvasContext.lineCap = 'round'
-//                 canvasContext.lineJoin = 'round'
-//                 canvasContext.stroke()
-//         }
-//     }
-    
-//     // function dessiner(e){
-//     //   if(isDrawing) {
-//     //       canvasContext.lineTo(e.clientX - canvas.offsetLeft, 
-//     //                           e.clientY - canvas.offsetTop)
-//     //         canvasContext.strokeStyle = colorPiker
-//     //         canvasContext.lineCap ='round'
-//     //         canvasContext.lineJoin ='round'
-//     //       canvasContext.stroke()
-//     //   }
-
-//     // }
-
-//     // arreter le dessin
-//     function stop(e){
-//         if(isDrawing){
-//             canvasContext.stroke()
-//             canvasContext.closePath()
-//             isDrawing = false
-//         }
-//         e.preventDefault()
-    
-//         // if(e.type != mouseout){
-//         //     storeArray.push(canvasContext.getImageData(0,0,canvas.width,canvas.height))
-//         //     index +=1
-//         //     console.log(storeArray);
-//         // }
-        
-//     }
-  
-
-//     // les ecouteurs d'evennement
-//     canvas.addEventListener('mousedown', start)
-//     canvas.addEventListener('touchstart', start,{passive: false})
-//     canvas.addEventListener('touchmove', draw,{passive: false})
-//     canvas.addEventListener('touchend', stop,{passive: false})
-//     canvas.addEventListener("mousemove",draw)
-//     canvas.addEventListener("mouseup",stop)
-//     canvas.addEventListener("mouseout",stop)
-//     canvas.addEventListener("mouseleave",stop)
-// }
-
-
-// picker le couleur pour dessiner
-function activerDessin() {
-    let isDrawing = false;
-
-    // Fonction pour commencer le dessin
-    function start(e) {
-        isDrawing = true;
-        canvasContext.beginPath();
-        
-        // Utiliser offsetX et offsetY pour les coordonnées de la souris
-        const x = e.offsetX || e.touches[0].clientX - canvas.offsetLeft;
-        const y = e.offsetY || e.touches[0].clientY - canvas.offsetTop;
-        
-        canvasContext.moveTo(x, y);
-        e.preventDefault();
-    }
-
-    // Fonction pour dessiner
-    function draw(e) {
-        if (isDrawing) {
-            // Utiliser offsetX et offsetY pour les coordonnées de la souris
-            const x = e.offsetX || e.touches[0].clientX - canvas.offsetLeft;
-            const y = e.offsetY || e.touches[0].clientY - canvas.offsetTop;
-            
-            canvasContext.lineTo(x, y);
-            canvasContext.strokeStyle = colorPiker;
-            canvasContext.lineWidth = 5; // Épaisseur du trait
-            canvasContext.lineCap = 'round';
-            canvasContext.lineJoin = 'round';
-            canvasContext.stroke();
-        }
-        e.preventDefault();
-    }
-
-    // Fonction pour arrêter le dessin
-    function stop(e) {
-        if (isDrawing) {
-            canvasContext.stroke();
-            canvasContext.closePath();
-            isDrawing = false;
-        }
-        e.preventDefault();
-    }
-
-    // Écouteurs d'événements
-    canvas.addEventListener('mousedown', start);
-    canvas.addEventListener('touchstart', start, { passive: false });
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('touchmove', draw, { passive: false });
-    canvas.addEventListener('mouseup', stop);
-    canvas.addEventListener('touchend', stop, { passive: false });
-    canvas.addEventListener('mouseout', stop);
-    canvas.addEventListener('mouseleave', stop);
-}
-colorPiker.addEventListener("input",()=>{
-    canvasContext.strokeStyle = colorPiker.value
-})
-
-// ajuster la taille de la ligne de dessin
-taillePiker.addEventListener("input",()=>{
-    canvasContext.lineWidth = taillePiker.value
-})
-
-// button pour activer le dessin
-const btnDessin = document.querySelector("#dessiner")
-btnDessin.addEventListener("click", activerDessin)
-
-let atokeArray=[]
-let index = -1
-// gommer 
-const btnGommer = document.getElementById("gomme")
-btnGommer.addEventListener("click",()=>{
-    canvasContext.clearRect(0,0,canvas.width,canvas.height)
-    canvasContext.fillRect(0,0,canvas.width,canvas.height)
-    storeArray = []
-    index = -1
-})
 
 
 
@@ -353,3 +195,112 @@ cropButton.addEventListener("click", () => {
   }
 });
 }
+
+
+// ********************************************parties dessiner **************************************************
+
+   
+class Dessin {
+    constructor(canvas) {
+        this.draw = false;
+        this.isDrawingMode = false
+        this.prevX = 0;
+        this.prevY = 0;
+        this.canvas = canvas; 
+        this.ctx = canvasContext;
+        this.ctx.strokeStyle = 'black';
+        this.ctx.lineWidth = 2;
+  
+        this.canvas.addEventListener('mousedown', (e) => {
+            if(this.isDrawingMode){
+                this.draw = true;
+                this.prevX = this.getMouseX(e);
+                this.prevY = this.getMouseY(e);
+            }
+        });
+  
+        this.canvas.addEventListener('mousemove', (e) => {
+            if (this.draw) {
+                const currX = this.getMouseX(e);
+                const currY = this.getMouseY(e);
+                this.dessine(this.prevX, this.prevY, currX, currY);
+                this.prevX = currX;
+                this.prevY = currY;
+            }
+        });
+  
+        this.canvas.addEventListener('mouseup', () => this.draw = false);
+        this.canvas.addEventListener('mouseout', () => this.draw = false);
+    }
+  
+    getMouseX(e) {
+        return (e.clientX - this.canvas.offsetLeft) * this.canvas.width / this.canvas.clientWidth;
+    }
+  
+    getMouseY(e) {
+        return (e.clientY - this.canvas.offsetTop) * this.canvas.height / this.canvas.clientHeight;
+    }
+  
+    dessine(depX, depY, destX, destY) {
+        this.ctx.beginPath();
+        this.ctx.moveTo(depX, depY);
+        this.ctx.lineTo(destX, destY);
+        this.ctx.closePath();
+        this.ctx.stroke();
+    }
+  
+    setColor(color) {
+        this.ctx.strokeStyle = color.value;
+    }
+  
+    biggerStroke() {
+        this.ctx.lineWidth++;
+    }
+  
+    smallerStroke() {
+        this.ctx.lineWidth = Math.max(1, this.ctx.lineWidth - 1); 
+    }
+  
+    erase() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+
+    // methode pour activer le dessin
+    activerDessin(){
+        this.isDrawingMode =!this.isDrawingMode
+        return this.isDrawingMode
+    }
+  }
+
+//   instanciation
+const instanceDessin = new Dessin(canvas)
+
+// boutton pour activer le dessin
+dessin.addEventListener("click", ()=>{
+    instanceDessin.activerDessin()
+})
+
+// changer la couleur du trait
+const colorPiker = document.getElementById("color")
+console.log(colorPiker);
+
+colorPiker.addEventListener("click",()=>{
+    instanceDessin.setColor(colorPiker)
+})
+
+// augmenter l'epaisseur du trait
+const bigger = document.getElementById("plus")
+bigger.addEventListener("click",()=>{
+    instanceDessin.biggerStroke()
+})
+
+// diminuer l'epaisseur du trait
+const smaller = document.getElementById("moins")
+smaller.addEventListener("click",()=>{
+    instanceDessin.smallerStroke()
+})
+
+const effacer = document.getElementById("effacer")
+effacer.addEventListener("click",()=>{
+    instanceDessin.erase()
+})

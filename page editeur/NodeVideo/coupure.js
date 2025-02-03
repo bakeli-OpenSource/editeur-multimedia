@@ -59,6 +59,35 @@ app.post('/upload', upload.single('video'), (req, res) => {
         .run();
 });
 
+
+app.post('/create-gif', upload.single('video'), (req, res) => {
+    const inputVideoPath = req.file.path;
+    const startTime = parseInt(req.body.startTime) || 0;
+    const endTime = parseInt(req.body.endTime) || 5;
+    const duration = endTime - startTime;
+
+    if (duration <= 0) {
+        return res.json({ success: false, message: 'Le temps de fin doit être supérieur au temps de début.' });
+    }
+
+    const outputPath = `uploads/output-${Date.now()}.gif`;
+
+    ffmpeg(inputVideoPath)
+        .setStartTime(startTime)
+        .setDuration(duration)
+        .output(outputPath)
+        .outputOptions(['-vf', 'fps=10,scale=320:-1:flags=lanczos'])
+        .on('end', () => {
+            res.json({ success: true, url: `/${outputPath}` });
+        })
+        .on('error', (err) => {
+            console.error('Erreur FFmpeg:', err);
+            res.json({ success: false });
+        })
+        .run();
+});
+
+
 // Lancer le serveur
 app.listen(port, () => {
     console.log(`Serveur démarré sur http://localhost:${port}`);
