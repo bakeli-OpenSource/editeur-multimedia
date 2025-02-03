@@ -58,6 +58,8 @@ const db=getFirestore();
         console.error('Error Signing out:', error);
     })
   })
+
+  
 // Sélectionner la case à cocher
 var checkbox = document.querySelector("input[name=mode]");
 
@@ -90,3 +92,6 @@ let trans = () => {
     document.documentElement.classList.remove("transition");
   }, 1000);
 };
+
+
+console.log("cc");
