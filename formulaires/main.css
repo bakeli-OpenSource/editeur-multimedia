@@ -153,6 +153,17 @@ button:hover{
     animation: fadeOut 7s forwards;
 }
 
+.forget {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.forget a{
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+}
+
 
 /* responsive */
 @media screen and (max-width: 968px) {
