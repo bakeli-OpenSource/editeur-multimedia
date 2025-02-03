@@ -60,7 +60,6 @@ html {
       color: var(--lightColor);
     }
     .user-Zone {
-      
       display: flex;
       justify-content: center;
       align-items: center;
@@ -98,15 +97,17 @@ html {
       }
     }
     section {
+      /* border: 1px solid red; */
+      margin-top: 40px;
       padding: 20px 30px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      max-height: 75vh; /* Hauteur maximale avant le scroll */
+      max-height: 70vh; /* Hauteur maximale avant le scroll */
       overflow-y: auto; /* Active le scroll vertical */
       .card {
         color: #fff;
-        /* padding: 1rem; */
+        padding: 4rem 7rem;
         padding-bottom: 2px;
         font-size: 2rem;
         flex-grow: 1;
@@ -114,15 +115,19 @@ html {
         border-radius: 10px;
         /* position: relative; */
         div {
-          background: #000;
+          /* background: #000; */
           padding: 24px 7px;
           border-radius: 0px 0px 10px 10px;
-          display: flex;
+          /* display: flex; */
           justify-content: space-between;
           align-items: center;
           position: relative;
+          .icon {
+            display: flex;
+            margin: auto;
+          }
           div {
-            position: absolute;
+            /* position: absolute; */
             bottom: 40px;
             height: 57px;
             width: 50px;
@@ -134,14 +139,14 @@ html {
           font-weight: 700;
         }
         p {
-          font-size: 10px;
+          font-size: 16px;
         }
-        img {
+        /* img {
           height: 80%;
           width: 100%;
           object-fit: cover;
           border-radius: 10px 10px 0px 0px;
-        }
+        } */
         .add {
           position: relative;
           top: 6px;
@@ -171,7 +176,7 @@ html {
   bottom: 50px;
   right: 0;
   cursor: pointer;
-  margin: 10px ;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -182,7 +187,7 @@ html {
 
 /*--------------- themes changes start --------------- */
 html[data-theme="dark"] {
-  background: linear-gradient(#061039 0%, #21d4fd 72%);
+  background: #061039;
 
   --lightBtn: #555;
   --lightBg: #232323;
@@ -241,11 +246,12 @@ html.transition *:after {
 }
 /*--------------- themes changes end --------------- */
 /*------------------ copyrights ------------------*/
-.copyrights{
+.copyrights {
   display: flex;
   justify-content: center;
-  background: var(--lightBg);
-  color: var(--lightColor);
+  /* background: var(--lightBtn); */
+  background: #000;
+  color: #fff;
   padding: 15px;
   margin-top: 2px;
 }
