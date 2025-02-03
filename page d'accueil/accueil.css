@@ -52,7 +52,7 @@ html {
   main {
     /* background: #000; */
 
-    height: 93vh;
+    /* height: 90vh; */
     width: 100%;
     .head,
     .nav-Right,
@@ -61,9 +61,10 @@ html {
       justify-content: space-between;
       align-items: center;
     }
-    .theme {
-      margin-right: 20px;
+    label {
+      margin: 0px 20px;
     }
+
     h1 {
       margin: 20px 30px;
       color: var(--lightColor);
@@ -74,10 +75,12 @@ html {
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-right: 20px;
+      /* margin-right: 20px; */
       /* ---------------------- */
       .user-complete-name {
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         color: var(--lightColor);
         transition: all 0s !important;
         font-size: 12px;
@@ -106,18 +109,16 @@ html {
       }
     }
     section {
-      /* border: 1px solid red; */
-      margin-top: 40px;
-      padding: 20px 30px;
+      /* margin-top: 40px; */
+      padding: 45px 2px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      max-height: 70vh; /* Hauteur maximale avant le scroll */
+      max-height: 85vh; /* Hauteur maximale avant le scroll */
       overflow-y: auto; /* Active le scroll vertical */
       .card {
         color: #fff;
-        padding: 4rem 7rem;
-        padding-bottom: 2px;
+        padding: 3rem 7rem;
         font-size: 2rem;
         flex-grow: 1;
         text-align: center;
@@ -130,7 +131,7 @@ html {
           /* display: flex; */
           justify-content: space-between;
           align-items: center;
-          position: relative;
+          /* position: relative; */
           .icon {
             display: flex;
             margin: auto;
@@ -144,8 +145,8 @@ html {
           }
         }
         .cardTitle {
-          font-size: 15px;
-          font-weight: 700;
+          font-size: 19px;
+          font-weight: 900;
         }
         p {
           font-size: 16px;
@@ -182,7 +183,8 @@ html {
 }
 #logoutBtn {
   position: absolute;
-  bottom: 50px;
+  bottom: 5px;
+  z-index: 1;
   right: 0;
   cursor: pointer;
   margin: 10px;
@@ -262,20 +264,42 @@ html.transition *:after {
   background: #000;
   color: #fff;
   padding: 15px;
-  margin-top: 2px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
 }
 /*------------------ copyrights end------------------*/
-@media screen and (max-width: 871px) {
-  .card img {
-    height: 150px !important;
+@media screen and (max-width: 511px) {
+  #logoutBtn {
+    position: fixed;
+    right: 30px;
+    bottom: 4px;
+    p {
+      display: none;
+    }
+  }
+  section {
+    padding: 0;
   }
 }
-@media screen and (max-width: 428px) {
-  .container {
-    height: auto;
+@media screen and (max-width: 380px) {
+  section {
+    height: 75vh;
   }
-  aside {
-    width: 95px !important;
-    padding: 20px 5px !important ;
+  .theme {
+    position: absolute;
+    bottom: 5px;
+    z-index: 1;
+    left: 1px;
+  }
+  .user-Zone {
+    margin: 0;
+  }
+  .copyrights {
+    font-size: 10px;
+  }
+  .card {
+    flex-grow: 0;
   }
 }
