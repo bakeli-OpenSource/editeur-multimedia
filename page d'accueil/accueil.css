@@ -61,7 +61,7 @@ html {
       justify-content: space-between;
       align-items: center;
     }
-    label {
+    .label {
       margin: 0px 20px;
     }
 
@@ -209,7 +209,7 @@ input[type="checkbox"] {
   width: 0;
   visibility: hidden;
 }
-label {
+.label {
   cursor: pointer;
   text-indent: -9999px;
   width: 55px;
@@ -224,7 +224,7 @@ label {
   border-radius: 100px;
   position: relative;
 }
-label:after {
+.label:after {
   content: "";
   background: var(--lightBg);
   width: 20px;
@@ -237,10 +237,10 @@ label:after {
   left: 4px;
   transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
 }
-input:checked + label {
+input:checked + .label {
   background: var(--lightColor);
 }
-input:checked + label:after {
+input:checked + .label:after {
   left: calc(100% - 5px);
   -webkit-transform: translateX(-100%);
   -moz-transform: translateX(-100%);
@@ -269,6 +269,27 @@ html.transition *:after {
   width: 100%;
   bottom: 0;
 }
+
+/* Profil  */
+.profil input{
+  display: none;
+}
+
+.profil .dot {
+  display: flex;
+  justify-content: center;
+  background: #b721ff;
+  color: white;
+  font-size: 12px;
+  /* padding: 6px 6px; */
+  width: 15px;
+  border-radius: 50%;
+  /* border: 4px solid var(--lightBg); */
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0;
+}
+
 /*------------------ copyrights end------------------*/
 @media screen and (max-width: 511px) {
   #logoutBtn {
