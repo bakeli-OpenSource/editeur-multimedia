@@ -1,13 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* all: unset; */
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
 }
-
-/* #canvas-img {
-   object-fit: contain;
-} */
 
 body{
     background: linear-gradient(#061039, #102D9F);
@@ -168,7 +165,7 @@ body{
     width: 100%;
     height: 90%;
     object-fit: cover;
-    padding: 10px;
+    /* padding: 10px; */
     background-color: rgba(245, 245, 245, 0.4);
     border: 1px solid rgba(245, 245, 245, 0.598);
 }
@@ -487,6 +484,11 @@ input[type="checkbox"] {
     height: 16px;
     cursor: pointer;
 }
+
+#taille{
+    margin-top: 10px;
+}
+
 @media (max-width: 650px){
     .barre .titre{
         font-size: 1.2rem;

@@ -54,6 +54,8 @@ function rechargerImage(){
     canvasContext.filter = generateFilter()
     canvasContext.drawImage(image,0,0)
     canvasContext.filter = "none"
+
+    instanceDessin.redessinerImageFiltre()
 }
 
 // appliquer les effets
@@ -73,17 +75,35 @@ function updateSetting(key,value){
 
 // appliquer les effets
 // filter
-brightness.addEventListener('input',() => updateSetting('brightness',brightness.value))
+brightness.addEventListener('input',() => {
+    updateSetting('brightness',brightness.value)
+    rechargerImage()
+})
 // saturation
-saturation.addEventListener('input',() => updateSetting('saturation',saturation.value))
+saturation.addEventListener('input',() =>{
+    updateSetting('saturation',saturation.value)
+    rechargerImage()
+})
 // inversion
-inversion.addEventListener('input',() => updateSetting('inversion',inversion.value))
+inversion.addEventListener('input',() => {
+    updateSetting('inversion',inversion.value)
+    rechargerImage()
+})
 // contrast
-contraste.addEventListener('input',() => updateSetting('contraste',contraste.value))
+contraste.addEventListener('input',() => {
+    updateSetting('contraste',contraste.value)
+    rechargerImage()
+})
 // noir et black
-noirEtBlanc.addEventListener('input',() => updateSetting('noirEtBlanc',noirEtBlanc.value))
+noirEtBlanc.addEventListener('input',() => {
+    updateSetting('noirEtBlanc',noirEtBlanc.value)
+    rechargerImage()
+})
 // sapia
-sapia.addEventListener('input',() => updateSetting('sapia',sapia.value))
+sapia.addEventListener('input',() => {
+    updateSetting('sapia',sapia.value)
+    rechargerImage()
+})
 // telecharger l'image
 const downloadBtn = document.querySelector('.button-export')
 
@@ -284,6 +304,25 @@ class Dessin {
         
     }
   
+    redessinerImageFiltre(){
+        this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
+        // Redessiner l'image avec les filtres appliqués
+        this.ctx.filter = generateFilter();
+        this.ctx.drawImage(image, 0, 0);
+        this.ctx.filter = "none";
+         // Redessiner tous les traits
+         this.lines.forEach(line => {
+            // line.forEach(point => {
+                this.ctx.strokeStyle = line.color || 'black';
+                this.ctx.lineWidth = line.width || 2;
+                this.ctx.beginPath();
+                this.ctx.moveTo(line.depX, line.depY);
+                this.ctx.lineTo(line.destX, line.destY);
+                this.ctx.closePath();
+                this.ctx.stroke();
+            // });
+        });
+    }
     setColor(color) {
         this.ctx.strokeStyle = color;
     }
@@ -297,37 +336,25 @@ class Dessin {
     }
   
     erase() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.lines=[]
+        this.redessinerImageFiltre()
     }
 
     // gerer le bouton gommer
   gommers() {
     if (this.lines.length > 0) {
         this.lines.pop(); // Supprime le dernier trait complet
+        this.redessinerImageFiltre()
     
-        // Efface le canevas
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-        // Redessine tous les traits restants
-        this.lines.forEach(trait => {
-            
-                this.ctx.strokeStyle = trait.color || 'black';
-                this.ctx.lineWidth = trait.width || 2;
-                this.ctx.beginPath();
-                this.ctx.moveTo(trait.depX, trait.depY);
-                this.ctx.lineTo(trait.destX, trait.destY);
-                this.ctx.closePath();
-                this.ctx.stroke();
-        });
-    } else {
-        console.log('Aucun trait à gommer');
-    }
+       
+    } 
 }
 
     
     // methode pour activer le dessin
     activerDessin(){
         this.isDrawingMode =!this.isDrawingMode
+        this.redessinerImageFiltre()
         return this.isDrawingMode
     }
   }
