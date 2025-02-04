@@ -193,7 +193,7 @@ html {
   justify-content: end;
   flex-wrap: wrap;
   gap: 10px;
-  color: var(--lightColor);
+  color: #fff;
 }
 
 /*--------------- themes changes start --------------- */
