@@ -145,7 +145,7 @@ button {
 }
 button:hover {
   background: #21d4fd;
-  border: 1px solid #061039;
+  border: none;
   color: #061039;
 }
 
