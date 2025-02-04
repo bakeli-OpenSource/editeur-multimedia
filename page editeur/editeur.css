@@ -148,7 +148,7 @@ body{
 }
 
 .edition-page .part-changement{
-    width: 60%;
+    width: 50%;
     border: 1px dashed rgba(245, 245, 245, 0.598);
     padding: 10px 15px;
     background-color: #06103928;
@@ -158,13 +158,10 @@ body{
     align-items: center;
 }
 
-/* #canvas{
-    all: unset !important;
-} */
 
 .part-changement #canvas{
-    /* position: relative; */
-    width: 90% !important;
+    position: relative;
+    width: 80% !important;
     margin: auto;
     height: 100% !important;
     object-fit: cover;
@@ -190,7 +187,7 @@ body{
 .edition-part .modif-part{
     background-color: #061039;
     z-index: 100;
-    width: 40%;
+    width: 50%;
     padding: 10px;
     border: 1px solid white;
 }
