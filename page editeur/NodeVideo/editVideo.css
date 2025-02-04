@@ -5,7 +5,8 @@
 }
 
 body{
-    background: linear-gradient(#061039, #102D9F);
+    /* background: linear-gradient(#061039, #102D9F); */
+    background: linear-gradient(#061039, #21d4fd);
     min-height: 100vh;
 }
 
@@ -19,10 +20,14 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #061039;
+  /* background: linear-gradient(#061039, #21d4fd); */
+    /* background-color: rgba(255, 255, 255); */
+    /* background-color: whitesmoke; */
     width: 65px;
     min-height: 100vh;
     color: whitesmoke;
+    background-color: #061039;
+    /* background: linear-gradient(#061039, ); */
     border-right: 1px solid white;
 }
 
@@ -33,6 +38,7 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background-color: #061039;
     border-bottom: 1px solid whitesmoke;
 }
 
@@ -51,7 +57,7 @@ body{
     transition: all .2s ease;
     width: 55px;
     border: 1px solid white;
-    background-color: #061039;
+    /* background-color: #061039; */
     color: white;
 }
 
@@ -153,7 +159,7 @@ body{
     display: flex;
     gap: 10px;
     height: 80vh;
-    border: 1px solid whitesmoke;
+    border: 1px solid #061039;
     padding: 10px;
 }
 
@@ -165,7 +171,7 @@ body{
 
 .edition-page .part-changement{
     width: 70%;
-    border: 1px dashed rgba(245, 245, 245, 0.598);
+    border: 1px dashed #061039;
     padding: 10px 15px;
     background-color: #06103928;
     border-radius: 10px;
@@ -181,8 +187,8 @@ body{
     z-index: 0;
     /* object-fit: cover; */
     padding: 10px;
-    background-color: rgba(245, 245, 245, 0.4);
-    border: 1px solid rgba(245, 245, 245, 0.598);
+    background-color: rgba(245, 245, 245, 0.6);
+    border: 2px solid #061039;
 }
 
 
@@ -196,8 +202,8 @@ body{
     width: 100%;
     height: 10%;
     padding: 2px;
-    border-radius: 10px;
-    background-color: rgba(245, 245, 245, 0.4);
+    /* border-radius: 10px; */
+    background-color: rgba(245, 245, 245);
 }
 
 .barreProgresse .progreesion{
@@ -206,7 +212,7 @@ body{
     border-radius: 10px;
     border: 1px solid rgba(245, 245, 245, 0.6);
     /* background-color: yellow; */
-    background-color: burlywood;
+    background-color: #061039;
     width: 100%;
     height: 100%;
 }
@@ -214,10 +220,10 @@ body{
 .barreProgresse .ledebut{
     position: absolute;
     left: 0;
-    top: -5px;
-    width: 5px;
+    top: -2px;
+    width: 2px;
     height: 100%;
-    background-color: #061039;
+    background-color: rgb(155, 1, 1);
     border-radius: 10px;
     border: 1px solid rgba(245, 245, 245, 0.6);
     z-index: 2;
@@ -226,10 +232,10 @@ body{
 .barreProgresse .lafin{
     position: absolute;
     right: 0;
-    top: -5px;
-    width: 5px;
+    top: -2px;
+    width: 2px;
     height: 100%;
-    background-color: #061039;
+    background-color: rgb(155, 1, 1);
     border-radius: 10px;
     border: 1px solid rgba(245, 245, 245, 0.6);
     z-index: 2;
@@ -241,8 +247,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     /* padding: 10px; */
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border: 1px solid rgba(245, 245, 245, 0.598);
     background-color: #061039;
     display: flex;
@@ -258,7 +264,8 @@ body{
 }
 
 .edition-part .modif-part{
-    background-color: #061039;
+    /* background-color: #061039; */
+    background: radial-gradient( #21d5fd98, #061039);
     z-index: 100;
     width: 30%;
     padding: 10px;

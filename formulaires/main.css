@@ -10,7 +10,9 @@ body {
   display: flex;
   gap: 10px;
   max-width: 100%;
-  background-color: #061039;
+  /* #061039, #21d4fd */
+  background: linear-gradient(#061039, #21d4fd)
+  /* background-color: #061039; */
 }
 
 .imag {
@@ -20,7 +22,7 @@ body {
   background-size: cover;
   object-fit: cover;
   min-height: 100vh;
-  width: 100%;
+  width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,8 +51,9 @@ h2 {
 }
 
 .forme {
-  background-color: #061039;
-  width: 70%;
+  /* background: linear-gradient(#061039, #21d4fd); */
+  /* background-color: #061039; */
+  width: 50%;
   margin: auto;
   line-height: 2.5;
 }
@@ -77,10 +80,11 @@ label {
   width: 100%;
   padding: 9px;
   border-radius: 5px;
-  height: 3rem;
+  font-size: 16px;
   outline: none;
+  color: #061039;
   border: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .Nom-prenom {
@@ -98,7 +102,8 @@ label {
   padding: 9px;
   border-radius: 5px;
   width: 100%;
-  height: 3rem;
+  font-size: 16px;
+  /* height: 3rem; */
   outline: none;
   border: none;
   margin-bottom: 10px;
@@ -116,25 +121,28 @@ label {
   color: #fff;
 }
 a {
-  text-decoration: #21d4fd;
+  /* text-decoration: #061039; */
+  text-decoration: underline;
 }
 span {
-  color: #21d4fd;
+  color: #061039;
 }
 
 button {
   padding: 9px;
   width: 100%;
-  background: #21d4fd;
+  background: #061039;
   border-radius: 5px;
   border: none;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
+  border: 1px solid #061039;
 }
 button:hover {
-  background: #fff;
-  color: gray;
+  background: #21d4fd;
+  border: 1px solid #061039;
+  color: #061039;
 }
 
 /* messageDiv */
@@ -156,7 +164,8 @@ button:hover {
 }
 .forget a {
   text-decoration: none;
-  color: white;
+  color: #061039;
+  text-decoration: underline;
   margin-top: 10px;
 }
 
