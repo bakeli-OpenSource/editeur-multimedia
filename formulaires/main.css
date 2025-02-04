@@ -1,235 +1,219 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
-body{
-    padding: 0;
-    margin: 0;
-}
-
-
-.container{
-    display: flex;
-    gap: 10px;
-    max-width: 100%;
-    background-color: #061039;
+body {
+  padding: 0;
+  margin: 0;
 }
 
-.imag{
-    background:linear-gradient(rgba(0, 0, 0, 0.413),rgba(0, 0, 0, 0.342)), url('imagForm.jpg') ,center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    min-height: 100vh; 
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container {
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+  background-color: #061039;
+}
+
+.imag {
+  background: linear-gradient(rgba(0, 0, 0, 0.413), rgba(0, 0, 0, 0.342)),
+    url("imagForm.jpg"), center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .imag > .fun {
-   text-align: center;
-    
+  text-align: center;
 }
 
-.fun h2{
-    font-size: 4rem;
-    font-weight: 900;
+.fun h2 {
+  font-size: 4rem;
+  font-weight: 900;
 }
 
-.fun p{
-    font-size: 20px;
+.fun p {
+  font-size: 20px;
 }
 
 .fun {
-    color: #fff;
-    padding: 1.5rem;
-    
+  color: #fff;
+  padding: 1.5rem;
 }
 
-h2{
-    font-size: 2.5rem;
+h2 {
+  font-size: 2.5rem;
 }
 
-.forme{
-    background-color: #061039;
-    width: 70%;
-    margin: auto;
-    line-height: 2.5;
+.forme {
+  background-color: #061039;
+  width: 70%;
+  margin: auto;
+  line-height: 2.5;
 }
 
-form{
-    padding: 0 30px;
-    margin: auto;
-    margin-top: 3rem;
-    
-    
+form {
+  padding: 0 30px;
+  margin: auto;
+  margin-top: 3rem;
 }
 
-
-h3{
-    color: #fff;
-    font-size: 2rem;
-    font-weight: bold;
+h3 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-label{
-    color: #fff;
-    margin: 10px;
+label {
+  color: #fff;
+  font-size: 16px !important;
+  /* margin-top: 10px !important; */
 }
 
-.inputItems input{
-    width: 100%;
-    padding: 9px;
-    border-radius: 20px;
-    height: 3rem;
-    outline: none;
+.inputItems input {
+  width: 100%;
+  padding: 9px;
+  border-radius: 5px;
+  height: 3rem;
+  outline: none;
+  border: none;
+  margin-bottom: 20px;
 }
 
 .Nom-prenom {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    margin: auto;
-    /* padding: 10px; */
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin: auto;
+  /* padding: 10px; */
 }
 
-.Nom-prenom div{
-    width: 100%;
+.Nom-prenom div {
+  width: 100%;
 }
-.Nom-prenom input{
-    padding: 9px;
-    border-radius: 20px;
-    width: 100%;
-    height: 3rem;
-    outline: none;
-    
-}
-
-.submit{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    
+.Nom-prenom input {
+  padding: 9px;
+  border-radius: 5px;
+  width: 100%;
+  height: 3rem;
+  outline: none;
+  border: none;
 }
 
-.connect{
-    color: #fff;
-}
-a{
-    text-decoration: #21D4FD;
-}
-span{
-    color:  #21D4FD;
-    ;
+.submit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
 }
 
-button{
-    padding: 9px;
-    width: 100%;
-    background: #21D4FD;
-    border-radius: 20px;
-    border: none;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #fff;
+.connect {
+  color: #fff;
 }
-button:hover{
-    background: #fff;
-    color: gray;
+a {
+  text-decoration: #21d4fd;
+}
+span {
+  color: #21d4fd;
 }
 
+button {
+  padding: 9px;
+  width: 100%;
+  background: #21d4fd;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+button:hover {
+  background: #fff;
+  color: gray;
+}
 
 /* messageDiv */
-.messageDiv{
-    background-color: hsl(327,90%, 28%);
-    color: white;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 5px;
-    font-size: 1rem;
-    opacity: 0;
-    animation: fadeOut 7s forwards;
+.messageDiv {
+  background-color: hsl(327, 90%, 28%);
+  color: white;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  opacity: 0;
+  animation: fadeOut 7s forwards;
 }
 
 .forget {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
-.forget a{
-    text-decoration: none;
-    color: white;
-    margin-top: 10px;
+.forget a {
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
 }
-
 
 /* responsive */
 @media screen and (max-width: 968px) {
-    .imag {
-    display: none;       
-    }
-    .container{
+  .imag {
+    display: none;
+  }
+  .container {
     width: 100%;
     margin: auto;
     min-height: 100vh;
-    }
+  }
 
-    .inputItems input{
-        width: 100%;
-    }
-    .Nom-prenom input{
-     
-        width: 100%;
-        
-    }
-    
+  .inputItems input {
+    width: 100%;
+  }
+  .Nom-prenom input {
+    width: 100%;
+  }
 }
 
-label{
-    font-size: 24px;
+label {
+  font-size: 24px;
 }
 
 @media screen and (max-width: 768px) {
-    .container{
-        min-height: 100vh;
-        width: 100%;
-    } 
-    .imag{
-        display: none;
-    }
-    .forme{
-        background-color: #061039;
-        width: 100%;
-    }
-    
-    .Nom-prenom input{
-        width: 100%;
-        border: none;
-        width: 100%;
-        height: 2.5rem;
-        
-    }
+  .container {
+    min-height: 100vh;
+    width: 100%;
+  }
+  .imag {
+    display: none;
+  }
+  .forme {
+    background-color: #061039;
+    width: 100%;
+  }
 
-    button{
-        border: none;
-    }
-    .Nom-prenom {
-        display: flex;
-        flex-direction: column;
-    }
-label{
+  .Nom-prenom input {
+    width: 100%;
+    border: none;
+    width: 100%;
+    height: 2.5rem;
+  }
+
+  button {
+    border: none;
+  }
+  .Nom-prenom {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
     font-size: 16px;
+  }
+  .inputItems input {
+    width: 100%;
+    height: 2.5rem;
+  }
 }
-    .inputItems input{
-        width: 100%;
-        height: 2.5rem;
-       
-    }
-    
-    
-}
-
-
-
