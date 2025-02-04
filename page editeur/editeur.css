@@ -430,20 +430,28 @@ body{
     margin: 0 5px;
     border-radius: 5px;
 }
-/* nafi */
+/* ---------------------------------nafi--------------------------------- */
 canvas {
     border: 1px solid #ccc;
     cursor: pointer;
   }
 
 .result{
-    margin-top: 5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+    margin-left: 7rem;
+}
+.result button{
+  margin-top: 1rem;
 }
 .tele{
     border-radius: 10px;
 }
-
+/* -------------------------------nafi exit------------------------------- */
 .outils_dessin{
     padding-top: 30px;
     color: #fff;
