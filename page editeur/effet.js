@@ -152,70 +152,91 @@ imag.onload = () => {
   ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
 };
 
-function rognerPhoto() {
-let startX, startY, endX, endY, isDragging = false;
-canvas.addEventListener("mousedown", (e) => {
-  const rect = canvas.getBoundingClientRect();
-  startX = e.clientX - rect.left;
-  startY = e.clientY - rect.top;
-  isDragging = true;
-});
+let isRognerMode = false; // Indicateur pour le mode rognage
+let startX, startY, endX, endY, isDragging = false; // Variables pour le rognage
 
-canvas.addEventListener("mousemove", (e) => {
-  if (isDragging) {
+// Fonctions pour gérer les événements de rognage
+function handleMouseDown(e) {
     const rect = canvas.getBoundingClientRect();
-    endX = e.clientX - rect.left;
-    endY = e.clientY - rect.top;
-
-    
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(startX, startY, endX - startX, endY - startY);
-  }
-});
-
-canvas.addEventListener("mouseup", () => {
-  isDragging = false;
-});
-
-    //    téleéchargement
- downloadButton.addEventListener("click", () => {
-     if (!imag) return
-  
-     const link = document.createElement("a")
-     link.download = "cropped_image.png"
-     link.href = cropCanvas.toDataURL()
-     link.click()
-   })
-
-
-cropButton.addEventListener("click", () => {
-  if (startX && startY && endX && endY) {
-    const width = endX - startX;
-    const height = endY - startY;
-
-    cropCanvas.width = width;
-    cropCanvas.height = height;
-
-    cropCtx.drawImage(
-      canvas,
-      startX,
-      startY,
-      width,
-      height,
-      0,
-      0,
-      width,
-      height
-    );
-  } else {
-    alert("Veuillez sélectionner une zone à rogner !");
-  }
-});
+    startX = e.clientX - rect.left;
+    startY = e.clientY - rect.top;
+    isDragging = true;
 }
 
+function handleMouseMove(e) {
+    if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        endX = e.clientX - rect.left;
+        endY = e.clientY - rect.top;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
+
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+    }
+}
+
+function handleMouseUp() {
+    isDragging = false;
+}
+
+function rognerPhoto() {
+    if (isRognerMode) {
+        // Désactiver le mode rognage
+        isRognerMode = false;
+        canvas.removeEventListener("mousedown", handleMouseDown);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+        canvas.removeEventListener("mouseup", handleMouseUp);
+
+        instanceDessin.redessinerImageFiltre();
+    } else {
+        isRognerMode = true;
+
+        canvas.addEventListener("mousedown", handleMouseDown);
+        canvas.addEventListener("mousemove", handleMouseMove);
+        canvas.addEventListener("mouseup", handleMouseUp);
+    }
+}
+
+ //    téleéchargement
+ downloadButton.addEventListener("click", () => {
+    if (!imag) return
+ 
+    const link = document.createElement("a")
+    link.download = "cropped_image.png"
+    link.href = cropCanvas.toDataURL()
+    link.click()
+  })
+
+console.log(cropButton);
+
+cropButton.addEventListener("click", () => {
+ if (startX && startY && endX && endY) {
+   const width = endX - startX;
+   const height = endY - startY;
+
+   cropCanvas.width = width;
+   cropCanvas.height = height;
+//    console.log('jjj');
+
+   cropCtx.drawImage(
+     canvas,
+     startX,
+     startY,
+     width,
+     height,
+     0,
+     0,
+     width,
+     height
+     
+   );
+ } else {
+   alert("Veuillez sélectionner une zone à rogner !");
+ }
+});
 
 // ********************************************parties dessiner **************************************************
 
@@ -364,6 +385,10 @@ const instanceDessin = new Dessin(canvas)
 
 // boutton pour activer le dessin
 dessin.addEventListener("click", ()=>{
+    if(isRognerMode){
+        rognerPhoto()
+    }
+
     instanceDessin.activerDessin()
 })
 
