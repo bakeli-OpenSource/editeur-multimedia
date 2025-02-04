@@ -202,6 +202,7 @@ cropButton.addEventListener("click", () => {
    
 class Dessin {
     constructor(canvas) {
+        this.currentLine = []
         this.draw = false;
         this.isDrawingMode = false
         this.prevX = 0;
@@ -210,26 +211,48 @@ class Dessin {
         this.ctx = canvasContext;
         this.ctx.strokeStyle = 'black';
         this.ctx.lineWidth = 2;
+        this.lines =[] //pour stocker les dessins 
   
         this.canvas.addEventListener('mousedown', (e) => {
             if(this.isDrawingMode){
                 this.draw = true;
                 this.prevX = this.getMouseX(e);
                 this.prevY = this.getMouseY(e);
+
+                this.currentLine[{
+                    depX: this.prevX,
+                    depY: this.prevY,
+                    color: this.ctx.strokeStyle,
+                    width: this.ctx.lineWidth
+                }]
+
             }
         });
   
         this.canvas.addEventListener('mousemove', (e) => {
-            if (this.draw) {
+            if (this.draw && this.isDrawingMode) {
                 const currX = this.getMouseX(e);
                 const currY = this.getMouseY(e);
                 this.dessine(this.prevX, this.prevY, currX, currY);
                 this.prevX = currX;
                 this.prevY = currY;
+
+                this.currentLine[{
+                    depX: this.prevX,
+                    depY: this.prevY,
+                    destX: currX,
+                    destY: currY
+                }]
             }
         });
   
-        this.canvas.addEventListener('mouseup', () => this.draw = false);
+        this.canvas.addEventListener('mouseup', () => {
+            this.draw = false;
+            if (this.currentLine.length > 0) {
+                this.lines.push(this.currentLine);  // Sauvegarde le trait complet
+            }
+        });
+
         this.canvas.addEventListener('mouseout', () => this.draw = false);
     }
   
@@ -242,15 +265,27 @@ class Dessin {
     }
   
     dessine(depX, depY, destX, destY) {
+        this.lines.push({
+          depX: depX,
+          depY: depY,
+          destX: destX,
+          destY:destY,
+          color: this.ctx.strokeStyle,
+          width: this.ctx.lineWidth
+        })
+
+        console.log(this.lines);
+        
         this.ctx.beginPath();
         this.ctx.moveTo(depX, depY);
         this.ctx.lineTo(destX, destY);
         this.ctx.closePath();
         this.ctx.stroke();
+        
     }
   
     setColor(color) {
-        this.ctx.strokeStyle = color.value;
+        this.ctx.strokeStyle = color;
     }
   
     biggerStroke() {
@@ -265,6 +300,31 @@ class Dessin {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
+    // gerer le bouton gommer
+  gommers() {
+    if (this.lines.length > 0) {
+        this.lines.pop(); // Supprime le dernier trait complet
+    
+        // Efface le canevas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+        // Redessine tous les traits restants
+        this.lines.forEach(trait => {
+            
+                this.ctx.strokeStyle = trait.color || 'black';
+                this.ctx.lineWidth = trait.width || 2;
+                this.ctx.beginPath();
+                this.ctx.moveTo(trait.depX, trait.depY);
+                this.ctx.lineTo(trait.destX, trait.destY);
+                this.ctx.closePath();
+                this.ctx.stroke();
+        });
+    } else {
+        console.log('Aucun trait à gommer');
+    }
+}
+
+    
     // methode pour activer le dessin
     activerDessin(){
         this.isDrawingMode =!this.isDrawingMode
@@ -282,10 +342,11 @@ dessin.addEventListener("click", ()=>{
 
 // changer la couleur du trait
 const colorPiker = document.getElementById("color")
-console.log(colorPiker);
-
 colorPiker.addEventListener("click",()=>{
-    instanceDessin.setColor(colorPiker)
+    const color = colorPiker.value
+    console.log(color);
+    
+    instanceDessin.setColor(color)
 })
 
 // augmenter l'epaisseur du trait
@@ -305,3 +366,22 @@ effacer.addEventListener("click",()=>{
     instanceDessin.erase()
 })
 
+const palette = document.querySelectorAll("#palette div")
+// console.log(palette);
+palette.forEach(element=>{
+    element.addEventListener("click",()=>{
+        const color= element.dataset.color
+        instanceDessin.setColor(color)
+        console.log(color);
+        
+    })
+        
+})
+
+const gommer = document.getElementById("gomme")
+
+gommer.addEventListener("click",()=>{
+    instanceDessin.gommers()
+    console.log("i am working");
+    
+})
