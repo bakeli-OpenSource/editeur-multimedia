@@ -88,6 +88,48 @@ input {
   gap: 10px;
   color: var(--lightColor);
 }
+
+label {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  width: 55px;
+  border: 1px solid white;
+  background-color: #061039;
+  color: white;
+  margin: auto;
+  position: relative;
+  top: 30px;
+}
+
+label:hover {
+  background: whitesmoke;
+  color: #061039;
+}
+
+input {
+  display: none;
+}
+
+label {
+  font-size: 25px;
+}
+#showLink a {
+  text-decoration: none !important;
+  border-radius: 5px;
+  background: #fff;
+  padding: 5px;
+  color: #061039;
+  width: fit-content;
+  margin: auto;
+  position: relative;
+  bottom: 50px;
+}
 @media (max-width: 1070px) {
   .bottom {
     display: flex;
