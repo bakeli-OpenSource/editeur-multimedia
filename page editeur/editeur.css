@@ -11,6 +11,7 @@ body{
 
 .editeur-container{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
