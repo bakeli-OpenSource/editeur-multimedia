@@ -55,8 +55,15 @@
                     <div class="part-changement">
                         <!-- le canvas -->
                         <canvas id="canvas"></canvas>
-                        <div class="play">
-                            <i class="fa-solid fa-play"></i>
+
+                        <div class="barreProgresse">
+                            <div class="ledebut" id="ledebut"></div>
+                            <div class="lafin" id="lafin"></div>
+                            <div class="progreesion" id="progression">
+                            </div>
+                            <div class="play active">
+                                <i class="fa-solid fa-pause"></i>
+                            </div>
                         </div>
                        
                     </div>
@@ -68,7 +75,7 @@
                             <h3 class="aModif">Filtre</h3>
                         </div>
                         <div class="modification">
-                            <div class="affichage filtrer">
+                            <!-- <div class="affichage filtrer">
                                 <div class="toolbar-item">
                                     <label for="brightness" class="toolbar_label">Brightness</label>
                                     <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
@@ -94,7 +101,7 @@
                                     <label for="saturation" class="toolbar_label">Saturation</label>
                                     <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="affichage zoneText">
                                 <textarea name="" id=""></textarea>
                                 <select name="" id="">
@@ -162,10 +169,10 @@
             <div class="effet">
                 <!-- Barres des effets applicables -->
                 <div class="barre-effet">
-                    <div class="side" id="filtrer"> <!-- active -->
+                    <!-- <div class="side" id="filtrer">
                         <i class="fa-solid fa-sort"></i>
                         <p>Filtre</p>
-                    </div>
+                    </div> -->
                     <!-- <div class="side" id="texte">
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>

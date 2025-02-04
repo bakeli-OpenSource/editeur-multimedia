@@ -1,15 +1,10 @@
-const fileInputVideo = document.getElementById('lebutton'); // button video (snkr use)
+const fileInputVideo = document.getElementById('lebutton'); 
+// button video (snkr use)
 
 const canvas = document.getElementById('canvas');  //conteneur video (snkr use)
 
 
 const canvasContext = canvas.getContext('2d');
-const brightness = document.getElementById('brightness');
-const saturation = document.getElementById('saturation');
-const inversion = document.getElementById('inversion');
-const contraste = document.getElementById('contraste');
-const noirEtBlanc = document.getElementById('noirblanc');
-const sapia = document.getElementById('sapia');
 
 
 //pour snkr (snkr use)
@@ -22,15 +17,24 @@ const endTimeValue = document.getElementById('endTimeValue');
 let videoDuration = 0; // Variable pour stocker la durée totale de la vidéo
 
 
+// Mise à jour des intervalles pour le GIF
+const startTimegif = document.getElementById('startTimegif');
+const startTimer = document.getElementById('startTimer');
+const endTimegif = document.getElementById('endTimegif');
+const endTimer = document.getElementById('endTimer');
 
-let setting = {
-    brightness: 100,saturation:100,contraste:100,inversion:0,noirEtBlanc:0,sapia: 0
-}
+
+let progressContainer = document.getElementById('barreProgresse')
+let progressInterne = document.getElementById('progression')
+let ledebut = document.getElementById('ledebut')
+let lafin = document.getElementById('lafin')
+
+const play = document.querySelector('.fa-pause')
 
 const videoElement = document.createElement('video'); //video
 videoElement.autoplay = true
 canvas.appendChild(videoElement)
-console.log(canvas)
+// console.log(canvas)
 
 fileInputVideo.addEventListener("change", function () {
     const file = fileInputVideo.files[0];
@@ -42,91 +46,90 @@ fileInputVideo.addEventListener("change", function () {
             //Pour snkr (snkr use)
             videoDuration = videoElement.duration
             endTimeRange.max = Math.floor(videoDuration);
+            startTimeRange.max = Math.floor(videoDuration)
+            startTimegif.max = Math.floor(videoDuration)
             endTimeRange.value = Math.floor(videoDuration)
             document.getElementById('endTimegif').max = Math.floor(videoDuration);
+            document.getElementById('endTimegif').value = Math.floor(videoDuration);
             endTimeValue.textContent = Math.floor(videoDuration);
             videoElement.controls = true
 
+            play.addEventListener('click', () => {
+                if(videoElement.autoplay == true){
+                    play.classList.replace('fa-pause','fa-play')
+                    videoElement.autoplay = false
+                    videoElement.pause()
+                }else{
+                    play.classList.replace('fa-play', 'fa-pause')
+                    videoElement.autoplay = true
+                    videoElement.play()
+                }
+            })
 
             // Ajuster la taille du canvas à la vidéo
             canvas.width = videoElement.videoWidth;
             canvas.height = videoElement.videoHeight;
             afficherVideo();
         });
+
+        videoElement.addEventListener('timeupdate', () => {
+
+            let progres = (videoElement.currentTime / videoElement.duration) * 100;
+            progressInterne.style.width = progres + '%';
+
+        });
     }
 });
+
 
 // Fonction pour afficher la vidéo dans le canvas
 function afficherVideo() {
     canvasContext.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
 
-    // Appliquer les filtres CSS avec les valeurs des sliders
-    canvasContext.filter = `
-        brightness(${setting.brightness}%)
-        saturate(${setting.saturation}%)
-        contrast(${setting.contraste}%)
-        invert(${setting.inversion}%)
-        grayscale(${setting.noirEtBlanc}%)
-        sepia(${setting.sapia}%)
-    `;
-
     // Redessiner la vidéo en boucle
     requestAnimationFrame(afficherVideo);
 }
 
-// Exemple d'ajout d'événements sur les sliders pour ajuster les effets en temps réel
-brightness.addEventListener('input', (e) => {
-    setting.brightness = e.target.value;
-});
-
-saturation.addEventListener('input', (e) => {
-    setting.saturation = e.target.value;
-});
-
-inversion.addEventListener('input', (e) => {
-    setting.inversion = e.target.value;
-});
-
-contraste.addEventListener('input', (e) => {
-    setting.contraste = e.target.value;
-});
-
-noirEtBlanc.addEventListener('input', (e) => {
-    setting.noirEtBlanc = e.target.value;
-});
-
-sapia.addEventListener('input', (e) => {
-    setting.sapia = e.target.value;
-});
-
-// le telechargement du video
-const btnTelecharger = document.querySelector('.button-export')
-
-function telechargerVideo() {
-    const a = document.createElement('a');
-    a.href = canvas.toDataURL();
-    a.download = 'video.mp4';
-    a.click();
-}
-
-btnTelecharger.addEventListener('click', telechargerVideo)
-
-
-
 // Partie Snkr
 //pour snkr (snkr use)
 startTimeRange.addEventListener('input', () => {
+    // Mettre à jour la valeur affichée pour startTime
     startTimeValue.textContent = startTimeRange.value;
+
+    // Calculer la position du début sur la barre de progression
+    let startPosition = (startTimeRange.value / videoDuration) * 100;
+    ledebut.style.left = startPosition + '%';  // Placer le début sur la barre
+
+    // Vérifier que le début ne dépasse pas la fin
+    if (parseInt(startTimeRange.value) >= parseInt(endTimeRange.value)) {
+        // Si le début dépasse la fin, ajuster la fin
+        endTimeRange.value = startTimeRange.value + 1;
+        endTimeValue.textContent = endTimeRange.value;
+        let endPosition = (endTimeRange.value / videoDuration) * 100;
+        lafin.style.left = endPosition + '%';  // Recalculer la position de la fin
+    }
+
 });
 
-// Afficher la valeur du temps de fin en temps réel
 endTimeRange.addEventListener('input', () => {
-    // S'assurer que le temps de fin ne soit pas inférieur au temps de début
-    if (parseInt(endTimeRange.value) <= parseInt(startTimeRange.value)) {
-        startTimeRange.value = endTimeRange.value - 1; // Ajuster le temps de début si nécessaire
-    }
+    // Mettre à jour la valeur affichée pour endTime
     endTimeValue.textContent = endTimeRange.value;
+
+    // Calculer la position de la fin sur la barre de progression
+    let endPosition = (endTimeRange.value / videoDuration) * 100;
+    lafin.style.left = endPosition + '%';  // Placer la fin sur la barre
+
+    // Vérifier que la fin ne soit pas inférieure au début
+    if (parseInt(endTimeRange.value) <= parseInt(startTimeRange.value)) {
+        // Si la fin est inférieure au début, ajuster le début
+        startTimeRange.value = endTimeRange.value - 1;
+        startTimeValue.textContent = startTimeRange.value;
+        let startPosition = (startTimeRange.value / videoDuration) * 100;
+        ledebut.style.left = startPosition + '%';  // Recalculer la position du début
+    }
+
 });
+
 
 
 document.getElementById('exportButton').addEventListener('click', function() {
@@ -176,15 +179,46 @@ document.getElementById('exportButton').addEventListener('click', function() {
 });
 
 
-// Mise à jour des intervalles pour le GIF
-const startTimegif = document.getElementById('startTimegif');
-const startTimer = document.getElementById('startTimer');
-const endTimegif = document.getElementById('endTimegif');
-const endTimer = document.getElementById('endTimer');
 
 // Affichage des valeurs des intervalles du GIF
-startTimegif.addEventListener('input', () => { startTimer.textContent = startTimegif.value; });
-endTimegif.addEventListener('input', () => { endTimer.textContent = endTimegif.value; });
+
+startTimegif.addEventListener('input', () => {
+    // Mettre à jour la valeur affichée pour startTimegif
+    startTimer.textContent = startTimegif.value;
+
+    // Calculer la position du début sur la barre de progression GIF
+    let startPositionGif = (startTimegif.value / videoDuration) * 100;
+    ledebut.style.left = startPositionGif + '%';  // Placer le début sur la barre GIF
+
+    // Vérifier que le début ne dépasse pas la fin
+    if (parseInt(startTimegif.value) >= parseInt(endTimegif.value)) {
+        // Si le début dépasse la fin, ajuster la fin
+        endTimegif.value = startTimegif.value + 1;
+        endTimer.textContent = endTimegif.value;
+        let endPositionGif = (endTimegif.value / videoDuration) * 100;
+        lafin.style.left = endPositionGif + '%';  // Recalculer la position de la fin sur la barre GIF
+    }
+});
+
+endTimegif.addEventListener('input', () => {
+    // Mettre à jour la valeur affichée pour endTimegif
+    endTimer.textContent = endTimegif.value;
+
+    // Calculer la position de la fin sur la barre de progression GIF
+    let endPositionGif = (endTimegif.value / videoDuration) * 100;
+    lafin.style.left = endPositionGif + '%';  // Placer la fin sur la barre GIF
+
+    // Vérifier que la fin ne soit pas inférieure au début
+    if (parseInt(endTimegif.value) <= parseInt(startTimegif.value)) {
+        // Si la fin est inférieure au début, ajuster le début
+        startTimegif.value = endTimegif.value - 1;
+        startTimer.textContent = startTimegif.value;
+        let startPositionGif = (startTimegif.value / videoDuration) * 100;
+        ledebut.style.left = startPositionGif + '%';  // Recalculer la position du début sur la barre GIF
+    }
+});
+
+
 
 
 document.getElementById('monExport').addEventListener('click', function () {
@@ -200,6 +234,9 @@ document.getElementById('monExport').addEventListener('click', function () {
         alert('Le temps de fin doit être supérieur au temps de début.');
         return;
     }
+
+    document.getElementById('monExport').innerText = 'Chargement en cours'
+    document.getElementById('monExport').style.opacity = 0.5
 
     const formData = new FormData();
     formData.append('video', fileInputVideo.files[0]);
@@ -219,7 +256,8 @@ document.getElementById('monExport').addEventListener('click', function () {
             document.getElementById('downloadLinkContainer').style.display = 'block';
             document.getElementById('downloadLinkContainer').style.backgroundColor = 'white';
             downloadLink.style.color = '#061039'
-            document.getElementById('exportButton').innerText = 'Cliquer sur Exporter'
+            document.getElementById('monExport').innerText = 'Cliquer sur Exporter'
+            document.getElementById('monExport').style.opacity = 1
         } else {
             alert('Erreur lors de la création du GIF.');
         }
