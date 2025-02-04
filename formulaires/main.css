@@ -101,6 +101,7 @@ label {
   height: 3rem;
   outline: none;
   border: none;
+  margin-bottom: 10px;
 }
 
 .submit {
