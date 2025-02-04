@@ -43,10 +43,9 @@ const titre = document.querySelector('.aModif')
 //     afficherText.classList.add('active')
 // })
 
-
 // Boutton Couper
-const couper = document.getElementById('couper')
-const afficherCoupure = document.querySelector('.coupure')
+const couper = document.getElementById("couper");
+const afficherCoupure = document.querySelector(".coupure");
 
 couper.addEventListener('click', ()=>{
     allSide.forEach((n) => {
@@ -66,8 +65,8 @@ couper.addEventListener('click', ()=>{
 
 
 // Boutton Rogner
-const rogner = document.getElementById('rogner')
-const afficherRogne = document.querySelector('.cadrer')
+const rogner = document.getElementById("rogner");
+const afficherRogne = document.querySelector(".cadrer");
 
 rogner.addEventListener('click', ()=>{
     allSide.forEach((n) => {
@@ -105,3 +104,9 @@ rogner.addEventListener('click', ()=>{
 //     afficherDessin.classList.add('active')
 // })
 
+// retour page accueil
+const logoutButton = document.getElementById("logoutBtn");
+
+logoutButton.addEventListener("click", () => {
+  window.location.href = "../../page d'acceuil/acceuil.html";
+});

@@ -94,7 +94,7 @@ createUserWithEmailAndPassword(auth, email , password )
       lastName: lastName,
       confirmPassword : confirmPassword
     }
-   showMessage("Account Created Successfull", "signUpMessage");
+   showMessage("Compte créé avec succès", "signUpMessage");
     const docRef = doc(db, "users" , user.uid);
     setDoc(docRef,userData)
     .then(() => {
@@ -109,10 +109,10 @@ createUserWithEmailAndPassword(auth, email , password )
   console.log("Erreur Firebase captée :", errorCode)
   if(errorCode=='auth/email-already-in-use'){
     console.log("Message d'erreur affiché !");
-    showMessage('Email  Address Already Exists !!!', 'signUpMessage')
+    showMessage("L'adresse e-mail existe déjà !!!", 'signUpMessage')
   }
   else{
-      showMessage('unable to create User', 'signUpMessage')
+      showMessage("Impossible de créer l'utilisateur", 'signUpMessage')
   }
 })
 });

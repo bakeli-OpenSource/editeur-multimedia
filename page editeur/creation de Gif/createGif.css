@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  /* border: 1px solid red; */
+}
+body {
+  height: 100vh;
+  background: #061039;
+  color: #fff;
+}
+input {
+  display: block;
+  margin: auto;
+}
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+.bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+button {
+  display: block;
+  height: 70px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container {
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+input {
+  margin: auto;
+}
+#show,
+#preview {
+  margin: 10px;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Empêche le débordement */
+}
+.gif-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#show div,
+#preview img {
+  width: 400px !important; /* Remplit tout l'espace disponible */
+  height: 500px !important;
+  object-fit: contain; /* Assure que l’image est entièrement visible */
+}
+
+#preview img {
+  height: 300px;
+  width: 400px;
+  object-fit: cover;
+}
+#logoutBtn {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  cursor: pointer;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--lightColor);
+}
+@media (max-width: 1070px) {
+  .bottom {
+    display: flex;
+    flex-direction: column;
+  }
+  #show,
+  #preview {
+    width: 300px;
+    height: 400px;
+  }
+  #show div,
+  #preview img {
+    min-width: 300px;
+    max-width: 300px;
+    max-height: 400px;
+    min-height: 400px;
+    object-fit: cover;
+  }
+  #preview img {
+    height: 200px;
+    width: 300px;
+    object-fit: cover;
+  }
+}

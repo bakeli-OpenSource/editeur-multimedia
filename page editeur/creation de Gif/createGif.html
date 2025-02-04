@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>creation de Gif</title>
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="createGif.css" />
+  </head>
+  <body>
+    <div class="container">
+      <a href="#" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </a>
+      <h1>Transforme une image en GIF 🎥➡️🖼️</h1>
+      <form action="#" id="Form">
+        <input type="file" accept="image/*" required multiple />
+        <div class="bottom">
+          <div id="show">Prévisualisation image ici</div>
+          <button type="submit" id="transform">Transformer en GIF</button>
+          <div id="preview">Votre GIF sera ici</div>
+        </div>
+        <div id="showLink"></div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.min.js"></script>
+  </body>
+  <script src="gif.js"></script>
+  <script src="gif.worker.js"></script>
+  <script src="createGif.js"></script>
+</html>

@@ -11,6 +11,7 @@ body{
 
 .editeur-container{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -148,7 +149,7 @@ body{
 }
 
 .edition-page .part-changement{
-    width: 60%;
+    width: 50%;
     border: 1px dashed rgba(245, 245, 245, 0.598);
     padding: 10px 15px;
     background-color: #06103928;
@@ -158,13 +159,10 @@ body{
     align-items: center;
 }
 
-/* #canvas{
-    all: unset !important;
-} */
 
 .part-changement #canvas{
-    /* position: relative; */
-    width: 90% !important;
+    position: relative;
+    width: 80% !important;
     margin: auto;
     height: 100% !important;
     object-fit: cover;
@@ -190,7 +188,7 @@ body{
 .edition-part .modif-part{
     background-color: #061039;
     z-index: 100;
-    width: 40%;
+    width: 50%;
     padding: 10px;
     border: 1px solid white;
 }
@@ -430,20 +428,28 @@ body{
     margin: 0 5px;
     border-radius: 5px;
 }
-/* nafi */
+/* ---------------------------------nafi--------------------------------- */
 canvas {
     border: 1px solid #ccc;
     cursor: pointer;
   }
 
 .result{
-    margin-top: 5rem;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 7rem;
+    margin-left: 7rem;
+}
+.result button{
+  margin-top: 1rem;
 }
 .tele{
     border-radius: 10px;
 }
-
+/* -------------------------------nafi exit------------------------------- */
 .outils_dessin{
     padding-top: 30px;
     color: #fff;
@@ -468,9 +474,26 @@ canvas {
     border: 1px solid #fff;
     font-size: 2rem;
     display: flex;
+    gap: 10px;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
     cursor: pointer; 
+}
+#palette div{
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* #color{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+} */
+#palette div:hover{
+    border: 2px solid #fff;
+    transform: scaleX(1.1);
+    opacity: 0.7;
 }
 
 #outils > div{

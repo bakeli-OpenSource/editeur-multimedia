@@ -1,11 +1,13 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
   background: linear-gradient(var(--gradient));
   color: white;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
 }
 :root {
   --bleuFonce: #21d4fd;
@@ -49,16 +51,15 @@ header {
 
 /*-------------------- Section grid ------------*/
 .grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  margin: 20px auto;
-  max-width: 1200px;
-  padding: 0 10px;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   margin: 20px auto; 
+   gap: 2rem; 
+   max-width: 100%;
 }
 .card {
   background-color: var(--bleuclair);
-  width: 100%;
+   width: 100%;
   max-width: 300px;
   margin: 0 auto;
   padding: 20px;
@@ -94,7 +95,8 @@ footer p {
 }
 
 /*------------------- Responsivité -------------------*/
-@media (max-width: 768px) {
+
+@media (max-width: 1124px) {
   .hero h1 {
     font-size: 1rem;
   }
@@ -108,8 +110,34 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
+  
+  
+}
+
+@media (max-width: 668px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  
+}
+
+@media (max-width: 580px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  
+}
+@media (max-width: 280px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  
 }
