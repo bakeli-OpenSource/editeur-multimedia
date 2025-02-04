@@ -24,25 +24,25 @@ filter.addEventListener("click", () => {
 });
 
 // Boutton Text
-// const duTexte = document.getElementById("texte");
+const duTexte = document.getElementById("texte");
 const afficherText = document.querySelector(".zoneText");
 
-// duTexte.addEventListener("click", () => {
-//   allSide.forEach((n) => {
-//     if (n.classList.contains("active")) {
-//       n.classList.remove("active");
-//     }
-//   });
-//   affichageAll.forEach((n) => {
-//     if (n.classList.contains("active")) {
-//       n.classList.remove("active");
-//     }
-//   });
-//   duTexte.classList.add("active");
-//   afficherText.classList.add("active");
-//   textModif.innerText = "Texte";
-//   textModif.innerText = "Texte";
-// });
+duTexte.addEventListener("click", () => {
+  allSide.forEach((n) => {
+    if (n.classList.contains("active")) {
+      n.classList.remove("active");
+    }
+  });
+  affichageAll.forEach((n) => {
+    if (n.classList.contains("active")) {
+      n.classList.remove("active");
+    }
+  });
+  duTexte.classList.add("active");
+  afficherText.classList.add("active");
+  textModif.innerText = "Texte";
+  textModif.innerText = "Texte";
+});
 
 // Boutton Couper
 const couper = document.getElementById("couper");
@@ -93,5 +93,7 @@ dessin.addEventListener("click", () => {
 const logoutButton = document.getElementById("logoutBtn");
 
 logoutButton.addEventListener("click", () => {
+  console.log(logoutButton);
+  
   window.location.href = "../../page d'acceuil/acceuil.html";
 });
