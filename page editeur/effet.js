@@ -342,7 +342,6 @@ class Dessin {
                 this.ctx.lineTo(line.destX, line.destY);
                 this.ctx.closePath();
                 this.ctx.stroke();
-            // });
         });
     }
     setColor(color) {
@@ -389,7 +388,8 @@ dessin.addEventListener("click", ()=>{
     if(isRognerMode){
         rognerPhoto()
     }
-
+  
+    canvas.style.cursor = "url('./images/pencil-solid.svg')4 4 ,auto";
     instanceDessin.activerDessin()
 })
 
@@ -397,7 +397,6 @@ dessin.addEventListener("click", ()=>{
 const colorPiker = document.getElementById("color")
 colorPiker.addEventListener("click",()=>{
     const color = colorPiker.value
-    console.log(color);
     
     instanceDessin.setColor(color)
 })
