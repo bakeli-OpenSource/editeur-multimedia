@@ -48,14 +48,14 @@ html {
 }
 /* ------------------------------------------- */
 .container {
-  /* background: transparent; */
-  /* display: flex; */
+  background: transparent;
+  display: flex;
   height: 100vh;
   /* ---------------------- */
   main {
-    /* background: #000; */
+    background: #000;
 
-    /* height: 90vh; */
+    height: 90vh;
     width: 100%;
     .head,
     .nav-Right {
