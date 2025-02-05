@@ -45,14 +45,14 @@ html {
 }
 /* ------------------------------------------- */
 .container {
-  /* background: transparent; */
-  /* display: flex; */
+  background: transparent;
+  display: flex;
   height: 100vh;
   /* ---------------------- */
   main {
-    /* background: #000; */
+    background: #000;
 
-    /* height: 90vh; */
+    height: 90vh;
     width: 100%;
     .head,
     .nav-Right,
@@ -75,7 +75,7 @@ html {
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      /* margin-right: 20px; */
+      margin-right: 20px;
       /* ---------------------- */
       .user-complete-name {
         display: flex;
@@ -118,7 +118,7 @@ html {
       overflow-y: auto; /* Active le scroll vertical */
       .card {
         color: #fff;
-        padding: 3rem 7rem;
+        padding: 3rem 5rem;
         font-size: 2rem;
         flex-grow: 1;
         text-align: center;
