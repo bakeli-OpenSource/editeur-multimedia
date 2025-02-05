@@ -28,6 +28,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #061039;
   box-shadow: 0 5px 15px #061039;
   padding: 1rem 2rem;
   z-index: 999;
