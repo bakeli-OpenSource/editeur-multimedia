@@ -115,16 +115,16 @@ footer p {
     margin-top: 20px;
     font-size: 1rem;
   }
-  header {
+  /* header { */
     /* flex-direction: column; */
   }
   .buttons {
     margin-top: 1rem;
   }
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-}
+/* } */
 
 @media (max-width: 480px) {
   .grid {
