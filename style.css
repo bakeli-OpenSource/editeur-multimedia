@@ -15,7 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
 }
 :root {
   --bleuFonce: #21d4fd;
@@ -28,10 +27,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 5px 15px #061039;
+  box-shadow: 0 2px 5px #061039;
+  background: #061039;
   padding: 1rem 2rem;
-  z-index: 999;
-  background-color: rgb(6, 19, 60);
   position: sticky;
   top: 0;
   left: 0;
@@ -55,27 +53,27 @@ header {
 }
 
 /*---------------- Section hero --------------*/
-.hero {
+h1 {
   text-align: center;
   margin-top: 1rem;
+  margin: auto;
+  max-width: 800px;
   padding: 2rem 1rem;
-}
-.hero h1 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
 /*-------------------- Section grid ------------*/
 .grid {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   margin: 20px auto; 
-   gap: 2rem; 
-   max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px auto;
+  gap: 2rem;
+  max-width: 100%;
 }
 .card {
   background-color: var(--bleuclair);
-   width: 100%;
+  width: 100%;
   max-width: 300px;
   margin: 0 auto;
   padding: 20px;
@@ -118,7 +116,7 @@ footer p {
     font-size: 1rem;
   }
   header {
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   .buttons {
     margin-top: 1rem;
@@ -132,29 +130,21 @@ footer p {
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  
-  
 }
 
 @media (max-width: 668px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  
-  
 }
 
 @media (max-width: 580px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  
-  
 }
 @media (max-width: 280px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
-  
-  
 }
