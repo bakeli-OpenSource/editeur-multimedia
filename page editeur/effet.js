@@ -121,6 +121,7 @@ downloadBtn.addEventListener('click',downloadMedia)
 /*------------------------------------------------------------NAFISSATOU Rogner------------------------------------------------------------*/
 
 rogner.addEventListener("click",rognerPhoto)
+console.log(rogner);
 
 const ctx = canvas.getContext("2d");
 const cropCanvas = document.getElementById("cropCanvas");
