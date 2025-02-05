@@ -37,7 +37,7 @@ function showMessage(message, type) {
     setTimeout(() => {
       messageDiv.style.display = "none";
     }, 1000);
-  }, 5000); 
+  }, 2000); 
 }
 
 // Vérifier si l'email est valide
