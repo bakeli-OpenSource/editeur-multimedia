@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded', () => { 
     const canvas = new Dessin("feuille");
 
