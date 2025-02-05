@@ -27,22 +27,6 @@ filter.addEventListener("click", () => {
 // const duTexte = document.getElementById("texte");
 const afficherText = document.querySelector(".zoneText");
 
-// duTexte.addEventListener("click", () => {
-//   allSide.forEach((n) => {
-//     if (n.classList.contains("active")) {
-//       n.classList.remove("active");
-//     }
-//   });
-//   affichageAll.forEach((n) => {
-//     if (n.classList.contains("active")) {
-//       n.classList.remove("active");
-//     }
-//   });
-//   duTexte.classList.add("active");
-//   afficherText.classList.add("active");
-//   textModif.innerText = "Texte";
-//   textModif.innerText = "Texte";
-// });
 
 // Boutton Couper
 const couper = document.getElementById("couper");
