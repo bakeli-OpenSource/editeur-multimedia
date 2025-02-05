@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
   text-decoration: none;
-  /* border: 1px solid red; */
 }
 body {
-  height: 100vh;
-  background: #061039;
+  padding: 19px 0px;
+  /* height: 100vh; */
+  /* background: #061039; */
+  background: linear-gradient(#061039, #21d4fd);
+  background-repeat: no-repeat;
   color: #fff;
 }
 input {
@@ -34,7 +39,7 @@ button {
   cursor: pointer;
 }
 .container {
-  padding: 20px 20px 20px 20px;
+  padding: 20px;
   text-align: center;
 }
 form {
@@ -50,7 +55,7 @@ input {
 #preview {
   margin: 10px;
   border: 2px dashed #ccc;
-  padding: 10px;
+  /* padding: 10px; */
   width: 400px;
   height: 500px;
   display: flex;
@@ -66,12 +71,12 @@ input {
 #show div,
 #preview img {
   width: 400px !important; /* Remplit tout l'espace disponible */
-  height: 500px !important;
+  height: 400px !important;
   object-fit: contain; /* Assure que l’image est entièrement visible */
 }
 
 #preview img {
-  height: 300px;
+  height: 400px;
   width: 400px;
   object-fit: cover;
 }
@@ -90,7 +95,11 @@ input {
 }
 
 label {
-  margin-top: 30px;
+  background-color: #061039;
+  color: white;
+  margin: auto;
+  position: relative;
+  top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,13 +107,10 @@ label {
   padding: 10px;
   border-radius: 10px;
   transition: all 0.2s ease;
-  width: 55px;
   border: 1px solid white;
-  background-color: #061039;
+  /* width: 55px; */
   color: white;
-  margin: auto;
-  position: relative;
-  top: 30px;
+  font-size: 25px;
 }
 
 label:hover {
@@ -116,19 +122,16 @@ input {
   display: none;
 }
 
-label {
-  font-size: 25px;
-}
 #showLink a {
   text-decoration: none !important;
   border-radius: 5px;
   background: #fff;
-  padding: 5px;
+  padding: 10px;
   color: #061039;
   width: fit-content;
   margin: auto;
-  position: relative;
-  bottom: 50px;
+  /* position: relative; */
+  /* bottom: 30px; */
 }
 @media (max-width: 1070px) {
   .bottom {

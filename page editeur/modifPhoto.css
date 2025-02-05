@@ -1,17 +1,15 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* all: unset; */
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
 }
 
-/* #canvas-img {
-   object-fit: contain;
-} */
-
 body{
-    background: linear-gradient(#061039, #102D9F);
-    /* min-height: 100vh; */
+    /* background: linear-gradient(#061039, #102D9F); */
+    background: linear-gradient(#061039, #21d4fd);
+    min-height: 100vh;
 }
 
 .editeur-container{
@@ -48,25 +46,25 @@ body{
 
 .side-contenu .bloc{
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     cursor: pointer;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 10px;
     transition: all .2s ease;
-    width: 55px;
+    /* width: 55px; */
     border: 1px solid white;
-    background-color: #061039;
+    /* background-color: #061039; */
     color: white;
 }
 
 .side-contenu .bloc:hover{
     background: whitesmoke;
     color: #061039;
-    gap: 5px;
-    width: 55px;
-    margin: 30px auto;
+    /* gap: 5px; */
+    /* width: 55px; */
+    /* margin: 30px auto; */
 }
 
 .bloc i{
@@ -78,6 +76,11 @@ body{
 }
 
 .bloc label{
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 25px;
 }
 
@@ -142,7 +145,7 @@ body{
     display: flex;
     gap: 10px;
     height: 80vh;
-    border: 1px solid whitesmoke;
+    border: 1px solid #061039;
     padding: 10px;
 }
 
@@ -153,26 +156,27 @@ body{
 }
 
 .edition-page .part-changement{
-    /* ------------------------ */
-    width: 50%;
-    border: 1px dashed rgba(245, 245, 245, 0.598);
+    width: 60%;
+    border: 1px dashed #061039;
     padding: 10px 15px;
     background-color: #06103928;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .part-changement #canvas{
     width: 100%;
     height: 90%;
-    object-fit: cover;
+    position: relative;
+    z-index: 0;
+    /* object-fit: cover; */
     padding: 10px;
-    background-color: rgba(245, 245, 245, 0.4);
-    border: 1px solid rgba(245, 245, 245, 0.598);
+    background-color: rgba(245, 245, 245, 0.6);
+    border: 2px solid #061039;
 }
+
 
 .part-changement .play{
     padding: 10px;
@@ -188,10 +192,10 @@ body{
 }
 
 .edition-part .modif-part{
-    background-color: #061039;
+    /* background-color: #061039; */
+    background: radial-gradient( #21d5fd98, #061039);
     z-index: 100;
-    /* ------------------------------------- */
-    width: 50%;
+    width: 40%;
     padding: 10px;
     border: 1px solid white;
 }
@@ -488,6 +492,11 @@ input[type="checkbox"] {
     height: 16px;
     cursor: pointer;
 }
+
+#taille{
+    margin-top: 10px;
+}
+
 @media (max-width: 650px){
     .barre .titre{
         font-size: 1.2rem;

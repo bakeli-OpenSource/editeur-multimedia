@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
   text-decoration: none;
-  /* bordure checkout */
-  /* border: 1px solid red; */
 }
 /* root */
 
@@ -45,14 +45,14 @@ html {
 }
 /* ------------------------------------------- */
 .container {
-  /* background: transparent; */
-  /* display: flex; */
+  background: transparent;
+  display: flex;
   height: 100vh;
   /* ---------------------- */
   main {
-    /* background: #000; */
+    background: #000;
 
-    /* height: 90vh; */
+    height: 90vh;
     width: 100%;
     .head,
     .nav-Right,
@@ -75,7 +75,7 @@ html {
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      /* margin-right: 20px; */
+      margin-right: 20px;
       /* ---------------------- */
       .user-complete-name {
         display: flex;
@@ -118,7 +118,7 @@ html {
       overflow-y: auto; /* Active le scroll vertical */
       .card {
         color: #fff;
-        padding: 3rem 7rem;
+        padding: 3rem 6rem;
         font-size: 2rem;
         flex-grow: 1;
         text-align: center;
@@ -145,7 +145,7 @@ html {
           }
         }
         .cardTitle {
-          font-size: 19px;
+          font-size: 20px;
           font-weight: 900;
         }
         p {
@@ -271,7 +271,7 @@ html.transition *:after {
 }
 
 /* Profil  */
-.profil input{
+.profil input {
   display: none;
 }
 
