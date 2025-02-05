@@ -118,7 +118,7 @@ html {
       overflow-y: auto; /* Active le scroll vertical */
       .card {
         color: #fff;
-        padding: 3rem 7rem;
+        padding: 3rem 6rem;
         font-size: 2rem;
         flex-grow: 1;
         text-align: center;
@@ -145,7 +145,7 @@ html {
           }
         }
         .cardTitle {
-          font-size: 19px;
+          font-size: 20px;
           font-weight: 900;
         }
         p {
@@ -271,7 +271,7 @@ html.transition *:after {
 }
 
 /* Profil  */
-.profil input{
+.profil input {
   display: none;
 }
 
