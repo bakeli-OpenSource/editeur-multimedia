@@ -2,25 +2,26 @@
 
 const affichageAll = document.querySelectorAll('.affichage')
 const allSide = document.querySelectorAll('.barre-effet .side')
+const titre = document.querySelector('.aModif')
 
 //Boutton Filter
-const filter = document.getElementById('filtrer')
-const afficherFilter = document.querySelector('.filtrer')
+// const filter = document.getElementById('filtrer')
+// const afficherFilter = document.querySelector('.filtrer')
 
-filter.addEventListener('click', ()=>{
-    allSide.forEach((n) => {
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    affichageAll.forEach((n)=>{
-        if(n.classList.contains('active')){
-            n.classList.remove('active')
-        }
-    })
-    filter.classList.add('active')
-    afficherFilter.classList.add('active')
-})
+// filter.addEventListener('click', ()=>{
+//     allSide.forEach((n) => {
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     affichageAll.forEach((n)=>{
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     filter.classList.add('active')
+//     afficherFilter.classList.add('active')
+// })
 
 
 // Boutton Text
@@ -42,10 +43,9 @@ filter.addEventListener('click', ()=>{
 //     afficherText.classList.add('active')
 // })
 
-
 // Boutton Couper
-const couper = document.getElementById('couper')
-const afficherCoupure = document.querySelector('.coupure')
+const couper = document.getElementById("couper");
+const afficherCoupure = document.querySelector(".coupure");
 
 couper.addEventListener('click', ()=>{
     allSide.forEach((n) => {
@@ -60,12 +60,13 @@ couper.addEventListener('click', ()=>{
     })
     couper.classList.add('active')
     afficherCoupure.classList.add('active')
+    titre.textContent = 'Couper Vidéo'
 })
 
 
 // Boutton Rogner
-const rogner = document.getElementById('rogner')
-const afficherRogne = document.querySelector('.cadrer')
+const rogner = document.getElementById("rogner");
+const afficherRogne = document.querySelector(".cadrer");
 
 rogner.addEventListener('click', ()=>{
     allSide.forEach((n) => {
@@ -80,6 +81,7 @@ rogner.addEventListener('click', ()=>{
     })
     rogner.classList.add('active')
     afficherRogne.classList.add('active')
+    titre.textContent = 'Vidéo en Gif'
 })
 
 
@@ -102,3 +104,9 @@ rogner.addEventListener('click', ()=>{
 //     afficherDessin.classList.add('active')
 // })
 
+// retour page accueil
+const logoutButton = document.getElementById("logoutBtn");
+
+logoutButton.addEventListener("click", () => {
+  window.location.href = "../../page d'acceuil/acceuil.html";
+});

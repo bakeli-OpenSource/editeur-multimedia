@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="editVideo.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="editVideo.css" />
     <title>Editeur de Video</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="editeur-container">
-      
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="images/Vector.png" alt="">
-            </div>
-            <div class="side-contenu">
-                <!-- Boutton Ajout Fichier -->
-                <div class="bloc">
-                    <input type="file" accept="video/*" id="lebutton" class="btnImputs">
-                    <label for="lebutton">+</label> 
-                </div>
-            </div>
-
-            <!-- Boutton retour -->
-            <div class="retou-button">
-                <i class="fa-solid fa-delete-left"></i>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="images/Vector.png" alt="" />
+        </div>
+        <div class="side-contenu">
+          <!-- Boutton Ajout Fichier -->
+          <div class="bloc">
+            <input
+              type="file"
+              accept="video/*"
+              id="lebutton"
+              class="btnImputs"
+            />
+            <label for="lebutton">+</label>
+          </div>
         </div>
 
+        <!-- Boutton retour -->
+        <div class="retou-button" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </div>
+      </div>
 
-        <!-- Page d'Edition -->
-        <div class="edition-page">
-            <!-- Premiere Section -->
-            <div class="barre">
-                <h2 class="titre"> Editer vos videos </h2>
+      <!-- Page d'Edition -->
+      <div class="edition-page">
+        <!-- Premiere Section -->
+        <div class="barre">
+          <h2 class="titre">Editer vos videos</h2>
 
-                <!-- Button Exportation -->
-                <div class="button-export" id="downloadLinkContainer">
-                    <a id="downloadLink" href="#" download>
-                        <h3>Export</h3>
-                        <i class="fa-solid fa-upload"></i>
-                    </a>
-                </div>
-            </div>
+          <!-- Button Exportation -->
+          <div class="button-export" id="downloadLinkContainer">
+            <a id="downloadLink" href="#" download>
+              <h3>Export</h3>
+              <i class="fa-solid fa-upload"></i>
+            </a>
+          </div>
+        </div>
 
             <!-- Deuxieme Section -->
             <div class="real-part">
@@ -55,8 +63,15 @@
                     <div class="part-changement">
                         <!-- le canvas -->
                         <canvas id="canvas"></canvas>
-                        <div class="play">
-                            <i class="fa-solid fa-play"></i>
+
+                        <div class="barreProgresse">
+                            <div class="ledebut" id="ledebut"></div>
+                            <div class="lafin" id="lafin"></div>
+                            <div class="progreesion" id="progression">
+                            </div>
+                            <div class="play active">
+                                <i class="fa-solid fa-pause"></i>
+                            </div>
                         </div>
                        
                     </div>
@@ -65,10 +80,10 @@
                     <div class="modif-part">
                         <div class="select">
                             <i class="fa-solid fa-right-long"></i>
-                            <h3 class="aModif">Filtre</h3>
+                            <h3 class="aModif"></h3>
                         </div>
                         <div class="modification">
-                            <div class="affichage filtrer">
+                            <!-- <div class="affichage filtrer">
                                 <div class="toolbar-item">
                                     <label for="brightness" class="toolbar_label">Brightness</label>
                                     <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
@@ -94,7 +109,7 @@
                                     <label for="saturation" class="toolbar_label">Saturation</label>
                                     <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="affichage zoneText">
                                 <textarea name="" id=""></textarea>
                                 <select name="" id="">
@@ -115,81 +130,115 @@
                                     <p><s>B</s></p>
                                 </div>
                             </div> -->
-                            <div class="affichage coupure">
-                                <h5>Intervale</h5>
-                                <div class="interval">
-                                    <div class="right">
-                                        <label for="startTimeRange">Debut</label>
-                                        <input type="range" id="startTimeRange" name="startTimeRange" min="0" max="60" value="0" step="1">
-                                        <span id="startTimeValue">0</span>
-                                    </div>
-                                    <div class="right">
-                                        <label for="endTimeRange">Fin</label>
-                                        <input type="range" id="endTimeRange" name="endTimeRange" min="1" max="60" value="5" step="1">
-                                        <span id="endTimeValue">5</span>
-                                    </div>
-                                </div>
-                                <button type="button" id="exportButton">Exporter le clip</button>
-                            </div>
-                            <div class="affichage cadrer">
-                                <button id="monExport">Appliquer</button>
+                <div class="affichage coupure">
+                  <h5>Intervale</h5>
+                  <div class="interval">
+                    <div class="right">
+                      <label for="startTimeRange">Debut</label>
+                      <input
+                        type="range"
+                        id="startTimeRange"
+                        name="startTimeRange"
+                        min="0"
+                        max="60"
+                        value="0"
+                        step="1"
+                      />
+                      <span id="startTimeValue">0</span>
+                    </div>
+                    <div class="right">
+                      <label for="endTimeRange">Fin</label>
+                      <input
+                        type="range"
+                        id="endTimeRange"
+                        name="endTimeRange"
+                        min="1"
+                        max="60"
+                        value="5"
+                        step="1"
+                      />
+                      <span id="endTimeValue">5</span>
+                    </div>
+                  </div>
+                  <button type="button" id="exportButton">
+                    Exporter le clip
+                  </button>
+                </div>
+                <div class="affichage cadrer">
+                  <button id="monExport">Appliquer</button>
 
-                                <div class="interval">
-                                    <div class="right">
-                                        <label for="startTimegif">Debut</label>
-                                        <input type="range" id="startTimegif" name="startTimegif" min="0" max="60" value="0" step="1">
-                                        <span id="startTimer">0</span>
-                                    </div>
-                                    <div class="right">
-                                        <label for="endTimegif">Fin</label>
-                                        <input type="range" id="endTimegif" name="endTimegif" min="1" max="60" value="5" step="1">
-                                        <span id="endTimer">5</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="affichage dessiner">
+                  <div class="interval">
+                    <div class="right">
+                      <label for="startTimegif">Debut</label>
+                      <input
+                        type="range"
+                        id="startTimegif"
+                        name="startTimegif"
+                        min="0"
+                        max="60"
+                        value="0"
+                        step="1"
+                      />
+                      <span id="startTimer">0</span>
+                    </div>
+                    <div class="right">
+                      <label for="endTimegif">Fin</label>
+                      <input
+                        type="range"
+                        id="endTimegif"
+                        name="endTimegif"
+                        min="1"
+                        max="60"
+                        value="5"
+                        step="1"
+                      />
+                      <span id="endTimer">5</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="affichage dessiner">
                                 <h4>Couleur</h4>
                                 <div class="couleurDessin">
                                     <div class="lacouleurDessin"></div>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+        </div>
 
             <!-- Troisieme Section -->
             <div class="effet">
                 <!-- Barres des effets applicables -->
                 <div class="barre-effet">
-                    <div class="side" id="filtrer"> <!-- active -->
+                    <!-- <div class="side" id="filtrer">
                         <i class="fa-solid fa-sort"></i>
                         <p>Filtre</p>
-                    </div>
+                    </div> -->
                     <!-- <div class="side" id="texte">
                         <i class="fa-solid fa-font"></i>
                         <p>Texte</p>
                     </div> -->
-                    <div class="side" id="couper">
-                        <i class="fa-solid fa-scissors"></i>
-                        <p>Couper</p>
-                    </div>
-                    <div class="side" id="rogner">
-                        <i class="fa-solid fa-gift"></i>
-                        <!-- <i class="fa-regular fa-square"></i> -->
-                        <p>Gif</p>
-                    </div>
-                    <!-- <div class="side" id="dessin">
+            <div class="side" id="couper">
+              <i class="fa-solid fa-scissors"></i>
+              <p>Couper</p>
+            </div>
+            <div class="side" id="rogner">
+              <i class="fa-solid fa-gift"></i>
+              <!-- <i class="fa-regular fa-square"></i> -->
+              <p>Gif</p>
+            </div>
+            <!-- <div class="side" id="dessin">
                         <i class="fa-solid fa-pencil"></i>
                         <p>Dessin</p>
                     </div> -->
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- <script src="editeur.js"></script> -->
     <script src="video.js"></script>
     <script src="effetVideo.js"></script>
-</body>
+  </body>
 </html>

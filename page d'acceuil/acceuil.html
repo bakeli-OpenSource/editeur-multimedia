@@ -13,7 +13,7 @@
       referrerpolicy="no-referrer"
     />
     <!-- link css -->
-    <link rel="stylesheet" href="accueil.css" />
+    <link rel="stylesheet" href="acceuil.css" />
   </head>
   <body>
     <div class="container">
@@ -24,8 +24,10 @@
           <div class="nav-Right">
             <div class="user-Zone">
               <div class="profil">
-                <img src="/background.jpg" alt="User-photo" id="userProfil" />
-                <span class="Dot"></span>
+                <img src="../background.jpg" alt="User-photo" id="userProfil" />
+                <!-- <span class="Dot"></span> -->
+                <input type="file" accept="image/*" id="updateProfil" />
+                <label for="updateProfil" class="dot">+</label>
               </div>
               <div class="user-complete-name">
                 <p id="userFirstName"></p>
@@ -40,13 +42,13 @@
                 id="switch"
                 name="mode"
               />
-              <label for="switch">Toggle</label>
+              <label for="switch" class="label">Toggle</label>
             </div>
           </div>
         </div>
         <hr />
         <section>
-          <a href="/page editeur/NodeVideo/editVideo.html" class="card card1">
+          <a href="../page editeur/NodeVideo/editVideo.html" class="card card1">
             <!-- <img src="/images/Frame.png" alt="card image" /> -->
             <div>
               <div class="icon">
@@ -57,7 +59,7 @@
               <p>Découpe, fusionne et modifie tes vidéos facilement.</p>
             </div>
           </a>
-          <a href="/page editeur/editeur.html" class="card card2">
+          <a href="../page editeur/editeur.html" class="card card2">
             <!-- <img src="/images/Frame (4).png" alt="card image" /> -->
             <div>
               <div class="icon">
@@ -68,7 +70,10 @@
               <p>Ajoute des filtres, recadre et ajuste tes images.</p>
             </div>
           </a>
-          <a href="#" class="card card3">
+          <a
+            href="../page editeur/creation de Gif/createGif.html"
+            class="card card3"
+          >
             <!-- <img src="/images/Frame (2).png" alt="card image" /> -->
             <div>
               <div class="icon">
@@ -82,7 +87,7 @@
         </section>
         <a href="#" id="logoutBtn">
           <i class="fa-solid fa-right-from-bracket"></i>
-          Deconnexion
+          <p>Deconnexion</p>
         </a>
       </main>
       <footer>
@@ -90,5 +95,5 @@
       </footer>
     </div>
   </body>
-  <script type="module" src="accueil.js"></script>
+  <script type="module" src="acceuil.js"></script>
 </html>

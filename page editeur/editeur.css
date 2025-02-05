@@ -1,16 +1,20 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
 }
 
 body{
-    background: linear-gradient(#061039, #102D9F);
+    /* background: linear-gradient(#061039, #102D9F); */
+    background: linear-gradient(#061039, #21d4fd);
     min-height: 100vh;
 }
 
 .editeur-container{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
 }
 
@@ -42,25 +46,25 @@ body{
 
 .side-contenu .bloc{
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
     cursor: pointer;
-    padding: 10px;
+    /* padding: 10px; */
     border-radius: 10px;
     transition: all .2s ease;
-    width: 55px;
+    /* width: 55px; */
     border: 1px solid white;
-    background-color: #061039;
+    /* background-color: #061039; */
     color: white;
 }
 
 .side-contenu .bloc:hover{
     background: whitesmoke;
     color: #061039;
-    gap: 5px;
-    width: 55px;
-    margin: 30px auto;
+    /* gap: 5px; */
+    /* width: 55px; */
+    /* margin: 30px auto; */
 }
 
 .bloc i{
@@ -72,6 +76,11 @@ body{
 }
 
 .bloc label{
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 25px;
 }
 
@@ -137,7 +146,7 @@ body{
     display: flex;
     gap: 10px;
     height: 80vh;
-    border: 1px solid whitesmoke;
+    border: 1px solid #061039;
     padding: 10px;
 }
 
@@ -149,7 +158,7 @@ body{
 
 .edition-page .part-changement{
     width: 60%;
-    border: 1px dashed rgba(245, 245, 245, 0.598);
+    border: 1px dashed #061039;
     padding: 10px 15px;
     background-color: #06103928;
     border-radius: 10px;
@@ -158,19 +167,17 @@ body{
     align-items: center;
 }
 
-/* #canvas{
-    all: unset !important;
-} */
 
 .part-changement #canvas{
-    /* position: relative; */
-    width: 90% !important;
+    position: relative;
+    width: 80% !important;
     margin: auto;
     height: 100% !important;
     object-fit: cover;
     background-color: rgba(245, 245, 245, 0.4);
-    border: 1px solid rgba(245, 245, 245, 0.598);
+    border: 2px solid #061039;
     cursor: pointer;
+    z-index: 0;
 }
 
 
@@ -188,7 +195,8 @@ body{
 }
 
 .edition-part .modif-part{
-    background-color: #061039;
+    /* background-color: #061039; */
+    background: radial-gradient( #21d5fd98, #061039);
     z-index: 100;
     width: 40%;
     padding: 10px;
@@ -476,9 +484,26 @@ canvas {
     border: 1px solid #fff;
     font-size: 2rem;
     display: flex;
+    gap: 10px;
+    border-radius: 50%;
     justify-content: center;
     align-items: center;
     cursor: pointer; 
+}
+#palette div{
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* #color{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+} */
+#palette div:hover{
+    border: 2px solid #fff;
+    transform: scaleX(1.1);
+    opacity: 0.7;
 }
 
 #outils > div{
@@ -507,6 +532,7 @@ canvas {
 
     .real-part .edition-part{
         width: 100%;
+        height: 50%;
     }
 
     .edition-page .part-changement{
@@ -515,7 +541,8 @@ canvas {
 
     .edition-part .modif-part{
         width: 100%;
-        max-height: 28vh;
+        /* height: 100%; */
+        min-height: 60vh;
         overflow-y: scroll;
     }
 }

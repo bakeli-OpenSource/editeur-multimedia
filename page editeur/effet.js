@@ -54,6 +54,8 @@ function rechargerImage(){
     canvasContext.filter = generateFilter()
     canvasContext.drawImage(image,0,0)
     canvasContext.filter = "none"
+
+    instanceDessin.redessinerImageFiltre()
 }
 
 // appliquer les effets
@@ -73,17 +75,35 @@ function updateSetting(key,value){
 
 // appliquer les effets
 // filter
-brightness.addEventListener('input',() => updateSetting('brightness',brightness.value))
+brightness.addEventListener('input',() => {
+    updateSetting('brightness',brightness.value)
+    rechargerImage()
+})
 // saturation
-saturation.addEventListener('input',() => updateSetting('saturation',saturation.value))
+saturation.addEventListener('input',() =>{
+    updateSetting('saturation',saturation.value)
+    rechargerImage()
+})
 // inversion
-inversion.addEventListener('input',() => updateSetting('inversion',inversion.value))
+inversion.addEventListener('input',() => {
+    updateSetting('inversion',inversion.value)
+    rechargerImage()
+})
 // contrast
-contraste.addEventListener('input',() => updateSetting('contraste',contraste.value))
+contraste.addEventListener('input',() => {
+    updateSetting('contraste',contraste.value)
+    rechargerImage()
+})
 // noir et black
-noirEtBlanc.addEventListener('input',() => updateSetting('noirEtBlanc',noirEtBlanc.value))
+noirEtBlanc.addEventListener('input',() => {
+    updateSetting('noirEtBlanc',noirEtBlanc.value)
+    rechargerImage()
+})
 // sapia
-sapia.addEventListener('input',() => updateSetting('sapia',sapia.value))
+sapia.addEventListener('input',() => {
+    updateSetting('sapia',sapia.value)
+    rechargerImage()
+})
 // telecharger l'image
 const downloadBtn = document.querySelector('.button-export')
 
@@ -101,6 +121,7 @@ downloadBtn.addEventListener('click',downloadMedia)
 /*------------------------------------------------------------NAFISSATOU Rogner------------------------------------------------------------*/
 
 rogner.addEventListener("click",rognerPhoto)
+console.log(rogner);
 
 const ctx = canvas.getContext("2d");
 const cropCanvas = document.getElementById("cropCanvas");
@@ -132,76 +153,98 @@ imag.onload = () => {
   ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
 };
 
-function rognerPhoto() {
-let startX, startY, endX, endY, isDragging = false;
-canvas.addEventListener("mousedown", (e) => {
-  const rect = canvas.getBoundingClientRect();
-  startX = e.clientX - rect.left;
-  startY = e.clientY - rect.top;
-  isDragging = true;
-});
+let isRognerMode = false; // Indicateur pour le mode rognage
+let startX, startY, endX, endY, isDragging = false; // Variables pour le rognage
 
-canvas.addEventListener("mousemove", (e) => {
-  if (isDragging) {
+// Fonctions pour gérer les événements de rognage
+function handleMouseDown(e) {
     const rect = canvas.getBoundingClientRect();
-    endX = e.clientX - rect.left;
-    endY = e.clientY - rect.top;
-
-    
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    ctx.strokeRect(startX, startY, endX - startX, endY - startY);
-  }
-});
-
-canvas.addEventListener("mouseup", () => {
-  isDragging = false;
-});
-
-    //    téleéchargement
- downloadButton.addEventListener("click", () => {
-     if (!imag) return
-  
-     const link = document.createElement("a")
-     link.download = "cropped_image.png"
-     link.href = cropCanvas.toDataURL()
-     link.click()
-   })
-
-
-cropButton.addEventListener("click", () => {
-  if (startX && startY && endX && endY) {
-    const width = endX - startX;
-    const height = endY - startY;
-
-    cropCanvas.width = width;
-    cropCanvas.height = height;
-
-    cropCtx.drawImage(
-      canvas,
-      startX,
-      startY,
-      width,
-      height,
-      0,
-      0,
-      width,
-      height
-    );
-  } else {
-    alert("Veuillez sélectionner une zone à rogner !");
-  }
-});
+    startX = e.clientX - rect.left;
+    startY = e.clientY - rect.top;
+    isDragging = true;
 }
 
+function handleMouseMove(e) {
+    if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        endX = e.clientX - rect.left;
+        endY = e.clientY - rect.top;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
+
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 2;
+        ctx.strokeRect(startX, startY, endX - startX, endY - startY);
+    }
+}
+
+function handleMouseUp() {
+    isDragging = false;
+}
+
+function rognerPhoto() {
+    if (isRognerMode) {
+        // Désactiver le mode rognage
+        isRognerMode = false;
+        canvas.removeEventListener("mousedown", handleMouseDown);
+        canvas.removeEventListener("mousemove", handleMouseMove);
+        canvas.removeEventListener("mouseup", handleMouseUp);
+
+        instanceDessin.redessinerImageFiltre();
+    } else {
+        isRognerMode = true;
+
+        canvas.addEventListener("mousedown", handleMouseDown);
+        canvas.addEventListener("mousemove", handleMouseMove);
+        canvas.addEventListener("mouseup", handleMouseUp);
+    }
+}
+
+ //    téleéchargement
+ downloadButton.addEventListener("click", () => {
+    if (!imag) return
+ 
+    const link = document.createElement("a")
+    link.download = "cropped_image.png"
+    link.href = cropCanvas.toDataURL()
+    link.click()
+  })
+
+console.log(cropButton);
+
+cropButton.addEventListener("click", () => {
+ if (startX && startY && endX && endY) {
+   const width = endX - startX;
+   const height = endY - startY;
+
+   cropCanvas.width = width;
+   cropCanvas.height = height;
+//    console.log('jjj');
+
+   cropCtx.drawImage(
+     canvas,
+     startX,
+     startY,
+     width,
+     height,
+     0,
+     0,
+     width,
+     height
+     
+   );
+ } else {
+   alert("Veuillez sélectionner une zone à rogner !");
+ }
+});
 
 // ********************************************parties dessiner **************************************************
 
    
 class Dessin {
     constructor(canvas) {
+        this.currentLine = []
         this.draw = false;
         this.isDrawingMode = false
         this.prevX = 0;
@@ -210,26 +253,48 @@ class Dessin {
         this.ctx = canvasContext;
         this.ctx.strokeStyle = 'black';
         this.ctx.lineWidth = 2;
+        this.lines =[] //pour stocker les dessins 
   
         this.canvas.addEventListener('mousedown', (e) => {
             if(this.isDrawingMode){
                 this.draw = true;
                 this.prevX = this.getMouseX(e);
                 this.prevY = this.getMouseY(e);
+
+                this.currentLine[{
+                    depX: this.prevX,
+                    depY: this.prevY,
+                    color: this.ctx.strokeStyle,
+                    width: this.ctx.lineWidth
+                }]
+
             }
         });
   
         this.canvas.addEventListener('mousemove', (e) => {
-            if (this.draw) {
+            if (this.draw && this.isDrawingMode) {
                 const currX = this.getMouseX(e);
                 const currY = this.getMouseY(e);
                 this.dessine(this.prevX, this.prevY, currX, currY);
                 this.prevX = currX;
                 this.prevY = currY;
+
+                this.currentLine[{
+                    depX: this.prevX,
+                    depY: this.prevY,
+                    destX: currX,
+                    destY: currY
+                }]
             }
         });
   
-        this.canvas.addEventListener('mouseup', () => this.draw = false);
+        this.canvas.addEventListener('mouseup', () => {
+            this.draw = false;
+            if (this.currentLine.length > 0) {
+                this.lines.push(this.currentLine);  // Sauvegarde le trait complet
+            }
+        });
+
         this.canvas.addEventListener('mouseout', () => this.draw = false);
     }
   
@@ -242,15 +307,46 @@ class Dessin {
     }
   
     dessine(depX, depY, destX, destY) {
+        this.lines.push({
+          depX: depX,
+          depY: depY,
+          destX: destX,
+          destY:destY,
+          color: this.ctx.strokeStyle,
+          width: this.ctx.lineWidth
+        })
+
+        console.log(this.lines);
+        
         this.ctx.beginPath();
         this.ctx.moveTo(depX, depY);
         this.ctx.lineTo(destX, destY);
         this.ctx.closePath();
         this.ctx.stroke();
+        
     }
   
+    redessinerImageFiltre(){
+        this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
+        // Redessiner l'image avec les filtres appliqués
+        this.ctx.filter = generateFilter();
+        this.ctx.drawImage(image, 0, 0);
+        this.ctx.filter = "none";
+         // Redessiner tous les traits
+         this.lines.forEach(line => {
+            // line.forEach(point => {
+                this.ctx.strokeStyle = line.color || 'black';
+                this.ctx.lineWidth = line.width || 2;
+                this.ctx.beginPath();
+                this.ctx.moveTo(line.depX, line.depY);
+                this.ctx.lineTo(line.destX, line.destY);
+                this.ctx.closePath();
+                this.ctx.stroke();
+            // });
+        });
+    }
     setColor(color) {
-        this.ctx.strokeStyle = color.value;
+        this.ctx.strokeStyle = color;
     }
   
     biggerStroke() {
@@ -262,12 +358,25 @@ class Dessin {
     }
   
     erase() {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.lines=[]
+        this.redessinerImageFiltre()
     }
 
+    // gerer le bouton gommer
+  gommers() {
+    if (this.lines.length > 0) {
+        this.lines.pop(); // Supprime le dernier trait complet
+        this.redessinerImageFiltre()
+    
+       
+    } 
+}
+
+    
     // methode pour activer le dessin
     activerDessin(){
         this.isDrawingMode =!this.isDrawingMode
+        this.redessinerImageFiltre()
         return this.isDrawingMode
     }
   }
@@ -277,15 +386,20 @@ const instanceDessin = new Dessin(canvas)
 
 // boutton pour activer le dessin
 dessin.addEventListener("click", ()=>{
+    if(isRognerMode){
+        rognerPhoto()
+    }
+
     instanceDessin.activerDessin()
 })
 
 // changer la couleur du trait
 const colorPiker = document.getElementById("color")
-console.log(colorPiker);
-
 colorPiker.addEventListener("click",()=>{
-    instanceDessin.setColor(colorPiker)
+    const color = colorPiker.value
+    console.log(color);
+    
+    instanceDessin.setColor(color)
 })
 
 // augmenter l'epaisseur du trait
@@ -305,3 +419,22 @@ effacer.addEventListener("click",()=>{
     instanceDessin.erase()
 })
 
+const palette = document.querySelectorAll("#palette div")
+// console.log(palette);
+palette.forEach(element=>{
+    element.addEventListener("click",()=>{
+        const color= element.dataset.color
+        instanceDessin.setColor(color)
+        console.log(color);
+        
+    })
+        
+})
+
+const gommer = document.getElementById("gomme")
+
+gommer.addEventListener("click",()=>{
+    instanceDessin.gommers()
+    console.log("i am working");
+    
+})

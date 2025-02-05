@@ -1,203 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="editeur.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="editeur.css" />
     <title>Editeur</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="editeur-container">
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="logo">
-                <img src="images/Vector.png" alt="">
-            </div>
-            <div class="side-contenu">
-                <!-- Boutton Ajout Fichier -->
-                <div class="bloc">
-                    <input type="file" accept="image/*" id="lebutton" class="btnImputs">
-                    <label for="lebutton">+</label> 
-                </div>
-            </div>
-
-            <!-- Boutton retour -->
-            <div class="retou-button">
-                <i class="fa-solid fa-delete-left"></i>
-            </div>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img src="images/Vector.png" alt="" />
+        </div>
+        <div class="side-contenu">
+          <!-- Boutton Ajout Fichier -->
+          <div class="bloc">
+            <input
+              type="file"
+              accept="image/*"
+              id="lebutton"
+              class="btnImputs"
+            />
+            <label for="lebutton">+</label>
+          </div>
         </div>
 
-
-        <!-- Page d'Edition -->
-        <div class="edition-page">
-            <!-- Premiere Section -->
-            <div class="barre">
-                <h2 class="titre">Editeur d'images</h2>
-
-                <!-- Button Exportation -->
-                <div class="button-export">
-                    <h3>Export</h3>
-                    <i class="fa-solid fa-upload"></i>
-                </div>
-            </div>
-
-            <!-- Deuxieme Section -->
-            <div class="real-part">
-
-                <!-- Parties de vue des modification en temps réel -->
-                <div class="edition-part">
-                    <!-- Edition -->
-                    <!-- <div class="part-changement"> -->
-                        <!-- le canvas -->
-                        <canvas id="canvas" class="part-changement"></canvas>
-                       
-                    <!-- </div> -->
-
-                    <!-- Barre de modification -->
-                    <div class="modif-part">
-                        <div class="select">
-                            <i class="fa-solid fa-right-long"></i>
-                            <h3 class="aModif"></h3>
-                        </div>
-                        <div class="modification">
-                            <div class="affichage filtrer">
-                                <div class="toolbar-item">
-                                    <label for="brightness" class="toolbar_label">Brightness</label>
-                                    <input type="range" class="toolbar_input"  id="brightness" min="0" max="200">
-                                </div>
-                               
-                                <div class="toolbar-item">
-                                    <label for="inversion" class="toolbar_label">Inversion</label>
-                                    <input type="range" class="toolbar_input"  id="inversion" min="0" max="100">
-                                </div>
-                                <div class="toolbar-item">
-                                    <label for="contraste" class="toolbar_label">Contraste</label>
-                                    <input type="range" class="toolbar_input"  id="contraste" min="0" max="200">
-                                </div>
-                                <div class="toolbar-item">
-                                    <label for="sapia" class="toolbar_label">Sapia</label>
-                                    <input type="range" class="toolbar_input"  id="sapia" min="0" max="200">
-                                </div>
-                                <div class="toolbar-item">
-                                    <label for="noirblanc" class="toolbar_label">Noir - blanc</label>
-                                    <input type="range" class="toolbar_input"  id="noirblanc" min="0" max="200">
-                                </div>
-                                <div class="toolbar-item">
-                                    <label for="saturation" class="toolbar_label">Saturation</label>
-                                    <input type="range" class="toolbar_input"  id="saturation" min="0" max="200">
-                                </div>
-                            </div>
-                            <div class="affichage zoneText">
-                                <textarea name="" id="EditText"></textarea>
-                                <select  id="fontType">
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
-                                    <option value="">Arial</option>
-                                </select>
-                                <div class="couleur">
-                                    <label for="textColor">Changer de couleur</label>
-                                    <input type="color"  id="textColor">
-                                </div>
-                                <div class="toolbar-item  taille">
-                                    <label for="saturation" class="toolbar_label">Taile</label>
-                                    <input type="range" class="toolbar_input"  id="fontSize">
-                                </div>
-                                <div class="autres">
-                                    <p><b id="bold">B</b></p>
-                                    <p><u id="italic">I</u></p>
-                                    <p><s id="underline">U</s></p>
-                                </div>
-                                <div class="btn_text">
-                                    <button id="addTextBtn"> Ajouter du text dans l'image</button>
-                                </div>
-                            </div>
-                            <div class="affichage coupure">
-                                <h5>Intervale</h5>
-                                <div class="interval">
-                                    <div class="right">
-                                        <p>Debut</p>
-                                        <input type="text" maxlength="2">
-                                    </div>
-                                    <div class="right">
-                                        <p>Fin</p>
-                                        <input type="text" maxlength="2">
-                                    </div>   
-                                </div>
-                                <button>Couper</button>
-                            </div>
-                            <div class="affichage cadrer">
-                                <!-- resultat rogner -->
-                                <button id="cropButton" class="tele">Appliquer</button>
-                                <div class="result">
-                                    <canvas id="cropCanvas"></canvas>
-                                    <button id="downloadButton" class="tele">Télécharger</button>
-                                  </div>
-                            </div>
-                            <div class="affichage dessiner">
-                                <div class="couleurDessin">
-                                    <div class="couleur">
-                                        <div>
-                                            <label for="color">Choisir une couleur</label>
-                                            <input type="color"  id="color">
-                                        </div>
-                                    </div>
-
-                                    <div class="outils_dessin">
-                                        <h2>Choississez la couleur qui vous convient et laissez parler votre creativite</h2>
-                                        <div id="palette">
-                                            <div data-color="blue" style="background-color: blue;"></div>
-                                            <div data-color="green" style="background-color: green;"></div>
-                                            <div data-color="yellow" style="background-color: yellow;"></div>
-                                            <div data-color="red" style="background-color: red;"></div>
-                                            <div data-color="black" style="background-color: black;"></div>
-                                            <div data-color="#839c49" style="background-color: #839c49;"></div>
-                                            <div data-color="purple" style="background-color: purple;"></div>
-                                        </div>
-                                        <div id="outils">
-                                            <div id="plus">+</div>
-                                            <div id="moins">-</div>
-                                            <div id="gomme">E</div>
-                                            <div id="effacer">X</div>
-                                        </div>
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Troisieme Section -->
-            <div class="effet">
-                <!-- Barres des effets applicables -->
-                <div class="barre-effet">
-                    <div class="side" id="filtrer"> <!-- active -->
-                        <i class="fa-solid fa-sort"></i>
-                        <p>Filtre</p>
-                    </div>
-                    <div class="side" id="texte">
-                        <i class="fa-solid fa-font"></i>
-                        <p>Texte</p>
-                    </div>
-                   
-                    <div class="side" id="rogner">
-                        <i class="fa-regular fa-square"></i>
-                        <p>Rogner</p>
-                    </div>
-                    <div class="side" id="dessin">
-                        <i class="fa-solid fa-pencil"></i>
-                        <p>Dessin</p>
-                    </div>
-                </div>
-            </div>
+        <!-- Boutton retour -->
+        <div class="retou-button" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
         </div>
+      </div>
+
+      <!-- Page d'Edition -->
+      <div class="edition-page">
+        <!-- Premiere Section -->
+        <div class="barre">
+          <h2 class="titre">Editeur d'images</h2>
+
+          <!-- Button Exportation -->
+          <div class="button-export">
+            <h3>Export</h3>
+            <i class="fa-solid fa-upload"></i>
+          </div>
+        </div>
+
+        <!-- Deuxieme Section -->
+        <div class="real-part">
+          <!-- Parties de vue des modification en temps réel -->
+          <div class="edition-part">
+            <!-- Edition -->
+            <!-- <div class="part-changement"> -->
+            <!-- le canvas -->
+            <canvas id="canvas" class="part-changement"></canvas>
+
+            <!-- </div> -->
+
+            <!-- Barre de modification -->
+            <div class="modif-part">
+              <div class="select">
+                <i class="fa-solid fa-right-long"></i>
+                <h3 class="aModif"></h3>
+              </div>
+              <div class="modification">
+                <div class="affichage filtrer">
+                  <div class="toolbar-item">
+                    <label for="brightness" class="toolbar_label"
+                      >Brightness</label
+                    >
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="brightness"
+                      min="0"
+                      max="200"
+                    />
+                  </div>
+
+                  <div class="toolbar-item">
+                    <label for="inversion" class="toolbar_label"
+                      >Inversion</label
+                    >
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="inversion"
+                      min="0"
+                      max="100"
+                    />
+                  </div>
+                  <div class="toolbar-item">
+                    <label for="contraste" class="toolbar_label"
+                      >Contraste</label
+                    >
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="contraste"
+                      min="0"
+                      max="200"
+                    />
+                  </div>
+                  <div class="toolbar-item">
+                    <label for="sapia" class="toolbar_label">Sapia</label>
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="sapia"
+                      min="0"
+                      max="200"
+                    />
+                  </div>
+                  <div class="toolbar-item">
+                    <label for="noirblanc" class="toolbar_label"
+                      >Noir - blanc</label
+                    >
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="noirblanc"
+                      min="0"
+                      max="200"
+                    />
+                  </div>
+                  <div class="toolbar-item">
+                    <label for="saturation" class="toolbar_label"
+                      >Saturation</label
+                    >
+                    <input
+                      type="range"
+                      class="toolbar_input"
+                      id="saturation"
+                      min="0"
+                      max="200"
+                    />
+                  </div>
+                </div>
+                <div class="affichage zoneText">
+                  <textarea name="" id="EditText"></textarea>
+                  <select id="fontType">
+                    <option value="">Arial</option>
+                    <option value="">Arial</option>
+                    <option value="">Arial</option>
+                  </select>
+                  <div class="couleur">
+                    <label for="textColor">Changer de couleur</label>
+                    <input type="color" id="textColor" />
+                  </div>
+                  <div class="toolbar-item taille">
+                    <label for="saturation" class="toolbar_label">Taile</label>
+                    <input type="range" class="toolbar_input" id="fontSize" />
+                  </div>
+                  <div class="autres">
+                    <p><b id="bold">B</b></p>
+                    <p><u id="italic">I</u></p>
+                    <p><s id="underline">U</s></p>
+                  </div>
+                  <div class="btn_text">
+                    <button id="addTextBtn">
+                      Ajouter du text dans l'image
+                    </button>
+                  </div>
+                </div>
+                <div class="affichage coupure">
+                  <h5>Intervale</h5>
+                  <div class="interval">
+                    <div class="right">
+                      <p>Debut</p>
+                      <input type="text" maxlength="2" />
+                    </div>
+                    <div class="right">
+                      <p>Fin</p>
+                      <input type="text" maxlength="2" />
+                    </div>
+                  </div>
+                  <button>Couper</button>
+                </div>
+                <div class="affichage cadrer">
+                  <!-- resultat rogner -->
+                  <button id="cropButton" class="tele">Appliquer</button>
+                  <div class="result">
+                    <canvas id="cropCanvas"></canvas>
+                    <button id="downloadButton" class="tele">
+                      Télécharger
+                    </button>
+                  </div>
+                </div>
+                <div class="affichage dessiner">
+                  <div class="couleurDessin">
+                    <div class="couleur">
+                      <div>
+                        <label for="color">Choisir une couleur</label>
+                        <input type="color" id="color" />
+                      </div>
+                    </div>
+
+                    <div class="outils_dessin">
+                      <!-- <h2>Choississez la couleur qui vous convient et laissez parler votre creativite</h2> -->
+                      <div id="palette">
+                        <div
+                          data-color="blue"
+                          style="background-color: blue"
+                        ></div>
+                        <div
+                          data-color="green"
+                          style="background-color: green"
+                        ></div>
+                        <div
+                          data-color="yellow"
+                          style="background-color: yellow"
+                        ></div>
+                        <div
+                          data-color="red"
+                          style="background-color: red"
+                        ></div>
+                        <div
+                          data-color="black"
+                          style="background-color: black"
+                        ></div>
+                        <div
+                          data-color="#839c49"
+                          style="background-color: #839c49"
+                        ></div>
+                        <div
+                          data-color="purple"
+                          style="background-color: purple"
+                        ></div>
+                      </div>
+                      <div id="outils">
+                        <div id="plus">+</div>
+                        <div id="moins">-</div>
+                        <div id="gomme">E</div>
+                        <div id="effacer">X</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Troisieme Section -->
+        <div class="effet">
+          <!-- Barres des effets applicables -->
+          <div class="barre-effet">
+            <div class="side" id="filtrer">
+              <!-- active -->
+              <i class="fa-solid fa-sort"></i>
+              <p>Filtre</p>
+            </div>
+            
+
+            <div class="side" id="rogner">
+              <i class="fa-regular fa-square"></i>
+              <p>Rogner</p>
+            </div>
+            <div class="side" id="dessin">
+              <i class="fa-solid fa-pencil"></i>
+              <p>Dessin</p>
+            </div>
+            <div class="side" id="text" onclick="window.location.href='modifPhoto.html';">
+              <i class="fa-solid fa-font"></i>
+              <p>Texte</p>
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="editeur.js"></script>
     <script src="effet.js"></script>
-    
-</body>
+  </body>
 </html>
