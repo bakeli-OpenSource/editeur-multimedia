@@ -21,24 +21,28 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
-function showMessage(message, divId) {
-  var messageDiv = document.getElementById(divId);
+
+function showMessage(message, type) {
+  var messageDiv = type === "success" ? document.getElementById("signInMessage") : document.getElementById("errorMessage");
+
   if (!messageDiv) {
-    console.log("Erreur : élément introuvable ", divId);
+    console.error("Erreur : élément introuvable pour le type", type);
     return;
   }
 
   console.log("Affichage du message :", message);
   messageDiv.style.display = "block";
-  messageDiv.innerHTML = message;
   messageDiv.style.opacity = 1;
-  setTimeout(function () {
+  messageDiv.innerHTML = message;
+
+  setTimeout(() => {
     messageDiv.style.opacity = 0;
-    setTimeout(function () {
+    setTimeout(() => {
       messageDiv.style.display = "none";
     }, 1000);
-  }, 5000);
+  }, 5000); 
 }
+
 
 const signIn = document.getElementById("submitSignIn");
 signIn.addEventListener("click", (event) => {
@@ -48,9 +52,14 @@ signIn.addEventListener("click", (event) => {
   const password = document.getElementById("password").value;
   const auth = getAuth();
 
+  if (!email || !password) {
+    showMessage("Tous les champs sont obligatoires", "error");
+     return;
+ }
+
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      showMessage("Connexion réussie", "signInMessage");
+      showMessage("Connexion réussie", "success");
       const user = userCredential.user;
       localStorage.setItem("loggedInUserId", user.uid);
       window.location.href = "../page d'acceuil/acceuil.html";
@@ -58,9 +67,9 @@ signIn.addEventListener("click", (event) => {
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode === "auth/invalid-credential") {
-        showMessage("Email ou mot de passe incorrect", "signInMessage");
+        showMessage("Email ou mot de passe incorrect", "error");
       } else {
-        showMessage("Le compte n'existe pas", "signInMessage");
+        showMessage("Le compte n'existe pas", "error");
       }
     });
 });
@@ -72,17 +81,22 @@ forgotPasswordLink.addEventListener("click", (event) => {
   const email = document.getElementById("email").value;
   const auth = getAuth();
 
+  if (!email) {
+    showMessage("Veuillez ajout un email d'abord", "error");
+     return;
+ }
+
   sendPasswordResetEmail(auth, email)
     .then(() => {
       showMessage(
         "Un email de réinitialisation de mot de passe a été envoyé à votre adresse.",
-        "signInMessage"
+        "success"
       );
     })
     .catch((error) => {
       showMessage(
         "Erreur lors de l'envoi de l'email de réinitialisation.",
-        "signInMessage"
+        "error"
       );
       console.error(error);
     });
