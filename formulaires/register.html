@@ -1,89 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="main.css">
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- link css -->
+    <link rel="stylesheet" href="main.css" />
     <script type="module" src="register.js" defer></script>
-  <title>Formulaire éditeur multimédia</title>
+    <title>Formulaire éditeur multimédia</title>
   </head>
   <body>
-     <div class="container">
+    <div class="container">
       <div class="imag">
-       <div class="fun">
-        <h2>Welcome to <br> Pixel Innovant</h2>
-        <p>Sign in or Create a new accont with us.   </p>
-       </div>
+        <div class="fun">
+          <h2>
+            Welcome to <br />
+            Pixel Innovant
+          </h2>
+          <p>Sign in or Create a new accont with us.</p>
+        </div>
+        <div class="arrow"><i class="fa-solid fa-arrow-down"></i></div>
       </div>
 
       <div class="forme">
         <form method="post" action="" id="formConnecter">
-          
           <!-- messGE -->
-          <div id="signUpMessage" class="messageDiv" style="display: none;"></div>
+          <div
+            id="signUpMessage"
+            class="messageDiv"
+            style="display: none"
+          ></div>
 
-          <!-- <div
-          id="signInMessage"
-          class="messageDiv"
-          style="display: none"
-        ></div> -->
+          <div id="formConnecter">
+            <div class="Nom-prenom">
+              <div class="name">
+                <label for="first-name">Prenom</label>
+                <div>
+                  <input
+                    type="text"
+                    name="first-name"
+                    id="first-name"
+                    placeholder="Entrez votre prenom"
+                  />
+                </div>
+              </div>
 
-        <div id="errorMessage" class="messageError" style="display: none"></div>
-
-        <form id="formConnecter">
-       
-           <div class="Nom-prenom">
-            <div class="name" >
-              <label for="first-name">Prenom</label>
-             <div>
-               <input type="text" name="first-name" id="first-name" placeholder="Entrez votre prenom">
-             </div>
+              <div class="name">
+                <label for="last-name">Nom</label>
+                <div>
+                  <input
+                    type="text"
+                    name="last-name"
+                    id="last-name"
+                    placeholder="Entrez votre nom"
+                  />
+                </div>
+              </div>
             </div>
-    
-            
-            <div class="name" >
-              <label for="last-name">Nom</label>
-             <div>
-               <input type="text" name="last-name" id="last-name" placeholder="Entrez votre nom">
-             </div>
+
+            <div class="email">
+              <label for="email">Email</label>
+              <div class="inputItems">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Entrez votre Email"
+                />
+              </div>
             </div>
-           </div>
 
-        <div class="email" >
-          <label for="email">Email</label>
-         <div class="inputItems">
-           <input type="email" name="email" id="email" placeholder="Entrez votre Email">
-         </div>
-        </div>
+            <div class="code">
+              <label for="password">Mot de passe</label>
+              <div class="inputItems">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="votre mot de passe"
+                />
+              </div>
+            </div>
 
-        <div class="code" >
-          <label for="password">Mot de passe</label>
-         <div class="inputItems">
-           <input type="password" name="password" id="password" placeholder="votre mot de passe">
-         </div>
-        </div>
+            <div class="code">
+              <label for="password_2">Confirmer mot de passe</label>
+              <div class="inputItems">
+                <input
+                  type="password"
+                  name="password"
+                  id="confirm-password"
+                  placeholder="votre mot de passe"
+                />
+              </div>
+            </div>
 
-        <div class="code" >
-          <label for="password_2">Confirmer mot de passe</label>
-         <div class="inputItems">
-           <input type="password" name="password" id="confirm-password" placeholder="votre mot de passe">
-         </div>
-        </div>
-        
-        <div class="submit">
-          <button id="submitSignUp" class="btn">S'enregistrer</button>
+            <div class="submit">
+              <button id="submitSignUp" class="btn">S'enregistrer</button>
 
-        
-        <p class="connect">
-          Vous avez déjà un compte? <a href="login.html"><span>Se Connecter</span></a>
-      </p>
-        </div>
-         
-       </form>
+              <p class="connect">
+                Vous avez déjà un compte?
+                <a href="login.html"><span>Se Connecter</span></a>
+              </p>
+            </div>
+          </div>
+        </form>
       </div>
-     </div>
-     
-      </script>
-      <script src="main.js"></script>
+    </div>
+
+    <!-- </script> -->
+    <script src="main.js"></script>
   </body>
 </html>

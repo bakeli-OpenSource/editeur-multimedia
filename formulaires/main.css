@@ -4,6 +4,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
+  text-decoration: none;
+  /* border: 1px solid red; */
 }
 body {
   padding: 0;
@@ -15,7 +17,7 @@ body {
   gap: 10px;
   max-width: 100%;
   /* #061039, #21d4fd */
-  background: linear-gradient(#061039, #21d4fd)
+  background: linear-gradient(#061039, #21d4fd);
   /* background-color: #061039; */
 }
 
@@ -26,7 +28,7 @@ body {
   background-size: cover;
   object-fit: cover;
   min-height: 100vh;
-  width: 70%;
+  /* width: 70%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,12 +62,12 @@ h2 {
   width: 50%;
   margin: auto;
   line-height: 2.5;
+  padding: 0px 50px;
 }
 
 form {
-  padding: 0 30px;
+  /* padding: 0 30px; */
   margin: auto;
-  margin-top: 3rem;
 }
 
 h3 {
@@ -95,12 +97,15 @@ label {
   display: flex;
   gap: 10px;
   width: 100%;
-  margin: auto;
+  margin: 0 auto 20px auto;
   /* padding: 10px; */
 }
 
 .Nom-prenom div {
   width: 100%;
+}
+input::placeholder {
+  font-size: 12px;
 }
 .Nom-prenom input {
   padding: 9px;
@@ -110,7 +115,7 @@ label {
   /* height: 3rem; */
   outline: none;
   border: none;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .submit {
@@ -118,15 +123,17 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 20px;
 }
 
 .connect {
   color: #fff;
-}
-a {
-  /* text-decoration: #061039; */
-  text-decoration: underline;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 20px;
+  /* min-width: 390px; */
 }
 span {
   color: #061039;
@@ -137,16 +144,16 @@ button {
   width: 100%;
   background: #061039;
   border-radius: 5px;
-  border: none;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
-  border: 1px solid #061039;
+  /* border: 1px solid #061039; */
+  border: none;
 }
 button:hover {
   background: #21d4fd;
-  border: none;
   color: #061039;
+  box-shadow: 0 2px 5px #061039;
 }
 
 /* messageDiv */
@@ -180,19 +187,37 @@ button:hover {
 .forget a {
   text-decoration: none;
   color: #061039;
-  text-decoration: underline;
-  margin-top: 10px;
+  /* text-decoration: underline; */
+  margin: 20px 0px;
+}
+.arrow i {
+  font-size: 50px;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  top: 30%;
+  left: 30%;
+}
+.arrow {
+  display: none;
+  height: 50px;
+  width: 50px;
+  /* background: #061039; */
+  position: absolute;
+  top: 80%;
+  z-index: 1;
 }
 
 /* responsive */
-@media screen and (max-width: 968px) {
-  .imag {
+@media screen and (max-width: 808px) {
+  /* .imag {
     display: none;
-  }
+  } */
   .container {
     width: 100%;
     margin: auto;
     min-height: 100vh;
+    flex-direction: column;
   }
 
   .inputItems input {
@@ -201,23 +226,25 @@ button:hover {
   .Nom-prenom input {
     width: 100%;
   }
+  label {
+    font-size: 24px;
+  }
+  .forme {
+    width: 100%;
+    padding: 50px 50px;
+  }
+  .arrow {
+    display: block;
+  }
 }
 
-label {
-  font-size: 24px;
-}
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 608px) {
   .container {
     min-height: 100vh;
     width: 100%;
   }
   .imag {
     display: none;
-  }
-  .forme {
-    background-color: #061039;
-    width: 100%;
   }
 
   .Nom-prenom input {
@@ -241,4 +268,19 @@ label {
     width: 100%;
     height: 2.5rem;
   }
+  .connect,
+  .forget {
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .forme {
+    width: 100%;
+    padding: 0px 50px;
+  }
 }
+/* @media screen and (max-width: 647px) {
+  .forme {
+    width: 100%;
+    padding: 0px 50px;
+  }
+} */
