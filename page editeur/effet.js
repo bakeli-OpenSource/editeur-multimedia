@@ -14,7 +14,21 @@ let setting = {
     brightness: 100,saturation: 100,blur: 0,inversion: 0,contraste: 100,noirEtBlanc: 0,sapia: 0
 }
 
+// **************************image par defaut *************************************
+const defautlImage = new Image()
+defautlImage.src= "./images/Vector.png"
 
+function defaultImages(){
+const size = 30
+const x = (canvas.width- size)/2
+const y = (canvas.height- size)/2
+
+canvasContext.clearRect(0,0,canvas.width,canvas.height)
+canvasContext.drawImage(defautlImage,x,y,size,size)
+defautlImage.style.opacity= "0.3"
+}
+
+defaultImages()
 // **************************Generation de filtre etudian noir****************************************************
 
 // telecharger l'image depuis l'ordinateur
