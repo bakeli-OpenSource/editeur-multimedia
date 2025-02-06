@@ -447,17 +447,17 @@ canvas {
 .result{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     align-items: center;
     justify-content: center;
-    margin-top: 7rem;
+    margin-top: 4rem;
     margin-left: 7rem;
 }
 .result button{
   margin-top: 1rem;
 }
 .tele{
-    border-radius: 10px;
+    border-radius: 5px;
 }
 /* -------------------------------nafi exit------------------------------- */
 .outils_dessin{

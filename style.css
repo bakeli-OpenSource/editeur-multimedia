@@ -115,12 +115,8 @@ footer p {
     margin-top: 20px;
     font-size: 1rem;
   }
-  /* header { */
-    /* flex-direction: column; */
-  }
-  .buttons {
-    margin-top: 1rem;
-  }
+  
+  /*  */
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -133,6 +129,15 @@ footer p {
 }
 
 @media (max-width: 668px) {
+  .buttons {
+    margin-top: 1rem;
+  }
+
+  header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }

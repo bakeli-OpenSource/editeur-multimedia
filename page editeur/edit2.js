@@ -24,23 +24,23 @@ filter.addEventListener("click", () => {
 });
 
 // Boutton Text
-// const duTexte = document.getElementById('text')
-// const afficherText = document.querySelector('.zoneText')
+const duTexte = document.getElementById('text')
+const afficherText = document.querySelector('.zoneText')
 
-// duTexte.addEventListener('click', ()=>{
-//     allSide.forEach((n) => {
-//         if(n.classList.contains('active')){
-//             n.classList.remove('active')
-//         }
-//     })
-//     affichageAll.forEach((n)=>{
-//         if(n.classList.contains('active')){
-//             n.classList.remove('active')
-//         }
-//     })
-//     duTexte.classList.add('active')
-//     afficherText.classList.add('active')
-// })
+duTexte.addEventListener('click', ()=>{
+    allSide.forEach((n) => {
+        if(n.classList.contains('active')){
+            n.classList.remove('active')
+        }
+    })
+    affichageAll.forEach((n)=>{
+        if(n.classList.contains('active')){
+            n.classList.remove('active')
+        }
+    })
+    duTexte.classList.add('active')
+    afficherText.classList.add('active')
+})
 
 
 
