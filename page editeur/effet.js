@@ -15,11 +15,6 @@ let setting = {
 }
 
 
-// **************************Dessiner sur les image
-
-
-
-
 // **************************Generation de filtre etudian noir****************************************************
 
 // telecharger l'image depuis l'ordinateur
@@ -120,8 +115,10 @@ downloadBtn.addEventListener('click',downloadMedia)
 
 /*------------------------------------------------------------NAFISSATOU Rogner------------------------------------------------------------*/
 
-rogner.addEventListener("click",rognerPhoto)
-console.log(rogner);
+rogner.addEventListener("click",() => {
+    rognerPhoto()
+    canvas.style.cursor = isRognerMode ? "crosshair" : "pointer";
+})
 
 const ctx = canvas.getContext("2d");
 const cropCanvas = document.getElementById("cropCanvas");
@@ -178,7 +175,7 @@ function handleMouseMove(e) {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
-
+         instanceDessin.redessinerImageFiltre();
         ctx.strokeStyle = "red";
         ctx.lineWidth = 2;
         ctx.strokeRect(startX, startY, endX - startX, endY - startY);
@@ -217,7 +214,6 @@ function rognerPhoto() {
     link.click()
   })
 
-console.log(cropButton);
 
 cropButton.addEventListener("click", () => {
  if (startX && startY && endX && endY) {
@@ -247,6 +243,7 @@ cropButton.addEventListener("click", () => {
      height
      
    );
+   
  } else {
    alert("Veuillez sélectionner une zone à rogner !");
  }
@@ -329,7 +326,6 @@ class Dessin {
           width: this.ctx.lineWidth
         })
 
-        console.log(this.lines);
         
         this.ctx.beginPath();
         this.ctx.moveTo(depX, depY);
@@ -400,18 +396,22 @@ const instanceDessin = new Dessin(canvas)
 dessin.addEventListener("click", ()=>{
     if(isRognerMode){
         rognerPhoto()
+        canvas.style.cursor = "url('./images/pencil-solid.svg')4 4 ,auto";
     }
 
     canvas.style.cursor = "url('./images/pencil-solid.svg')4 4 ,auto";
     instanceDessin.activerDessin()
 })
 
+filter.addEventListener("click", ()=>{
+    if(isRognerMode){
+        rognerPhoto()
+    }
+})
 // changer la couleur du trait
 const colorPiker = document.getElementById("color")
 colorPiker.addEventListener("click",()=>{
     const color = colorPiker.value
-    console.log(color);
-    
     instanceDessin.setColor(color)
 })
 
