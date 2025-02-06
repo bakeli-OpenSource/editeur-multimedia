@@ -444,24 +444,30 @@ body{
 /* ---------------------------------nafina--------------------------------- */
 canvas {
     border: 1px solid #ccc;
-    cursor: pointer;
+    cursor: crosshair;
   }
 
 .result{
     display: flex;
     flex-direction: column;
-    width: 60%;
-    align-items: center;
     justify-content: center;
-    margin-top: 4rem;
-    margin-left: 7rem;
+   align-items: center;
+   gap: 30px;
 }
-.result button{
-  margin-top: 1rem;
+.result canvas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+      max-width: 400px;
 }
+
 .tele{
+    max-width: 100%;
+    margin: auto;
     border-radius: 5px;
 }
+
 /* -------------------------------nafi exit------------------------------- */
 .outils_dessin{
     padding-top: 30px;
