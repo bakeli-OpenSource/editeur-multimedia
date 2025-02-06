@@ -35,6 +35,7 @@ defaultImages()
 fileInput.addEventListener("change",() => {
     
     const file = fileInput.files[0]
+    if(file){
         image= new Image()
         image.onload=() => {
             initialiser()
@@ -42,6 +43,9 @@ fileInput.addEventListener("change",() => {
         }
         // affichage de l'image en creant un canvas avec l'image
         image.src = URL.createObjectURL(file)
+    }else{
+        defaultImages()
+    }
 })
 
 // fonction initialisation
@@ -147,7 +151,6 @@ imag.src = "";
 fileInput.addEventListener("change", (e) => {
     const file = e.target.files[0]
     const reader = new FileReader()
-  
     reader.onload = (event) => {
       imag = new Image()
       imag.onload = () => {
@@ -258,6 +261,8 @@ cropButton.addEventListener("click", () => {
      height
      
    );
+   //desactiver dessin
+   instanceDessin.desactiverDessin()
    
  } else {
    alert("Veuillez sélectionner une zone à rogner !");
@@ -267,11 +272,12 @@ cropButton.addEventListener("click", () => {
 // ********************************************parties dessiner **************************************************
 
    
+// this.isDrawingMode = false
 class Dessin {
     constructor(canvas) {
         this.currentLine = []
         this.draw = false;
-        this.isDrawingMode = false
+        this.isDrawingMode= false
         this.prevX = 0;
         this.prevY = 0;
         this.canvas = canvas; 
@@ -358,7 +364,6 @@ class Dessin {
         this.ctx.filter = "none";
          // Redessiner tous les traits
          this.lines.forEach(line => {
-            // line.forEach(point => {
                 this.ctx.strokeStyle = line.color || 'black';
                 this.ctx.lineWidth = line.width || 2;
                 this.ctx.beginPath();
@@ -401,6 +406,10 @@ class Dessin {
         this.isDrawingMode =!this.isDrawingMode
         this.redessinerImageFiltre()
         return this.isDrawingMode
+    }
+
+    desactiverDessin(){
+        this.isDrawingMode = false
     }
   }
 

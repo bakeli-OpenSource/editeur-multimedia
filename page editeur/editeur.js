@@ -48,6 +48,9 @@ rogner.addEventListener("click", () => {
   afficherRogne.classList.add("active");
   textModif.innerText = "Redimensionner";
   textModif.innerText = "Redimensionner";
+  instanceDessin.desactiverDessin()
+
+
 });
 
 // Boutton dessin
