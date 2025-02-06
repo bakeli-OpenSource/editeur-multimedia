@@ -7,9 +7,7 @@
   text-decoration: none;
 }
 body {
-  padding: 19px 0px;
-  /* height: 100vh; */
-  /* background: #061039; */
+  min-height: 100vh;
   background: linear-gradient(#061039, #21d4fd);
   background-repeat: no-repeat;
   color: #fff;
@@ -55,7 +53,6 @@ input {
 #preview {
   margin: 10px;
   border: 2px dashed #ccc;
-  /* padding: 10px; */
   width: 400px;
   height: 500px;
   display: flex;
@@ -98,6 +95,7 @@ label {
   background-color: #061039;
   color: white;
   margin: auto;
+  padding: 10px;
   position: relative;
   top: 30px;
   display: flex;
@@ -108,7 +106,6 @@ label {
   border-radius: 10px;
   transition: all 0.2s ease;
   border: 1px solid white;
-  /* width: 55px; */
   color: white;
   font-size: 25px;
 }
@@ -130,8 +127,6 @@ input {
   color: #061039;
   width: fit-content;
   margin: auto;
-  /* position: relative; */
-  /* bottom: 30px; */
 }
 @media (max-width: 1070px) {
   .bottom {
