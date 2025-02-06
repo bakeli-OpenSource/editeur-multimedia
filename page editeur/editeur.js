@@ -21,8 +21,28 @@ filter.addEventListener("click", () => {
   afficherFilter.classList.add("active");
   textModif.innerText = "Filtre";
   textModif.innerText = "Filtre";
-  canvas.style.cursor = "pointer";
 });
+
+// Boutton Text
+// const duTexte = document.getElementById('text')
+// const afficherText = document.querySelector('.zoneText')
+
+// duTexte.addEventListener('click', ()=>{
+//     allSide.forEach((n) => {
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     affichageAll.forEach((n)=>{
+//         if(n.classList.contains('active')){
+//             n.classList.remove('active')
+//         }
+//     })
+//     duTexte.classList.add('active')
+//     afficherText.classList.add('active')
+// })
+
+
 
 
 // Boutton Couper
@@ -71,7 +91,6 @@ dessin.addEventListener("click", () => {
   dessin.classList.add("active");
   afficherDessin.classList.add("active");
   textModif.innerText = "Dessiner";
-  canvas.style.cursor = "url('./images/pencil-solid.svg')4 4 ,auto";
 });
 
 // retour page accueil

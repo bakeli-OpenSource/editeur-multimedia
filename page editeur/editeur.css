@@ -345,7 +345,6 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 
@@ -445,27 +444,22 @@ body{
 /* ---------------------------------nafi--------------------------------- */
 canvas {
     border: 1px solid #ccc;
-    /* cursor: crosshair; */
+    cursor: pointer;
   }
 
 .result{
     display: flex;
     flex-direction: column;
+    width: 60%;
+    align-items: center;
     justify-content: center;
-   align-items: center;
-   gap: 30px;
+    margin-top: 4rem;
+    margin-left: 7rem;
 }
-.result canvas{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 2rem;
-      max-width: 400px;
+.result button{
+  margin-top: 1rem;
 }
-
 .tele{
-    max-width: 100%;
-    margin: auto;
     border-radius: 5px;
 }
 /* -------------------------------nafi exit------------------------------- */
