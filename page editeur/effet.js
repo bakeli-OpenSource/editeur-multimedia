@@ -430,6 +430,7 @@ dessin.addEventListener("click", ()=>{
 filter.addEventListener("click", ()=>{
     if(isRognerMode){
         rognerPhoto()
+        canvas.style.cursor="pointer"
     }
 })
 // changer la couleur du trait
