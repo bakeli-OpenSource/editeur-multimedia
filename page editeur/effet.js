@@ -19,7 +19,7 @@ const defautlImage = new Image()
 defautlImage.src= "./images/Vector.png"
 
 function defaultImages(){
-const size = 30
+const size = 20
 const x = (canvas.width- size)/2
 const y = (canvas.height- size)/2
 
