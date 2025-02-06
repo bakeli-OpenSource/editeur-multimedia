@@ -90,7 +90,7 @@ if (Form && preview) {
 
     // Ajouter les images redimensionnées au GIF
     imageElements.forEach((img, index) => {
-      gif.addFrame(img, { delay: 500 });
+      gif.addFrame(img, { delay: 1000 });
       console.log(`Ajout de l'image ${index + 1} au GIF`);
     });
 

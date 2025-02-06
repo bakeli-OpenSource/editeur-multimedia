@@ -5,6 +5,7 @@
   box-sizing: border-box;
   font-family: "Spartan", sans-serif;
   text-decoration: none;
+  /* border: 1px solid red; */
 }
 body {
   min-height: 100vh;
@@ -51,7 +52,7 @@ input {
 }
 #show,
 #preview {
-  margin: 10px;
+  margin: 0px 10px;
   border: 2px dashed #ccc;
   width: 400px;
   height: 500px;
@@ -95,14 +96,13 @@ label {
   background-color: #061039;
   color: white;
   margin: auto;
-  padding: 10px;
   position: relative;
   top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 10px;
   transition: all 0.2s ease;
   border: 1px solid white;
@@ -127,6 +127,8 @@ input {
   color: #061039;
   width: fit-content;
   margin: auto;
+  position: relative;
+  bottom: -10px;
 }
 @media (max-width: 1070px) {
   .bottom {
