@@ -352,11 +352,11 @@ body{
 }
 
 .zoneText{
-    display: none;
+    /* display: none; */
 }
 
 .zoneText.active{
-    display: block;
+    /* display: block; */
 }
 
 .coupure{

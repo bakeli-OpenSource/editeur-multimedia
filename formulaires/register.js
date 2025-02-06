@@ -18,23 +18,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const auth = getAuth(app);
 
-function showMessage(message , divId){
-  var messageDiv = document.getElementById(divId);
+
+function showMessage(message, type) {
+  var messageDiv = type === "success" ? document.getElementById("signUpMessage") : document.getElementById("errorMessage");
+
   if (!messageDiv) {
-    console.log("Erreur : élément introuvable ", divId);
+    console.error("Erreur : élément introuvable pour le type", type);
     return;
   }
 
   console.log("Affichage du message :", message);
-  messageDiv.style.display= "block";
-  messageDiv.innerHTML= message;
+  messageDiv.style.display = "block";
   messageDiv.style.opacity = 1;
-  setTimeout(function() {
+  messageDiv.innerHTML = message;
+
+  setTimeout(() => {
     messageDiv.style.opacity = 0;
-    setTimeout(function() {
-        messageDiv.style.display = "none"; 
-      }, 1000);
-  }, 5000);
+    setTimeout(() => {
+      messageDiv.style.display = "none";
+    }, 1000);
+  }, 2000); 
 }
 
 // Vérifier si l'email est valide
@@ -58,25 +61,25 @@ const confirmPassword = document.getElementById('confirm-password').value
 
 
 if (!email || !password || !firstName || !lastName || !confirmPassword) {
-   showMessage("Tous les champs sont obligatoires", "signUpMessage");
+   showMessage("Tous les champs sont obligatoires", "error");
     return;
 }
 
 // Vérifier si l'email est valide
 if (!isValidEmail(email)) {
-    showMessage("Veuillez entrer un email valide", "signUpMessage");
+    showMessage("Veuillez entrer un email valide", "error");
     return;
 }
 
 // Vérifier si les mots de passe correspondent
 if (password !== confirmPassword) {
-    showMessage("Les mots de passe ne correspondent pas", "signUpMessage");
+    showMessage("Les mots de passe ne correspondent pas", "error");
     return;
 }
 
 // Vérifier si le mot de passe est suffisamment sécurisé
 if (password.length < 6) {
-    showMessage("Le mot de passe doit contenir au moins 6 caractères", "signUpMessage");
+    showMessage("Le mot de passe doit contenir au moins 6 caractères", "error");
     return;
 }
 
@@ -94,7 +97,7 @@ createUserWithEmailAndPassword(auth, email , password )
       lastName: lastName,
       confirmPassword : confirmPassword
     }
-   showMessage("Compte créé avec succès", "signUpMessage");
+   showMessage("Compte créé avec succès", "success");
     const docRef = doc(db, "users" , user.uid);
     setDoc(docRef,userData)
     .then(() => {
@@ -109,10 +112,10 @@ createUserWithEmailAndPassword(auth, email , password )
   console.log("Erreur Firebase captée :", errorCode)
   if(errorCode=='auth/email-already-in-use'){
     console.log("Message d'erreur affiché !");
-    showMessage("L'adresse e-mail existe déjà !!!", 'signUpMessage')
+    showMessage("L'adresse e-mail existe déjà !!!", 'error')
   }
   else{
-      showMessage("Impossible de créer l'utilisateur", 'signUpMessage')
+      showMessage("Impossible de créer l'utilisateur", 'error')
   }
 })
 });

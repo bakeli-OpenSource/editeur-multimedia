@@ -84,7 +84,7 @@ html {
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      margin-right: 20px;
+      /* margin-right: 20px; */
       /* ---------------------- */
       .user-complete-name {
         display: flex;

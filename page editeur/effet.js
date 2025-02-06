@@ -170,6 +170,12 @@ function handleMouseMove(e) {
         endX = e.clientX - rect.left;
         endY = e.clientY - rect.top;
 
+        // Limiter la taille du rectangle de sélection pour ne pas dépasser les dimensions du canvas
+        if (endX > canvas.width) endX = canvas.width;
+        if (endY > canvas.height) endY = canvas.height;
+        if (startX < 0) startX = 0;
+        if (startY < 0) startY = 0;
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(imag, 0, 0, canvas.width, canvas.height);
 
@@ -218,9 +224,16 @@ cropButton.addEventListener("click", () => {
    const width = endX - startX;
    const height = endY - startY;
 
+   // Vérifier que la zone de rognage est valide
+   if (startX < 0 || startY < 0 || endX > canvas.width || endY > canvas.height) {
+    alert("La zone sélectionnée dépasse les dimensions de l'image.");
+    return;
+}
+
    cropCanvas.width = width;
    cropCanvas.height = height;
-//    console.log('jjj');
+
+   cropCtx.clearRect(0, 0, cropCanvas.width, cropCanvas.height);
 
    cropCtx.drawImage(
      canvas,
@@ -342,7 +355,6 @@ class Dessin {
                 this.ctx.lineTo(line.destX, line.destY);
                 this.ctx.closePath();
                 this.ctx.stroke();
-            // });
         });
     }
     setColor(color) {
@@ -390,6 +402,7 @@ dessin.addEventListener("click", ()=>{
         rognerPhoto()
     }
 
+    canvas.style.cursor = "url('./images/pencil-solid.svg')4 4 ,auto";
     instanceDessin.activerDessin()
 })
 
