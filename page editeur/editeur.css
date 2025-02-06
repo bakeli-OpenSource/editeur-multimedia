@@ -445,7 +445,7 @@ body{
 /* ---------------------------------nafi--------------------------------- */
 canvas {
     border: 1px solid #ccc;
-    cursor: crosshair;
+    /* cursor: crosshair; */
   }
 
 .result{
