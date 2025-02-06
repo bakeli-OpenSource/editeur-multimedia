@@ -120,7 +120,7 @@ footer p {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
-/* } */
+}
 
 @media (max-width: 480px) {
   .grid {
