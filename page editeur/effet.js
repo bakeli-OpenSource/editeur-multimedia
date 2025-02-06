@@ -33,6 +33,7 @@ defaultImages()
 
 // telecharger l'image depuis l'ordinateur
 fileInput.addEventListener("change",() => {
+    
     const file = fileInput.files[0]
         image= new Image()
         image.onload=() => {
